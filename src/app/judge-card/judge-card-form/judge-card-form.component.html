@@ -41,6 +41,7 @@
         <textarea formControlName="description" id="description" rows="5"></textarea>
       </div>
       <button (click)="submit(formGroup.value, card.code)" class="btn btn-primary">선고</button>
+      <button [routerLink]="['/', 'judge']" class="btn btn-outline">목록 보기</button>
     </section>
   </form>
 </section>

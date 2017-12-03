@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { ClarityModule } from 'clarity-angular';
 import { AppComponent } from './app.component';
 import { ROUTING } from './app.routing';
+import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
@@ -26,7 +27,7 @@ import { ManualModule } from './manual/manual.module';
     JudgeCardModule,
     ManualModule
   ],
-  providers: [],
+  providers: [CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

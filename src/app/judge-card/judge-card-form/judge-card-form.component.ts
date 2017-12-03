@@ -25,7 +25,7 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
   constructor(
     private judgeCardService: JudgeCardService,
     private judgeCardFormService: JudgeCardFormService,
-    private router: Router,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -104,6 +104,15 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
       return;
     }
     this.judgeCardFormService.next();
+  }
+
+  canDeactivate() {
+    if (this.formGroup.dirty) {
+      return window.confirm(
+        '변경사항이 저장되지 않을 수 있습니다. 정말 이동하시겠습니까?'
+      );
+    }
+    return true;
   }
 
   ngOnDestroy() {
