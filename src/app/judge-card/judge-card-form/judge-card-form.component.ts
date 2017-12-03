@@ -18,6 +18,7 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
   cardPrev: Card | null;
   cardNext: Card | null;
   formGroup: FormGroup;
+  submitAttempt: boolean;
   unsubscribe: Subject<void> = new Subject<void>();
 
   constructor(
@@ -40,6 +41,7 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
       ]),
       description: new FormControl('')
     });
+    this.submitAttempt = false;
 
     Observable.combineLatest(
       this.judgeCardService.cardListFiltered,
@@ -66,6 +68,7 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
 
   submit(value: Judge, code: string) {
     if (this.formGroup.invalid) {
+      this.submitAttempt = true;
       return;
     }
     this.judgeCardService.saveJudge(value, code);
@@ -75,6 +78,7 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
     this.router.navigate(['../', this.cardNext.code], {
       relativeTo: this.route,
     });
+    this.submitAttempt = false;
   }
 
   prev() {
@@ -84,6 +88,7 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
     this.router.navigate(['../', this.cardPrev.code], {
       relativeTo: this.route
     });
+    this.submitAttempt = false;
   }
 
   next() {
@@ -93,6 +98,7 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
     this.router.navigate(['../', this.cardNext.code], {
       relativeTo: this.route
     });
+    this.submitAttempt = false;
   }
 
   canDeactivate() {
