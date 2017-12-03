@@ -1,0 +1,46 @@
+<section class="card-img">
+  <div class="row">
+    <div class="col-sm-4 left-angle">
+      <clr-icon *ngIf="!isFirst" shape="angle" dir="left" size="72" (click)="prev()"></clr-icon>
+    </div>
+    <div class="col-sm-4">
+      <img [src]="card.imgLink">
+    </div>
+    <div class="col-sm-4 right-angle">
+      <clr-icon *ngIf="!isLast" shape="angle" dir="right" size="72" (click)="next()"></clr-icon>
+    </div>
+  </div>
+</section>
+<section class="judge-form">
+  <form [formGroup]="formGroup">
+    <section class="form-block">
+      <label>판결문</label>
+      <div class="form-group">
+        <label class="required">범용성</label>
+        <label for="value" aria-haspopup="true" role="tooltip" [class.invalid]="formGroup.controls['value'].invalid && submitAttempt | async"
+          class="tooltip tooltip-validation tooltip-md">
+          <input formControlName="value" type="text" id="value" placeholder="얼마나 많은 덱에 쓰일지 평가합니다." size="45">
+          <span class="tooltip-content">
+            20 - 80 사이의 수치를 입력해주세요.
+          </span>
+        </label>
+        <app-explain-value [value]="formGroup.controls['value'].value"></app-explain-value>
+      </div>
+      <div class="form-group">
+        <label class="required">포텐셜</label>
+        <label for="potential" aria-haspopup="true" role="tooltip" [class.invalid]="formGroup.controls['potential'].invalid && submitAttempt | async"
+          class="tooltip tooltip-validation tooltip-md">
+          <input formControlName="potential" type="text" id="potential" placeholder="새로운 덱의 핵심 카드가 될 가능성을 평가합니다." size="45">
+          <span class="tooltip-content">
+            20 - 80 사이의 수치를 입력해주세요.
+          </span>
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="description">추가 설명</label>
+        <textarea formControlName="description" id="description" rows="5"></textarea>
+      </div>
+      <button (click)="submit(formGroup.value, card.code)" class="btn btn-primary">선고</button>
+    </section>
+  </form>
+</section>
