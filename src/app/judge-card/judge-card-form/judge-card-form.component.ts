@@ -82,9 +82,6 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
     if (!this.cardPrev) {
       return;
     }
-    if (!this.canDeactivate()) {
-      return;
-    }
     this.router.navigate(['../', this.cardPrev.code], {
       relativeTo: this.route
     });
@@ -93,9 +90,6 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
 
   next() {
     if (!this.cardNext) {
-      return;
-    }
-    if (!this.canDeactivate()) {
       return;
     }
     this.router.navigate(['../', this.cardNext.code], {
