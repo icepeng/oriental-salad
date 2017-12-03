@@ -12,7 +12,7 @@ export const ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'manual', component: ManualComponent },
   {
-    path: 'judge/form',
+    path: 'judge/:id',
     component: JudgeCardFormComponent,
     canDeactivate: [CanDeactivateGuard]
   },

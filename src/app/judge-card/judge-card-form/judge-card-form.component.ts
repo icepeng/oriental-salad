@@ -1,8 +1,7 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { JudgeCardService } from '../judge-card.service';
-import { JudgeCardFormService } from './judge-card-form.service';
 import { Card, Judge } from '../card';
 
 import { Observable } from 'rxjs/Observable';
@@ -16,15 +15,15 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 })
 export class JudgeCardFormComponent implements OnInit, OnDestroy {
   card: Card;
+  cardPrev: Card | null;
+  cardNext: Card | null;
   formGroup: FormGroup;
-  isFirst: boolean;
-  isLast: boolean;
-  submitAttempt: Observable<boolean>;
+  submitAttempt: boolean;
   unsubscribe: Subject<void> = new Subject<void>();
 
   constructor(
     private judgeCardService: JudgeCardService,
-    private judgeCardFormService: JudgeCardFormService,
+    private route: ActivatedRoute,
     private router: Router
   ) {}
 
@@ -42,17 +41,20 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
       ]),
       description: new FormControl('')
     });
-    this.submitAttempt = this.judgeCardFormService.submitAttempt;
-    this.judgeCardFormService.init();
+    this.submitAttempt = false;
+
     Observable.combineLatest(
       this.judgeCardService.cardListFiltered,
-      this.judgeCardFormService.index
+      this.route.params
     )
       .takeUntil(this.unsubscribe)
-      .subscribe(([cardList, index]) => {
+      .subscribe(([cardList, params]) => {
+        const cardCode = params['id'];
+        const index = cardList.findIndex(card => card.code === cardCode);
         this.card = cardList[index];
-        this.isFirst = index === 0;
-        this.isLast = index === cardList.length - 1;
+        this.cardPrev = index > 0 ? cardList[index - 1] : null;
+        this.cardNext =
+          index < cardList.length - 1 ? cardList[index + 1] : null;
         if (!!this.card.judge) {
           return this.formGroup.reset(this.card.judge);
         }
@@ -66,44 +68,40 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
 
   submit(value: Judge, code: string) {
     if (this.formGroup.invalid) {
-      this.judgeCardFormService.attemptSubmit();
+      this.submitAttempt = true;
       return;
     }
     this.judgeCardService.saveJudge(value, code);
-    if (this.isLast) {
+    if (!this.cardNext) {
       return this.router.navigate(['/', 'judge']);
     }
-    this.judgeCardFormService.next();
+    this.submitAttempt = false;
   }
 
   prev() {
-    if (this.isFirst) {
+    if (!this.cardPrev) {
       return;
     }
-    if (
-      this.formGroup.dirty &&
-      !window.confirm(
-        '변경사항이 저장되지 않을 수 있습니다. 정말 이동하시겠습니까?'
-      )
-    ) {
+    if (!this.canDeactivate()) {
       return;
     }
-    this.judgeCardFormService.prev();
+    this.router.navigate(['../', this.cardPrev.code], {
+      relativeTo: this.route
+    });
+    this.submitAttempt = false;
   }
 
   next() {
-    if (this.isLast) {
+    if (!this.cardNext) {
       return;
     }
-    if (
-      this.formGroup.dirty &&
-      !window.confirm(
-        '변경사항이 저장되지 않을 수 있습니다. 정말 이동하시겠습니까?'
-      )
-    ) {
+    if (!this.canDeactivate()) {
       return;
     }
-    this.judgeCardFormService.next();
+    this.router.navigate(['../', this.cardNext.code], {
+      relativeTo: this.route
+    });
+    this.submitAttempt = false;
   }
 
   canDeactivate() {

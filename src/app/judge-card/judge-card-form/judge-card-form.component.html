@@ -1,13 +1,13 @@
 <section class="card-img">
   <div class="row">
     <div class="col-sm-4 left-angle">
-      <clr-icon *ngIf="!isFirst" shape="angle" dir="left" size="72" (click)="prev()"></clr-icon>
+      <clr-icon *ngIf="cardPrev" shape="angle" dir="left" size="72" (click)="prev()"></clr-icon>
     </div>
     <div class="col-sm-4">
       <img [src]="card.imgLink">
     </div>
     <div class="col-sm-4 right-angle">
-      <clr-icon *ngIf="!isLast" shape="angle" dir="right" size="72" (click)="next()"></clr-icon>
+      <clr-icon *ngIf="cardNext" shape="angle" dir="right" size="72" (click)="next()"></clr-icon>
     </div>
   </div>
 </section>

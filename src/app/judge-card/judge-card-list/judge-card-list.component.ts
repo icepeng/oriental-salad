@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { JudgeCardService } from '../judge-card.service';
@@ -19,7 +20,10 @@ export class JudgeCardListComponent implements OnInit, OnDestroy {
   unsubscribe: Subject<void> = new Subject<void>();
   formGroup: FormGroup;
 
-  constructor(private judgeCardService: JudgeCardService) {}
+  constructor(
+    private judgeCardService: JudgeCardService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.formGroup = new FormGroup({
@@ -59,6 +63,10 @@ export class JudgeCardListComponent implements OnInit, OnDestroy {
     this.formGroup.valueChanges
       .takeUntil(this.unsubscribe)
       .subscribe(value => this.judgeCardService.setFilter(value));
+  }
+
+  onClick(item: Card) {
+    this.router.navigate(['/', 'judge', item.code]);
   }
 
   ngOnDestroy() {
