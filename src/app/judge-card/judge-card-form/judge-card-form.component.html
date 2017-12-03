@@ -17,30 +17,71 @@
       <label>판결문</label>
       <div class="form-group">
         <label class="required">범용성</label>
-        <label for="value" aria-haspopup="true" role="tooltip" [class.invalid]="formGroup.controls['value'].invalid && submitAttempt | async"
-          class="tooltip tooltip-validation tooltip-md">
-          <input formControlName="value" type="text" id="value" placeholder="얼마나 많은 덱에 쓰일지 평가합니다." size="45">
-          <span class="tooltip-content">
-            20 - 80 사이의 수치를 입력해주세요.
-          </span>
-        </label>
-        <app-explain-value [value]="formGroup.controls['value'].value"></app-explain-value>
+        <div class="radio-inline">
+          <input type="radio" formControlName="value" value="20" id="v20">
+          <label for="v20">20 (오물)</label>
+        </div>
+        <div class="radio-inline">
+          <input type="radio" formControlName="value" value="30" id="v30">
+          <label for="v30">30 (폐급)</label>
+        </div>
+        <div class="radio-inline">
+          <input type="radio" formControlName="value" value="40" id="v40">
+          <label for="v40">40 (함정)</label>
+        </div>
+        <div class="radio-inline">
+          <input type="radio" formControlName="value" value="50" id="v50">
+          <label for="v50">50 (평범)</label>
+        </div>
+        <div class="radio-inline">
+          <input type="radio" formControlName="value" value="60" id="v60">
+          <label for="v60">60 (훌륭)</label>
+        </div>
+        <div class="radio-inline">
+          <input type="radio" formControlName="value" value="70" id="v70">
+          <label for="v70">70 (강력)</label>
+        </div>
+        <div class="radio-inline">
+          <input type="radio" formControlName="value" value="80" id="v80">
+          <label for="v80">80 (판도)</label>
+        </div>
       </div>
       <div class="form-group">
         <label class="required">포텐셜</label>
-        <label for="potential" aria-haspopup="true" role="tooltip" [class.invalid]="formGroup.controls['potential'].invalid && submitAttempt | async"
-          class="tooltip tooltip-validation tooltip-md">
-          <input formControlName="potential" type="text" id="potential" placeholder="새로운 덱의 핵심 카드가 될 가능성을 평가합니다." size="45">
-          <span class="tooltip-content">
-            20 - 80 사이의 수치를 입력해주세요.
-          </span>
-        </label>
+        <div class="radio-inline">
+          <input type="radio" formControlName="potential" value="20" id="p20">
+          <label for="p20">20 (오물)</label>
+        </div>
+        <div class="radio-inline">
+          <input type="radio" formControlName="potential" value="30" id="p30">
+          <label for="p30">30 (폐급)</label>
+        </div>
+        <div class="radio-inline">
+          <input type="radio" formControlName="potential" value="40" id="p40">
+          <label for="p40">40 (함정)</label>
+        </div>
+        <div class="radio-inline">
+          <input type="radio" formControlName="potential" value="50" id="p50">
+          <label for="p50">50 (평범)</label>
+        </div>
+        <div class="radio-inline">
+          <input type="radio" formControlName="potential" value="60" id="p60">
+          <label for="p60">60 (훌륭)</label>
+        </div>
+        <div class="radio-inline">
+          <input type="radio" formControlName="potential" value="70" id="p70">
+          <label for="p70">70 (강력)</label>
+        </div>
+        <div class="radio-inline">
+          <input type="radio" formControlName="potential" value="80" id="p80">
+          <label for="p80">80 (판도)</label>
+        </div>
       </div>
       <div class="form-group">
         <label for="description">추가 설명</label>
         <textarea formControlName="description" id="description" rows="5"></textarea>
       </div>
-      <button (click)="submit(formGroup.value, card.code)" class="btn btn-primary">선고</button>
+      <button [attr.disabled]="formGroup.invalid ? true : null" (click)="submit(formGroup.value, card.code)" class="btn btn-primary">선고</button>
       <button [routerLink]="['/', 'judge']" class="btn btn-outline">목록 보기</button>
     </section>
   </form>
