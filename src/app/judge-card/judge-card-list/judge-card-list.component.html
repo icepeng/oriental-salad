@@ -43,7 +43,7 @@
   <clr-dg-column>코스트</clr-dg-column>
   <clr-dg-column>레어도</clr-dg-column>
 
-  <clr-dg-row (click)="onClick(item)" class="card-row" *clrDgItems="let item of list | async">
+  <clr-dg-row [class.card-judged]="item.judge" (click)="onClick(item)" class="card-row" *clrDgItems="let item of list | async">
     <clr-dg-cell>{{item.name}}</clr-dg-cell>
     <clr-dg-cell>{{item.class | translate}}</clr-dg-cell>
     <clr-dg-cell>{{item.cost}}</clr-dg-cell>
