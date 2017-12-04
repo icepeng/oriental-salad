@@ -13,6 +13,7 @@ import { JudgeViewService } from '../judge-view.service';
   styleUrls: ['./judge-view-list.component.scss'],
 })
 export class JudgeViewListComponent implements OnInit, OnDestroy {
+  name: Observable<string>;
   list: Observable<Card[]>;
   classFilter: Observable<(Classes | 'Neutral')[]>;
   costFilter: Observable<number[]>;
@@ -35,6 +36,7 @@ export class JudgeViewListComponent implements OnInit, OnDestroy {
     this.route.params.takeUntil(this.unsubscribe).subscribe(async params => {
       await this.judgeViewService.getJudge(params['id']);
     });
+    this.name = this.judgeViewService.name;
     this.list = this.judgeViewService.cardListFiltered;
     const totalList = this.judgeViewService.cardList;
     this.classFilter = totalList.map(list =>

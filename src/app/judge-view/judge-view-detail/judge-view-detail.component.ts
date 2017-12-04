@@ -11,39 +11,28 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Component({
   selector: 'app-judge-view-detail',
   templateUrl: './judge-view-detail.component.html',
-  styleUrls: ['./judge-view-detail.component.scss']
+  styleUrls: ['./judge-view-detail.component.scss'],
 })
 export class JudgeViewDetailComponent implements OnInit, OnDestroy {
+  name: Observable<string>;
+  judge: Judge;
   card: Card;
   cardPrev: Card | null;
   cardNext: Card | null;
-  formGroup: FormGroup;
   unsubscribe: Subject<void> = new Subject<void>();
 
   constructor(
     private judgeViewService: JudgeViewService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit() {
-    this.formGroup = new FormGroup({
-      value: new FormControl('', [
-        Validators.min(20),
-        Validators.max(80),
-        Validators.required
-      ]),
-      potential: new FormControl('', [
-        Validators.min(20),
-        Validators.max(80),
-        Validators.required
-      ]),
-      description: new FormControl('')
-    });
+    this.name = this.judgeViewService.name;
 
     Observable.combineLatest(
       this.judgeViewService.cardListFiltered,
-      this.route.params
+      this.route.params,
     )
       .takeUntil(this.unsubscribe)
       .subscribe(([cardList, params]) => {
@@ -53,14 +42,7 @@ export class JudgeViewDetailComponent implements OnInit, OnDestroy {
         this.cardPrev = index > 0 ? cardList[index - 1] : null;
         this.cardNext =
           index < cardList.length - 1 ? cardList[index + 1] : null;
-        if (!!this.card.judge) {
-          return this.formGroup.reset(this.card.judge);
-        }
-        return this.formGroup.reset({
-          value: '',
-          potential: '',
-          description: ''
-        });
+        this.judge = this.card.judge;
       });
   }
 
@@ -69,7 +51,7 @@ export class JudgeViewDetailComponent implements OnInit, OnDestroy {
       return;
     }
     this.router.navigate(['../', this.cardPrev.code], {
-      relativeTo: this.route
+      relativeTo: this.route,
     });
   }
 
@@ -78,7 +60,7 @@ export class JudgeViewDetailComponent implements OnInit, OnDestroy {
       return;
     }
     this.router.navigate(['../', this.cardNext.code], {
-      relativeTo: this.route
+      relativeTo: this.route,
     });
   }
 

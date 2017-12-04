@@ -11,7 +11,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Component({
   selector: 'app-judge-card-form',
   templateUrl: './judge-card-form.component.html',
-  styleUrls: ['./judge-card-form.component.scss']
+  styleUrls: ['./judge-card-form.component.scss'],
 })
 export class JudgeCardFormComponent implements OnInit, OnDestroy {
   card: Card;
@@ -23,27 +23,19 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
   constructor(
     private judgeCardService: JudgeCardService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit() {
     this.formGroup = new FormGroup({
-      value: new FormControl('', [
-        Validators.min(20),
-        Validators.max(80),
-        Validators.required
-      ]),
-      potential: new FormControl('', [
-        Validators.min(20),
-        Validators.max(80),
-        Validators.required
-      ]),
-      description: new FormControl('')
+      value: new FormControl('', [Validators.required]),
+      potential: new FormControl('', [Validators.required]),
+      description: new FormControl(''),
     });
 
     Observable.combineLatest(
       this.judgeCardService.cardListFiltered,
-      this.route.params
+      this.route.params,
     )
       .takeUntil(this.unsubscribe)
       .subscribe(([cardList, params]) => {
@@ -59,7 +51,7 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
         return this.formGroup.reset({
           value: '',
           potential: '',
-          description: ''
+          description: '',
         });
       });
   }
@@ -82,7 +74,7 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
       return;
     }
     this.router.navigate(['../', this.cardPrev.code], {
-      relativeTo: this.route
+      relativeTo: this.route,
     });
   }
 
@@ -91,14 +83,14 @@ export class JudgeCardFormComponent implements OnInit, OnDestroy {
       return;
     }
     this.router.navigate(['../', this.cardNext.code], {
-      relativeTo: this.route
+      relativeTo: this.route,
     });
   }
 
   canDeactivate() {
     if (this.formGroup.dirty) {
       return window.confirm(
-        '변경사항이 저장되지 않을 수 있습니다. 정말 이동하시겠습니까?'
+        '변경사항이 저장되지 않을 수 있습니다. 정말 이동하시겠습니까?',
       );
     }
     return true;
