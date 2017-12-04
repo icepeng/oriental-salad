@@ -1,3 +1,4 @@
+<h1>카드 목록</h1>
 <form [formGroup]="formGroup">
   <section class="form-block">
     <div class="form-group row">
@@ -56,4 +57,4 @@
   </clr-dg-footer>
 </clr-datagrid>
 
-<button [attr.disabled]="formGroup.invalid ? true : null" (click)="onSubmit()" class="btn btn-primary">판결 완료</button>
+<button [routerLink]="['/', 'judge', 'confirm']" class="btn btn-primary">판결 완료</button>

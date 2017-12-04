@@ -18,6 +18,7 @@ export class JudgeCardService {
   cardList: Observable<Card[]>;
   filter: Observable<Filter>;
   cardListFiltered: Observable<Card[]>;
+  cardListJudged: Observable<Card[]>;
   judgeList: Observable<JudgeSubmit[]>;
 
   constructor(private coreService: CoreService) {
@@ -41,8 +42,11 @@ export class JudgeCardService {
     ).map(([cardList, filter]) =>
       cardList.filter(card => this.filterCard(card, filter)),
     );
-    this.judgeList = this.cardList.map(cardList =>
-      cardList.filter(card => !!card.judge).map(card => ({
+    this.cardListJudged = this.cardList.map(cardList =>
+      cardList.filter(card => !!card.judge),
+    );
+    this.judgeList = this.cardListJudged.map(cardList =>
+      cardList.map(card => ({
         ...card.judge,
         cardCode: card.code,
       })),

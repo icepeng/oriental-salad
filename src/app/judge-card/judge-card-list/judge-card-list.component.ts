@@ -66,11 +66,7 @@ export class JudgeCardListComponent implements OnInit, OnDestroy {
   }
 
   onClick(item: Card) {
-    this.router.navigate(['/', 'judge', item.code]);
-  }
-
-  onSubmit() {
-    this.judgeCardService.submit();
+    this.router.navigate(['/', 'judge', 'form', item.code]);
   }
 
   ngOnDestroy() {
