@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
 import { CoreService } from '../core/core.service';
-import { Card, Judge, JudgeSubmit } from './card';
+import { Card, Judge } from './card';
 import { CARD_LIST } from './cards';
 import { Filter } from './filter';
 
@@ -19,7 +19,6 @@ export class JudgeCardService {
   filter: Observable<Filter>;
   cardListFiltered: Observable<Card[]>;
   cardListJudged: Observable<Card[]>;
-  judgeList: Observable<JudgeSubmit[]>;
 
   constructor(private coreService: CoreService) {
     this.dataStore = {
@@ -44,12 +43,6 @@ export class JudgeCardService {
     );
     this.cardListJudged = this.cardList.map(cardList =>
       cardList.filter(card => !!card.judge),
-    );
-    this.judgeList = this.cardListJudged.map(cardList =>
-      cardList.map(card => ({
-        ...card.judge,
-        cardCode: card.code,
-      })),
     );
   }
 
@@ -79,7 +72,16 @@ export class JudgeCardService {
     this._cardList.next([...this.dataStore.cardList]);
   }
 
-  submit() {
-    this.judgeList.first().subscribe(judgeList => console.log(judgeList));
+  submit(name: string) {
+    this.cardListJudged.first().subscribe(cardList => {
+      const upload = {
+        name,
+        judges: cardList.map(card => ({
+          ...card.judge,
+          cardCode: card.code,
+        })),
+      };
+      console.log(upload);
+    });
   }
 }

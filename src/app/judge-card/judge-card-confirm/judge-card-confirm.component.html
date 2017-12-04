@@ -18,14 +18,16 @@
     <clr-dg-pagination #pagination [clrDgPageSize]="10"></clr-dg-pagination>
   </clr-dg-footer>
 </clr-datagrid>
+
+<ng-container *ngIf="(list | async).length > 0">
 <form>
   <section class="form-block">
     <div class="form-group">
-      <label class="required">닉네임</label>
-      <input type="text">
+      <label class="required">머법관명</label>
+      <input [(ngModel)]="name" [ngModelOptions]="{standalone: true}" type="text">
     </div>
   </section>
 </form>
-
-<button [attr.disabled]="(list | async).length === 0 ? true : null" (click)="onSubmit()" class="btn btn-primary">저장</button>
+<button [attr.disabled]="name ? null : true" (click)="onSubmit()" class="btn btn-primary">저장</button>
+</ng-container>
 <button [routerLink]="['/', 'judge']" class="btn btn-outline">돌아가기</button>

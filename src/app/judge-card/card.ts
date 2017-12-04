@@ -16,10 +16,6 @@ export interface Judge {
   description: string;
 }
 
-export interface JudgeSubmit extends Judge {
-  cardCode: string;
-}
-
 export interface CardBase {
   code: string;
   name: string;

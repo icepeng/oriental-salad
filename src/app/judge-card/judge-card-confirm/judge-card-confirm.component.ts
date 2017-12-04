@@ -11,6 +11,7 @@ import { JudgeCardService } from '../judge-card.service';
 })
 export class JudgeCardConfirmComponent implements OnInit {
   list: Observable<Card[]>;
+  name: string;
 
   constructor(private judgeCardService: JudgeCardService) {}
 
@@ -19,6 +20,6 @@ export class JudgeCardConfirmComponent implements OnInit {
   }
 
   onSubmit() {
-
+    this.judgeCardService.submit(this.name);
   }
 }
