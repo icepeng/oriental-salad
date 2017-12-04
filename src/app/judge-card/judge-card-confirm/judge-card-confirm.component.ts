@@ -13,6 +13,7 @@ import { JudgeCardService } from '../judge-card.service';
 export class JudgeCardConfirmComponent implements OnInit, OnDestroy {
   list: Card[];
   name: string;
+  submitFail = false;
   unsubscribe: Subject<void> = new Subject<void>();
 
   constructor(
@@ -27,8 +28,12 @@ export class JudgeCardConfirmComponent implements OnInit, OnDestroy {
   }
 
   async onSubmit() {
-    const id = await this.judgeCardService.submit(this.list, this.name);
-    this.router.navigate(['/', 'judge', 'result', id]);
+    try {
+      const id = await this.judgeCardService.submit(this.list, this.name);
+      this.router.navigate(['/', 'judge', 'result', id]);
+    } catch (err) {
+      this.submitFail = true;
+    }
   }
 
   ngOnDestroy() {
