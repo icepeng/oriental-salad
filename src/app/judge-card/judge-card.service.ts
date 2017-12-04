@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { CoreService } from '../core/core.service';
 import { Card, Judge } from '../core/card';
 import { CARD_LIST } from '../core/cards';
-import { Filter } from './filter';
+import { Filter } from '../core/filter';
 
 @Injectable()
 export class JudgeCardService {

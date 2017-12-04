@@ -7,6 +7,8 @@ import { JudgeCardConfirmComponent } from './judge-card/judge-card-confirm/judge
 import { JudgeCardFormComponent } from './judge-card/judge-card-form/judge-card-form.component';
 import { JudgeCardListComponent } from './judge-card/judge-card-list/judge-card-list.component';
 import { JudgeCardResultComponent } from './judge-card/judge-card-result/judge-card-result.component';
+import { JudgeViewDetailComponent } from './judge-view/judge-view-detail/judge-view-detail.component';
+import { JudgeViewListComponent } from './judge-view/judge-view-list/judge-view-list.component';
 import { ManualComponent } from './manual/manual.component';
 
 export const ROUTES: Routes = [
@@ -21,6 +23,8 @@ export const ROUTES: Routes = [
     canDeactivate: [CanDeactivateGuard],
   },
   { path: 'judge', component: JudgeCardListComponent },
+  { path: 'view/:id', component: JudgeViewListComponent },
+  { path: 'view/:id/:cardId', component: JudgeViewDetailComponent },
   { path: '**', redirectTo: 'home' },
 ];
 

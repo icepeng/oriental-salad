@@ -12,7 +12,7 @@ export type Rarity = 'Free' | 'Common' | 'Rare' | 'Epic' | 'Legendary';
 
 export interface Judge {
   value: number;
-  poential: number;
+  potential: number;
   description: string;
 }
 
