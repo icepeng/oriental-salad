@@ -15,7 +15,7 @@ export class JudgeCardResultComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
-      this.link = `http://icepeng.github.io/view/${this.id}`;
+      this.link = `http://icepeng.com/view/${this.id}`;
     });
   }
 }
