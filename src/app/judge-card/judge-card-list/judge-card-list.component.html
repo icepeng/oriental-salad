@@ -55,3 +55,5 @@
     <clr-dg-pagination #pagination [clrDgPageSize]="10"></clr-dg-pagination>
   </clr-dg-footer>
 </clr-datagrid>
+
+<button [attr.disabled]="formGroup.invalid ? true : null" (click)="onSubmit()" class="btn btn-primary">판결 완료</button>

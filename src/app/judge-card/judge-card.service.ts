@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-
-import { Card, Judge } from './card';
-import { CARD_LIST } from './cards';
-import { Filter } from './filter';
-
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+
+import { CoreService } from '../core/core.service';
+import { Card, Judge, JudgeSubmit } from './card';
+import { CARD_LIST } from './cards';
+import { Filter } from './filter';
 
 @Injectable()
 export class JudgeCardService {
@@ -18,15 +18,16 @@ export class JudgeCardService {
   cardList: Observable<Card[]>;
   filter: Observable<Filter>;
   cardListFiltered: Observable<Card[]>;
+  judgeList: Observable<JudgeSubmit[]>;
 
-  constructor() {
+  constructor(private coreService: CoreService) {
     this.dataStore = {
       cardList: CARD_LIST,
       filter: {
         class: 'ALL',
         cost: 'ALL',
-        rarity: 'ALL'
-      }
+        rarity: 'ALL',
+      },
     };
 
     this._cardList = new BehaviorSubject([...this.dataStore.cardList]);
@@ -36,9 +37,15 @@ export class JudgeCardService {
     this.filter = this._filter.asObservable();
     this.cardListFiltered = Observable.combineLatest(
       this.cardList,
-      this.filter
+      this.filter,
     ).map(([cardList, filter]) =>
-      cardList.filter(card => this.filterCard(card, filter))
+      cardList.filter(card => this.filterCard(card, filter)),
+    );
+    this.judgeList = this.cardList.map(cardList =>
+      cardList.filter(card => !!card.judge).map(card => ({
+        ...card.judge,
+        cardCode: card.code,
+      })),
     );
   }
 
@@ -62,9 +69,13 @@ export class JudgeCardService {
 
   saveJudge(judge: Judge, code: string) {
     const cardToJudge = this.dataStore.cardList.find(
-      card => card.code === code
+      card => card.code === code,
     );
     cardToJudge.judge = judge;
     this._cardList.next([...this.dataStore.cardList]);
+  }
+
+  submit() {
+    this.judgeList.first().subscribe(judgeList => console.log(judgeList));
   }
 }

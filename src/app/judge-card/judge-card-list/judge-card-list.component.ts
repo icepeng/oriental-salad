@@ -10,7 +10,7 @@ import { Subject } from 'rxjs/Subject';
 @Component({
   selector: 'app-judge-card-list',
   templateUrl: './judge-card-list.component.html',
-  styleUrls: ['./judge-card-list.component.scss']
+  styleUrls: ['./judge-card-list.component.scss'],
 })
 export class JudgeCardListComponent implements OnInit, OnDestroy {
   list: Observable<Card[]>;
@@ -22,14 +22,14 @@ export class JudgeCardListComponent implements OnInit, OnDestroy {
 
   constructor(
     private judgeCardService: JudgeCardService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit() {
     this.formGroup = new FormGroup({
       class: new FormControl(),
       cost: new FormControl(),
-      rarity: new FormControl()
+      rarity: new FormControl(),
     });
     this.list = this.judgeCardService.cardListFiltered;
     const totalList = this.judgeCardService.cardList;
@@ -38,24 +38,24 @@ export class JudgeCardListComponent implements OnInit, OnDestroy {
         .map(item => item.class)
         .reduce(
           (arr, item) => (arr.find(x => x === item) ? arr : [...arr, item]),
-          []
+          [],
         )
-        .sort()
+        .sort(),
     );
     this.costFilter = totalList.map(list =>
       list
         .map(item => item.cost)
         .reduce(
           (arr, item) => (arr.find(x => x === item) ? arr : [...arr, item]),
-          []
+          [],
         )
-        .sort()
+        .sort(),
     );
     this.rarityFilter = totalList.map(
       list =>
         <Rarity[]>['Common', 'Rare', 'Epic', 'Legendary'].filter(rarity =>
-          list.find(x => x.rarity === rarity)
-        )
+          list.find(x => x.rarity === rarity),
+        ),
     );
     this.judgeCardService.filter
       .subscribe(filter => this.formGroup.reset(filter))
@@ -67,6 +67,10 @@ export class JudgeCardListComponent implements OnInit, OnDestroy {
 
   onClick(item: Card) {
     this.router.navigate(['/', 'judge', item.code]);
+  }
+
+  onSubmit() {
+    this.judgeCardService.submit();
   }
 
   ngOnDestroy() {
