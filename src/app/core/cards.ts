@@ -12,7 +12,7 @@ export const CARD_LIST: Card[] = [
     health: 3,
     rarity: 'Legendary',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/bb135121790ef13f2f1ee0f406d7694b4b9c63748b2d31343c63d78bcddbcda1.png'
+      'https://assets.webn.mobi/hearthstone/bb135121790ef13f2f1ee0f406d7694b4b9c63748b2d31343c63d78bcddbcda1.png',
   },
   {
     code: 'Aluneth',
@@ -24,7 +24,17 @@ export const CARD_LIST: Card[] = [
     durability: 3,
     rarity: 'Legendary',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/88958534ac9ee18981bbc56435e6de24b21defaffeac4d3938b24acd5c66aef0.png'
+      'https://assets.webn.mobi/hearthstone/88958534ac9ee18981bbc56435e6de24b21defaffeac4d3938b24acd5c66aef0.png',
+  },
+  {
+    code: "Dragon's Fury",
+    name: '용의 분노',
+    type: 'Spell',
+    class: 'Mage',
+    cost: 5,
+    rarity: 'Epic',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/56cf85636ebb73c3a25ec59150225b709507569cde7cdc9f7d88643d6035f85e.png',
   },
   {
     code: 'Deck_of_Wonders',
@@ -34,7 +44,7 @@ export const CARD_LIST: Card[] = [
     cost: 5,
     rarity: 'Epic',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/2836fe7b15ba12a8dd57aed39d3011fc5ee51d080b63def8055f90f3f4aa43d9.png'
+      'https://assets.webn.mobi/hearthstone/2836fe7b15ba12a8dd57aed39d3011fc5ee51d080b63def8055f90f3f4aa43d9.png',
   },
   {
     code: 'Leyline_Manupulator',
@@ -46,7 +56,7 @@ export const CARD_LIST: Card[] = [
     health: 5,
     rarity: 'Rare',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/faf45cbbb09cd313da03304104adbf1df8425188f627ef033f34824c40ccb81c.png'
+      'https://assets.webn.mobi/hearthstone/faf45cbbb09cd313da03304104adbf1df8425188f627ef033f34824c40ccb81c.png',
   },
   {
     code: 'Lesser_Ruby_Spellstone',
@@ -56,7 +66,7 @@ export const CARD_LIST: Card[] = [
     cost: 2,
     rarity: 'Rare',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/374a2dd12acfe7add90633d6129ce2a1cd2d10c7ab800f3cbdd5d8f4bb448d8c.png'
+      'https://assets.webn.mobi/hearthstone/374a2dd12acfe7add90633d6129ce2a1cd2d10c7ab800f3cbdd5d8f4bb448d8c.png',
   },
   {
     code: 'Explosive_Runes',
@@ -66,7 +76,7 @@ export const CARD_LIST: Card[] = [
     cost: 3,
     rarity: 'Rare',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/4930bde40210d09f9c05e4f3f472604dbe42245e3d9cb6f24296843094becb89.png'
+      'https://assets.webn.mobi/hearthstone/4930bde40210d09f9c05e4f3f472604dbe42245e3d9cb6f24296843094becb89.png',
   },
   {
     code: 'Arcane_Artificer',
@@ -78,7 +88,7 @@ export const CARD_LIST: Card[] = [
     health: 2,
     rarity: 'Common',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/918f734aecfd8182211ae56a2779d8cfbfe0c7042eed3ae273ffd92a8f34f750.png'
+      'https://assets.webn.mobi/hearthstone/918f734aecfd8182211ae56a2779d8cfbfe0c7042eed3ae273ffd92a8f34f750.png',
   },
   {
     code: 'Raven_Familiar',
@@ -90,7 +100,7 @@ export const CARD_LIST: Card[] = [
     health: 2,
     rarity: 'Common',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/d4b6f004a79a9d1e3d351faad53a8213da941a11c5d683b37f36e2c6e03f408c.png'
+      'https://assets.webn.mobi/hearthstone/d4b6f004a79a9d1e3d351faad53a8213da941a11c5d683b37f36e2c6e03f408c.png',
   },
   {
     code: 'Kathrena_Winterwisp',
@@ -102,7 +112,7 @@ export const CARD_LIST: Card[] = [
     health: 6,
     rarity: 'Legendary',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/1e52c1a0b57efc0f7994b65c6f932ff95ea8680f0772ea0294850dd231eec439.png'
+      'https://assets.webn.mobi/hearthstone/1e52c1a0b57efc0f7994b65c6f932ff95ea8680f0772ea0294850dd231eec439.png',
   },
   {
     code: 'Crushing_Walls',
@@ -112,7 +122,17 @@ export const CARD_LIST: Card[] = [
     cost: 7,
     rarity: 'Epic',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/ccb592aaae0827170509d42fa1159808d5c4b5d3b23fcf2c879b0b57f3be2493.png'
+      'https://assets.webn.mobi/hearthstone/ccb592aaae0827170509d42fa1159808d5c4b5d3b23fcf2c879b0b57f3be2493.png',
+  },
+  {
+    code: 'To_My_Side',
+    name: '이리 와라!',
+    type: 'Spell',
+    class: 'Hunter',
+    cost: 6,
+    rarity: 'Epic',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/8cd9a37c82a1beb7b1af8c49b7d9f671aca4a7942095b238ab4198b4b26126d1.png',
   },
   {
     code: 'Lesser_Emerald_Spellstone',
@@ -122,7 +142,7 @@ export const CARD_LIST: Card[] = [
     cost: 5,
     rarity: 'Rare',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/34678877673277b974db888c00be2076539349f0e58633205be51493f2afd68e.png'
+      'https://assets.webn.mobi/hearthstone/34678877673277b974db888c00be2076539349f0e58633205be51493f2afd68e.png',
   },
   {
     code: 'Seeping_Oozeling',
@@ -134,7 +154,7 @@ export const CARD_LIST: Card[] = [
     health: 4,
     rarity: 'Rare',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/3b8ab71492ee5ead7e3ce818c50bf139c49f5b7147f936c4a2d46562aa57071a.png'
+      'https://assets.webn.mobi/hearthstone/3b8ab71492ee5ead7e3ce818c50bf139c49f5b7147f936c4a2d46562aa57071a.png',
   },
   {
     code: 'Wandering_Monster',
@@ -144,7 +164,7 @@ export const CARD_LIST: Card[] = [
     cost: 2,
     rarity: 'Rare',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/c4d3588f9a4bc838695d2eb819b33b170ba219c3320ba3bae87fa6843c50698a.png'
+      'https://assets.webn.mobi/hearthstone/c4d3588f9a4bc838695d2eb819b33b170ba219c3320ba3bae87fa6843c50698a.png',
   },
   {
     code: 'Sonya_Shadowdancer',
@@ -155,7 +175,20 @@ export const CARD_LIST: Card[] = [
     attack: 2,
     health: 2,
     rarity: 'Legendary',
-    imgLink: 'https://assets.webn.mobi/hearthstone/0478890053bcd65f9ec883c1697906396a717695d55bf23d8394b8ba7f27f3f4.png'
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/0478890053bcd65f9ec883c1697906396a717695d55bf23d8394b8ba7f27f3f4.png',
+  },
+  {
+    code: 'Kingsbane',
+    name: '왕의 파멸',
+    type: 'Weapon',
+    class: 'Rogue',
+    cost: 3,
+    attack: 1,
+    durability: 3,
+    rarity: 'Legendary',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/d505eed494b3c830229166dcffee704d8b4e95a57f1fb0874d49fb9eeb85a976.png',
   },
   {
     code: 'Evasion',
@@ -165,7 +198,7 @@ export const CARD_LIST: Card[] = [
     cost: 2,
     rarity: 'Epic',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/ebe34c2cdf5f4958f13d7f94dc377a565e0fbac2fdd6c8ae7aced1f0d2d4e448.png'
+      'https://assets.webn.mobi/hearthstone/ebe34c2cdf5f4958f13d7f94dc377a565e0fbac2fdd6c8ae7aced1f0d2d4e448.png',
   },
   {
     code: "Fal'dorei Strider",
@@ -176,7 +209,8 @@ export const CARD_LIST: Card[] = [
     attack: 4,
     health: 4,
     rarity: 'Epic',
-    imgLink: 'https://assets.webn.mobi/hearthstone/33a1bbd920fcf0cf1b1759df46415b6b426ef4b7bea15288a735430dadb84641.png'
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/33a1bbd920fcf0cf1b1759df46415b6b426ef4b7bea15288a735430dadb84641.png',
   },
   {
     code: 'Elven_Minstrel',
@@ -187,7 +221,8 @@ export const CARD_LIST: Card[] = [
     attack: 3,
     health: 2,
     rarity: 'Rare',
-    imgLink: 'https://assets.webn.mobi/hearthstone/7f5dd88f128ca091624fac997e79bae55b640e80fcfc9ec52a693e1044667aa1.png'
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/7f5dd88f128ca091624fac997e79bae55b640e80fcfc9ec52a693e1044667aa1.png',
   },
   {
     code: 'Lesser_Onyx_Spellstone',
@@ -196,7 +231,8 @@ export const CARD_LIST: Card[] = [
     class: 'Rogue',
     cost: 6,
     rarity: 'Rare',
-    imgLink: 'https://assets.webn.mobi/hearthstone/169821cba1dc8789a6bbed978b78948219b176c0c21f7c64150f60905551061f.png'
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/169821cba1dc8789a6bbed978b78948219b176c0c21f7c64150f60905551061f.png',
   },
   {
     code: 'Kobold_Illusionist',
@@ -207,7 +243,8 @@ export const CARD_LIST: Card[] = [
     attack: 3,
     health: 3,
     rarity: 'Common',
-    imgLink: 'https://assets.webn.mobi/hearthstone/811ad83d581ce78d6157beca84f6cbbbfb035c76be0dd3b39884fbba544a829a.png'
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/811ad83d581ce78d6157beca84f6cbbbfb035c76be0dd3b39884fbba544a829a.png',
   },
   {
     code: 'Cheat_Death',
@@ -216,7 +253,8 @@ export const CARD_LIST: Card[] = [
     class: 'Rogue',
     cost: 2,
     rarity: 'Common',
-    imgLink: 'https://assets.webn.mobi/hearthstone/afbb8d99599338f318a1740f93e9ea95e512491ba7629d8123f9e3040f59907a.png'
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/afbb8d99599338f318a1740f93e9ea95e512491ba7629d8123f9e3040f59907a.png',
   },
   {
     code: 'Sudden_Betrayal',
@@ -225,7 +263,8 @@ export const CARD_LIST: Card[] = [
     class: 'Rogue',
     cost: 2,
     rarity: 'Common',
-    imgLink: 'https://assets.webn.mobi/hearthstone/93dd8fa63ef35dd59f263b86fc0553e90ffd5dbbe7b7307ec55f544b5ec65607.png'
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/93dd8fa63ef35dd59f263b86fc0553e90ffd5dbbe7b7307ec55f544b5ec65607.png',
   },
   {
     code: 'Geosulptor_Yip',
@@ -237,7 +276,7 @@ export const CARD_LIST: Card[] = [
     health: 8,
     rarity: 'Legendary',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/aa074b7df8b18147a1087268e848eee127e0ca65da99ab5380755274ac1f569a.png'
+      'https://assets.webn.mobi/hearthstone/aa074b7df8b18147a1087268e848eee127e0ca65da99ab5380755274ac1f569a.png',
   },
   {
     code: 'Reckless_Flurry',
@@ -247,7 +286,19 @@ export const CARD_LIST: Card[] = [
     cost: 3,
     rarity: 'Epic',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/f5fcbbbb651fc011660c816c8483e309bce83b0d8e2241ff7c7e63a5a93035d0.png'
+      'https://assets.webn.mobi/hearthstone/f5fcbbbb651fc011660c816c8483e309bce83b0d8e2241ff7c7e63a5a93035d0.png',
+  },
+  {
+    code: 'Bladed_Gauntlet',
+    name: '칼날주먹',
+    type: 'Weapon',
+    class: 'Warrior',
+    cost: 2,
+    attack: 0,
+    durability: 2,
+    rarity: 'Epic',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/17fb9767ed596636bfff662925f466c403f8a76c6fe7dc740f588e8bdb610af6.png',
   },
   {
     code: 'Lesser_Mithrill_Spellstone',
@@ -257,7 +308,7 @@ export const CARD_LIST: Card[] = [
     cost: 7,
     rarity: 'Rare',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/71aeccddad176dfcbed9aabd4d1fb02b97a84269c558430899e2c13d8eceda2f.png'
+      'https://assets.webn.mobi/hearthstone/71aeccddad176dfcbed9aabd4d1fb02b97a84269c558430899e2c13d8eceda2f.png',
   },
   {
     code: 'Gather_Your_Party',
@@ -267,7 +318,7 @@ export const CARD_LIST: Card[] = [
     cost: 6,
     rarity: 'Rare',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/e894fe3952e6309c760a9abeb0022fca03558276ebcc33b15d1a7d3e4edcb409.png'
+      'https://assets.webn.mobi/hearthstone/e894fe3952e6309c760a9abeb0022fca03558276ebcc33b15d1a7d3e4edcb409.png',
   },
   {
     code: 'Drywhisker_Armorer',
@@ -279,7 +330,7 @@ export const CARD_LIST: Card[] = [
     health: 2,
     rarity: 'Rare',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/79c23876f72c449e2420830afc684856663514cb5c11115c540cb816dd523dff.png'
+      'https://assets.webn.mobi/hearthstone/79c23876f72c449e2420830afc684856663514cb5c11115c540cb816dd523dff.png',
   },
   {
     code: 'Unidentified_Shield',
@@ -289,6 +340,6 @@ export const CARD_LIST: Card[] = [
     cost: 6,
     rarity: 'Common',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/0be1dfbb00b5e8d64c3f1733cc2cb0d0f840fd7028da6e422d29df40e819e81f.png'
+      'https://assets.webn.mobi/hearthstone/0be1dfbb00b5e8d64c3f1733cc2cb0d0f840fd7028da6e422d29df40e819e81f.png',
   },
 ];
