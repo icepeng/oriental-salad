@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { JudgeCardService } from '../judge-card.service';
-import { Card, Classes, Rarity } from '../card';
+import { Card, Classes, Rarity } from '../../core/card';
 
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';

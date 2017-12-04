@@ -1,5 +1,5 @@
 // tslint:disable:max-line-length
-import { Card } from './card';
+import { Card } from '../core/card';
 
 export const CARD_LIST: Card[] = [
   {

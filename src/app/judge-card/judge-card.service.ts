@@ -4,8 +4,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
 import { CoreService } from '../core/core.service';
-import { Card, Judge } from './card';
-import { CARD_LIST } from './cards';
+import { Card, Judge } from '../core/card';
+import { CARD_LIST } from '../core/cards';
 import { Filter } from './filter';
 
 @Injectable()

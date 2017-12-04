@@ -1,4 +1,4 @@
-import { Classes, Rarity } from './card';
+import { Classes, Rarity } from '../core/card';
 
 export interface Filter {
   class: Classes | 'Neutral' | 'ALL';
