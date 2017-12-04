@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { JudgeCardConfirmComponent } from './judge-card/judge-card-confirm/judge-card-confirm.component';
 import { JudgeCardFormComponent } from './judge-card/judge-card-form/judge-card-form.component';
 import { JudgeCardListComponent } from './judge-card/judge-card-list/judge-card-list.component';
+import { JudgeCardResultComponent } from './judge-card/judge-card-result/judge-card-result.component';
 import { ManualComponent } from './manual/manual.component';
 
 export const ROUTES: Routes = [
@@ -13,12 +14,14 @@ export const ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'manual', component: ManualComponent },
   { path: 'judge/confirm', component: JudgeCardConfirmComponent },
+  { path: 'judge/result/:id', component: JudgeCardResultComponent },
   {
     path: 'judge/form/:id',
     component: JudgeCardFormComponent,
     canDeactivate: [CanDeactivateGuard],
   },
   { path: 'judge', component: JudgeCardListComponent },
+  { path: '**', redirectTo: 'home' },
 ];
 
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(ROUTES);

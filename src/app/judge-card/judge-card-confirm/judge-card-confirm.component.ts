@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs/Subject';
 
 import { Card } from '../card';
 import { JudgeCardService } from '../judge-card.service';
@@ -9,17 +10,29 @@ import { JudgeCardService } from '../judge-card.service';
   templateUrl: './judge-card-confirm.component.html',
   styleUrls: ['./judge-card-confirm.component.scss'],
 })
-export class JudgeCardConfirmComponent implements OnInit {
-  list: Observable<Card[]>;
+export class JudgeCardConfirmComponent implements OnInit, OnDestroy {
+  list: Card[];
   name: string;
+  unsubscribe: Subject<void> = new Subject<void>();
 
-  constructor(private judgeCardService: JudgeCardService) {}
+  constructor(
+    private judgeCardService: JudgeCardService,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
-    this.list = this.judgeCardService.cardListJudged;
+    this.judgeCardService.cardListJudged
+      .takeUntil(this.unsubscribe)
+      .subscribe(list => (this.list = list));
   }
 
-  onSubmit() {
-    this.judgeCardService.submit(this.name);
+  async onSubmit() {
+    const id = await this.judgeCardService.submit(this.list, this.name);
+    this.router.navigate(['/', 'judge', 'result', id]);
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

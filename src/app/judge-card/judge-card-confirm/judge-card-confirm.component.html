@@ -1,12 +1,12 @@
-<h1 *ngIf="(list | async).length > 0">다음 {{ (list | async).length }}개의 카드 평가가 등록됩니다</h1>
-<h1 *ngIf="(list | async).length === 0">최소 1개의 카드를 평가해야 저장 가능합니다</h1>
+<h1 *ngIf="list.length > 0">다음 {{ list.length }}개의 카드 평가가 등록됩니다</h1>
+<h1 *ngIf="list.length === 0">최소 1개의 카드를 평가해야 저장 가능합니다</h1>
 <clr-datagrid class="card-list">
   <clr-dg-column>이름</clr-dg-column>
   <clr-dg-column>직업</clr-dg-column>
   <clr-dg-column>코스트</clr-dg-column>
   <clr-dg-column>레어도</clr-dg-column>
 
-  <clr-dg-row [class.card-judged]="item.judge" class="card-row" *clrDgItems="let item of list | async">
+  <clr-dg-row [class.card-judged]="item.judge" class="card-row" *clrDgItems="let item of list">
     <clr-dg-cell>{{item.name}}</clr-dg-cell>
     <clr-dg-cell>{{item.class | translate}}</clr-dg-cell>
     <clr-dg-cell>{{item.cost}}</clr-dg-cell>
@@ -19,7 +19,7 @@
   </clr-dg-footer>
 </clr-datagrid>
 
-<ng-container *ngIf="(list | async).length > 0">
+<ng-container *ngIf="list.length > 0">
 <form>
   <section class="form-block">
     <div class="form-group">

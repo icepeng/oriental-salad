@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
@@ -20,7 +21,7 @@ export class JudgeCardService {
   cardListFiltered: Observable<Card[]>;
   cardListJudged: Observable<Card[]>;
 
-  constructor(private coreService: CoreService) {
+  constructor(private coreService: CoreService, private http: HttpClient) {
     this.dataStore = {
       cardList: CARD_LIST,
       filter: {
@@ -72,16 +73,17 @@ export class JudgeCardService {
     this._cardList.next([...this.dataStore.cardList]);
   }
 
-  submit(name: string) {
-    this.cardListJudged.first().subscribe(cardList => {
-      const upload = {
-        name,
-        judges: cardList.map(card => ({
-          ...card.judge,
-          cardCode: card.code,
-        })),
-      };
-      console.log(upload);
-    });
+  submit(cardList: Card[], name: string) {
+    const upload = {
+      name,
+      judges: cardList.map(card => ({
+        ...card.judge,
+        cardCode: card.code,
+      })),
+    };
+    return this.http
+      .post<{ id: string }>(`${this.coreService.API_ADDRESS}/upload`, upload)
+      .map(res => res.id)
+      .toPromise();
   }
 }
