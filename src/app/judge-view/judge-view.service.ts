@@ -74,8 +74,6 @@ export class JudgeViewService {
       .map(res => res.upload)
       .toPromise();
 
-    console.log(judgment);
-
     this.dataStore.name = judgment.name;
     this._name.next(this.dataStore.name);
 

@@ -11,6 +11,7 @@ import { ROUTING } from './app.routing';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
+import { CanActivateDetail } from './judge-view/can-activate-detail.service';
 import { JudgeViewModule } from './judge-view/judge-view.module';
 import { ManualModule } from './manual/manual.module';
 
@@ -29,7 +30,7 @@ import { ManualModule } from './manual/manual.module';
     JudgeViewModule,
     ManualModule,
   ],
-  providers: [CanDeactivateGuard],
+  providers: [CanDeactivateGuard, CanActivateDetail],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

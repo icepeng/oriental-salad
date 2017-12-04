@@ -7,24 +7,38 @@ import { JudgeCardConfirmComponent } from './judge-card/judge-card-confirm/judge
 import { JudgeCardFormComponent } from './judge-card/judge-card-form/judge-card-form.component';
 import { JudgeCardListComponent } from './judge-card/judge-card-list/judge-card-list.component';
 import { JudgeCardResultComponent } from './judge-card/judge-card-result/judge-card-result.component';
+import { CanActivateDetail } from './judge-view/can-activate-detail.service';
 import { JudgeViewDetailComponent } from './judge-view/judge-view-detail/judge-view-detail.component';
 import { JudgeViewListComponent } from './judge-view/judge-view-list/judge-view-list.component';
 import { ManualComponent } from './manual/manual.component';
 
 export const ROUTES: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'manual', component: ManualComponent },
-  { path: 'judge/confirm', component: JudgeCardConfirmComponent },
-  { path: 'judge/result/:id', component: JudgeCardResultComponent },
+  { path: 'home', component: HomeComponent, pathMatch: 'full' },
+  { path: 'manual', component: ManualComponent, pathMatch: 'full' },
+  {
+    path: 'judge/confirm',
+    component: JudgeCardConfirmComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'judge/result/:id',
+    component: JudgeCardResultComponent,
+    pathMatch: 'full',
+  },
   {
     path: 'judge/form/:id',
     component: JudgeCardFormComponent,
     canDeactivate: [CanDeactivateGuard],
   },
-  { path: 'judge', component: JudgeCardListComponent },
+  { path: 'judge', component: JudgeCardListComponent, pathMatch: 'full' },
+  {
+    path: 'view/:id/:cardId',
+    component: JudgeViewDetailComponent,
+    canActivate: [CanActivateDetail],
+    pathMatch: 'full',
+  },
   { path: 'view/:id', component: JudgeViewListComponent },
-  { path: 'view/:id/:cardId', component: JudgeViewDetailComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home' },
 ];
 
