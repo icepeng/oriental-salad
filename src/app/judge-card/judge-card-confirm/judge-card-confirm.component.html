@@ -27,14 +27,14 @@
 </clr-datagrid>
 
 <ng-container *ngIf="list.length > 0">
-  <form>
+  <form [formGroup]="formGroup" (submit)="onSubmit(formGroup.value)">
     <section class="form-block">
       <div class="form-group">
         <label class="required">머법관명</label>
-        <input [(ngModel)]="name" [ngModelOptions]="{standalone: true}" type="text">
+        <input formControlName="name" type="text">
       </div>
     </section>
   </form>
-  <button [attr.disabled]="name ? null : true" (click)="onSubmit()" class="btn btn-primary">저장</button>
+  <button (click)="onSubmit(formGroup.value)" [attr.disabled]="formGroup.value.name ? null : true" class="btn btn-primary">저장</button>
 </ng-container>
 <button [routerLink]="['/', 'judge']" class="btn btn-outline">돌아가기</button>

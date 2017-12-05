@@ -9,6 +9,7 @@ import { JudgeCardListComponent } from './judge-card/judge-card-list/judge-card-
 import { JudgeCardResultComponent } from './judge-card/judge-card-result/judge-card-result.component';
 import { CanActivateDetail } from './judge-view/can-activate-detail.service';
 import { JudgeViewDetailComponent } from './judge-view/judge-view-detail/judge-view-detail.component';
+import { JudgeViewFindComponent } from './judge-view/judge-view-find/judge-view-find.component';
 import { JudgeViewListComponent } from './judge-view/judge-view-list/judge-view-list.component';
 import { ManualComponent } from './manual/manual.component';
 
@@ -38,6 +39,7 @@ export const ROUTES: Routes = [
     pathMatch: 'full',
   },
   { path: 'view/:id', component: JudgeViewListComponent },
+  { path: 'view', component: JudgeViewFindComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home' },
 ];

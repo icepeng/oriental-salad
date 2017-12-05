@@ -1,10 +1,10 @@
-import { CARD_LIST } from '../core/cards';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
 import { Card } from '../core/card';
+import { CARD_LIST } from '../core/cards';
 import { CoreService } from '../core/core.service';
 import { Filter } from '../core/filter';
 import { Judgment } from './judgment';
