@@ -103,6 +103,16 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/d4b6f004a79a9d1e3d351faad53a8213da941a11c5d683b37f36e2c6e03f408c.png',
   },
   {
+    code: 'Shifting_Scroll',
+    name: '변화하는 두루마리',
+    type: 'Spell',
+    class: 'Mage',
+    cost: 0,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/fd30bcec163107369b899898630182cf35913897cd91531b5cc83c339c89d3cc.png',
+  },
+  {
     code: 'Kathrena_Winterwisp',
     name: '카트레나 윈터위습',
     type: 'Minion',
@@ -113,6 +123,18 @@ export const CARD_LIST: Card[] = [
     rarity: 'Legendary',
     imgLink:
       'https://assets.webn.mobi/hearthstone/1e52c1a0b57efc0f7994b65c6f932ff95ea8680f0772ea0294850dd231eec439.png',
+  },
+  {
+    code: "Rhok'delar",
+    name: '라크델라',
+    type: 'Weapon',
+    class: 'Hunter',
+    cost: 7,
+    attack: 4,
+    durability: 2,
+    rarity: 'Legendary',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/3583d9a09c7e340419a160204b76162df343352f8a1f24ffb57627b40d88731c.png',
   },
   {
     code: 'Crushing_Walls',
@@ -165,6 +187,40 @@ export const CARD_LIST: Card[] = [
     rarity: 'Rare',
     imgLink:
       'https://assets.webn.mobi/hearthstone/c4d3588f9a4bc838695d2eb819b33b170ba219c3320ba3bae87fa6843c50698a.png',
+  },
+  {
+    code: 'Cave_Hydra',
+    name: '동굴 히드라',
+    type: 'Minion',
+    class: 'Hunter',
+    cost: 3,
+    attack: 2,
+    health: 4,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/3b8ab71492ee5ead7e3ce818c50bf139c49f5b7147f936c4a2d46562aa57071a.png',
+  },
+  {
+    code: 'Flanking_Strike',
+    name: '측방 강타',
+    type: 'Spell',
+    class: 'Hunter',
+    cost: 4,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/1685868c2764058e79d99814818295343e02d93395284cca79666466f808c6e3.png',
+  },
+  {
+    code: 'Candleshot',
+    name: '양초화살',
+    type: 'Weapon',
+    class: 'Hunter',
+    cost: 1,
+    attack: 1,
+    durability: 3,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/5c15b8fd10606d872f4c2041fe4b0d60a32ab63333f1fed4a868d742072fb589.png',
   },
   {
     code: 'Sonya_Shadowdancer',
@@ -242,9 +298,21 @@ export const CARD_LIST: Card[] = [
     cost: 4,
     attack: 3,
     health: 3,
-    rarity: 'Common',
+    rarity: 'Rare',
     imgLink:
       'https://assets.webn.mobi/hearthstone/811ad83d581ce78d6157beca84f6cbbbfb035c76be0dd3b39884fbba544a829a.png',
+  },
+  {
+    code: 'Cavern_Shinyfinder',
+    name: '동굴 금속탐지꾼',
+    type: 'Minion',
+    class: 'Rogue',
+    cost: 2,
+    attack: 3,
+    health: 1,
+    rarity: 'Commom',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/0e2be99aeccb132369f3fcddcf671c4bf2728048edf22d2f96d7665660ffbbed.png',
   },
   {
     code: 'Cheat_Death',
@@ -277,6 +345,18 @@ export const CARD_LIST: Card[] = [
     rarity: 'Legendary',
     imgLink:
       'https://assets.webn.mobi/hearthstone/aa074b7df8b18147a1087268e848eee127e0ca65da99ab5380755274ac1f569a.png',
+  },
+  {
+    code: 'Woecleaver',
+    name: '비통의 가로날도끼',
+    type: 'Weapon',
+    class: 'Warrior',
+    cost: 8,
+    attack: 3,
+    durability: 3,
+    rarity: 'Legendary',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/943e7a015837db0d5ddd28da1afd365c2f903e150186537fda68722e3e7a71d3.png',
   },
   {
     code: 'Reckless_Flurry',
@@ -321,6 +401,18 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/e894fe3952e6309c760a9abeb0022fca03558276ebcc33b15d1a7d3e4edcb409.png',
   },
   {
+    code: 'Kobold_Barbarian',
+    name: '코볼트 야만용사',
+    type: 'Minion',
+    class: 'Warrior',
+    cost: 3,
+    attack: 4,
+    health: 4,
+    rarity: 'Rare',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/f65d1ad6074fb7bb6c33057da26924ab1c09e9b720017289a8e55ea5193725a6.png',
+  },
+  {
     code: 'Drywhisker_Armorer',
     name: '마른수염 방어구 제작자',
     type: 'Minion',
@@ -328,9 +420,9 @@ export const CARD_LIST: Card[] = [
     cost: 2,
     attack: 2,
     health: 2,
-    rarity: 'Rare',
+    rarity: 'Common',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/79c23876f72c449e2420830afc684856663514cb5c11115c540cb816dd523dff.png',
+      'https://assets.webn.mobi/hearthstone/8afce034ae6ca631b6eddbf18cf68ce70d6b39837b78a121bd288048b85d98be.png',
   },
   {
     code: 'Unidentified_Shield',
@@ -341,6 +433,18 @@ export const CARD_LIST: Card[] = [
     rarity: 'Common',
     imgLink:
       'https://assets.webn.mobi/hearthstone/0be1dfbb00b5e8d64c3f1733cc2cb0d0f840fd7028da6e422d29df40e819e81f.png',
+  },
+  {
+    code: 'Gemstudded_Golem',
+    name: '보석 박힌 골렘',
+    type: 'Minion',
+    class: 'Warrior',
+    cost: 6,
+    attack: 5,
+    health: 9,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/baff9db4c4aa5b359948a770b985b7c9ceaaccf62b904b584f71d3129e3a2e09.png',
   },
   {
     code: 'Rin_the_First_Disciple',
@@ -401,6 +505,18 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/8b3acf2fe448bab06240a497db1168a7143cc7547de2caec57cf85352a428d1a.png',
   },
   {
+    code: 'Hooked_Reaver',
+    name: '갈고리 약탈자',
+    type: 'Minion',
+    class: 'Warlock',
+    cost: 4,
+    attack: 4,
+    health: 4,
+    rarity: 'Rare',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/13ef23cee1757d2d9d6d76d5071b265f3f38602e990774e386d0ba37b19b9de3.png',
+  },
+  {
     code: 'Lesser_Amethyst_Spellstone',
     name: '하급 자수정 주문석',
     type: 'Spell',
@@ -409,6 +525,16 @@ export const CARD_LIST: Card[] = [
     rarity: 'Rare',
     imgLink:
       'https://assets.webn.mobi/hearthstone/09d195e50ee729beabb6c6510e47c139ccf05b838e07961649e61e18653a7db6.png',
+  },
+  {
+    code: 'Dark_Pact',
+    name: '어둠의 서약',
+    type: 'Spell',
+    class: 'Warlock',
+    cost: 1,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/9e2a80315fcaa24235849cde69509c95aa3ee1e0ffbf99b491ac7bde56ed04f0.png',
   },
   {
     code: 'Vulgar_Homunculus',
@@ -513,6 +639,26 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/9b037d297d121dc15631d836a88778192d438505f3d980fad0a73cb33330c7dd.png',
   },
   {
+    code: 'Healing_Rain',
+    name: '치유의 비',
+    type: 'Spell',
+    class: 'Shaman',
+    cost: 3,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/8e213601c4ac30d012741a25bf9279bce4af2d808f87d31bbd3aa2be08314ef1.png',
+  },
+  {
+    code: 'Crushing_Hand',
+    name: '분쇄의 손',
+    type: 'Spell',
+    class: 'Shaman',
+    cost: 2,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/790f6a26b4c275797ae2e52f018f3df8385c60e48bc183f8b9baa2f144d71a22.png',
+  },
+  {
     code: 'Kobold_Hermit',
     name: '코볼트 은둔자',
     type: 'Minion',
@@ -559,12 +705,24 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/16c4a3c851f462433db695527cd0685e676d4dd74048c54c0067fdddedf20efd.png',
   },
   {
+    code: 'Twilight_Acolyte',
+    name: '황혼의 수행사제',
+    type: 'Minion',
+    class: 'Preist',
+    cost: 3,
+    attack: 2,
+    health: 4,
+    rarity: 'Epic',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/4e38a44fe994b5154c23ae1ba718eef658fef335eac7989267f77d906d96fdc9.png',
+  },
+  {
     code: 'Lesser_Diamond_Spellstone',
     name: '하급 다이아몬드 주문석',
     type: 'Spell',
     class: 'Preist',
     cost: 7,
-    rarity: 'Epic',
+    rarity: 'Rare',
     imgLink:
       'https://assets.webn.mobi/hearthstone/22e1383035ec9aa7c9b69fd242348b814dd45d6e70072d9396f379a86e570550.png',
   },
@@ -591,6 +749,18 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/790b34ea8afd85d5420b97e80bf81fd6cd331be50eeed25ce54b1e91053e8c1a.png',
   },
   {
+    code: 'Giled_Gargoyle',
+    name: '금박 가고일',
+    type: 'Minion',
+    class: 'Preist',
+    cost: 3,
+    attack: 2,
+    health: 2,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/596d7b8179d4d5c370460af535bbd65b58a9ab3439c4d11ec04318e1327e32d0.png',
+  },
+  {
     code: 'Unidentified_Elixir',
     name: '정체불명의 비약',
     type: 'Spell',
@@ -599,6 +769,16 @@ export const CARD_LIST: Card[] = [
     rarity: 'Common',
     imgLink:
       'https://assets.webn.mobi/hearthstone/d0a9a66c2d837669cceac65b429a08160b6f9786f206d4a302e450aafd87a680.png',
+  },
+  {
+    code: 'Psonic_Probe',
+    name: '정신 관찰',
+    type: 'Spell',
+    class: 'Preist',
+    cost: 1,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/a34cd835795654befca20685a64025ff73f9029a7031e6c3f4b5b8bb689cc04d.png',
   },
   {
     code: 'Lynessa_Sunsorrow',
@@ -640,7 +820,7 @@ export const CARD_LIST: Card[] = [
     type: 'Spell',
     class: 'Paladin',
     cost: 5,
-    rarity: 'Rare',
+    rarity: 'Epic',
     imgLink:
       'https://assets.webn.mobi/hearthstone/3e162da34c65c63b82e322a30c80d7ec72c0c6428e50fba892b502f1a6a0f095.png',
   },
@@ -677,6 +857,16 @@ export const CARD_LIST: Card[] = [
     rarity: 'Rare',
     imgLink:
       'https://assets.webn.mobi/hearthstone/c426da6e0ea7d295090e3d04d8d985736bb24ed0a8d0389b8a902640a27c60ba.png',
+  },
+  {
+    code: 'Potion_of_Heroism',
+    name: '무용의 물약',
+    type: 'Spell',
+    class: 'Paladin',
+    cost: 2,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/d13ee2667ea59519e7d3d01a1ec118d3be3f56b504fd5a8d5439fc79b89c866b.png',
   },
   {
     code: 'Benevolent_Djinn',
@@ -737,6 +927,18 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/23407571963f497b0f04db4fe3fd2ec4296483fea89d77267649f6021ed9aac4.png',
   },
   {
+    code: 'Astral_Tiger',
+    name: '천공의 호랑이',
+    type: 'Minion',
+    class: 'Druid',
+    cost: 4,
+    attack: 3,
+    health: 5,
+    rarity: 'Epic',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/0c17a848e622c3f2c35452cb09a40301ad447627fa1554424344c03db57f9f68.png',
+  },
+  {
     code: 'Grizzled_Guardian',
     name: '불곰 수호병',
     type: 'Minion',
@@ -793,6 +995,16 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/8a88ca40357b3a53c776b0364ef229e61ecc26cb27eaef48b1a14e615627704c.png',
   },
   {
+    code: 'Barkskin',
+    name: '나무 껍질',
+    type: 'Spell',
+    class: 'Druid',
+    cost: 1,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/41870420b481187b4f6df91c32af244550209015731043e3bad16d943cd70255.png',
+  },
+  {
     code: 'Marin_the_Fox',
     name: '교활한 마린',
     type: 'Minion',
@@ -805,6 +1017,18 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/bdb7389e2b8d23d786118d44766986ba790a77133be6b0a5ed168f552f5e3977.png',
   },
   {
+    code: 'Master_Oakheart',
+    name: '달인 오크하트',
+    type: 'Minion',
+    class: 'Neutral',
+    cost: 9,
+    attack: 5,
+    health: 5,
+    rarity: 'Legendary',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/5eea8a8aa34598caab2c1c849eac9a77c64bbc13c6501265f24c3deab5ebef6e.png',
+  },
+  {
     code: 'King_Togwaggle',
     name: '미궁왕 토그왜글',
     type: 'Minion',
@@ -815,6 +1039,18 @@ export const CARD_LIST: Card[] = [
     rarity: 'Legendary',
     imgLink:
       'https://assets.webn.mobi/hearthstone/318071a072fa876ae825d498264402daadedf4890223cbed793bb30e998999c8.png',
+  },
+  {
+    code: 'The_Darkness',
+    name: '어둠의 존재',
+    type: 'Minion',
+    class: 'Neutral',
+    cost: 4,
+    attack: 20,
+    health: 20,
+    rarity: 'Legendary',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/fb079caf40c133e676db8c68e87785627f509826bdcb16b0bdd47b28272b5f7d.png',
   },
   {
     code: 'Zola_the_Gorgon',
@@ -996,4 +1232,5 @@ export const CARD_LIST: Card[] = [
     imgLink:
       'https://assets.webn.mobi/hearthstone/cd6423aedbc2fb470afb52b868e293adc96c3f2cd574f386394c01c985240092.png',
   },
+  
 ];
