@@ -1,6 +1,7 @@
 import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AboutComponent } from './about/about.component';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { HomeComponent } from './home/home.component';
 import { JudgeCardConfirmComponent } from './judge-card/judge-card-confirm/judge-card-confirm.component';
@@ -16,6 +17,7 @@ import { ManualComponent } from './manual/manual.component';
 export const ROUTES: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
   { path: 'manual', component: ManualComponent, pathMatch: 'full' },
+  { path: 'about', component: AboutComponent, pathMatch: 'full' },
   {
     path: 'judge/confirm',
     component: JudgeCardConfirmComponent,

@@ -16,9 +16,10 @@ import { HomeModule } from './home/home.module';
 import { CanActivateDetail } from './judge-view/can-activate-detail.service';
 import { JudgeViewModule } from './judge-view/judge-view.module';
 import { ManualModule } from './manual/manual.module';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AboutComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
