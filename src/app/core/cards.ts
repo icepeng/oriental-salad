@@ -154,7 +154,7 @@ export const CARD_TEMPLATE: Card[] = [
     cost: 6,
     rarity: 'Epic',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/8cd9a37c82a1beb7b1af8c49b7d9f671aca4a7942095b238ab4198b4b26126d1.png',
+      'https://assets.webn.mobi/hearthstone/8092233a7c36e54fe38fd035930189029c885effdeac492e1a52ce1fdf85f54f.png',
   },
   {
     code: 'Lesser_Emerald_Spellstone',
@@ -553,7 +553,7 @@ export const CARD_TEMPLATE: Card[] = [
     name: '코볼트 사서',
     type: 'Minion',
     class: 'Warlock',
-    cost: 2,
+    cost: 1,
     attack: 2,
     health: 1,
     rarity: 'Common',
