@@ -1269,6 +1269,18 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/d97faf1a39f68c008c6db8ea03241f728c59cad28a9952e9179d8dab1fc3bd56.png',
   },
   {
+    code: 'Scorp_o_matic',
+    name: '전갈로봇',
+    type: 'Minion',
+    class: 'Neutral',
+    cost: 2,
+    attack: 1,
+    health: 2,
+    rarity: 'Rare',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/44e948ed6961480f6d1e7073768aa89a16d564a2f256faff8b488cfaf6020190.png',
+  },
+  {
     code: 'Wax_elemental',
     name: '밀랍 정령',
     type: 'Minion',
@@ -1279,6 +1291,18 @@ export const CARD_LIST: Card[] = [
     rarity: 'Common',
     imgLink:
       'https://assets.webn.mobi/hearthstone/bf87e91e34499e047762bbb9f8a51b19af50baf80cf56a4e7177a79afa43c637.png',
+  },
+  {
+    code: 'Plated_Beetle',
+    name: '밀랍 정령',
+    type: 'Minion',
+    class: 'Neutral',
+    cost: 2,
+    attack: 2,
+    health: 3,
+    rarity: 'Common',
+    imgLink:
+      'https://assets.webn.mobi/hearthstone/3e3f01e9cacfe169ba3fedee6c5d8ee8de8263a2e6267271ec5ef9bbf382b0b1.png',
   },
   {
     code: 'Violet_Wurm',
