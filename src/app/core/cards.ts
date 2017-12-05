@@ -1294,7 +1294,7 @@ export const CARD_LIST: Card[] = [
   },
   {
     code: 'Plated_Beetle',
-    name: '밀랍 정령',
+    name: '단단한 딱정벌레',
     type: 'Minion',
     class: 'Neutral',
     cost: 2,
@@ -1365,7 +1365,7 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/8df6c48dbbb9aa36e630e4af8c08f9cb70f5e6847b67823e95de62738b2ab1bc.png',
   },
   {
-    code: 'Shroom Brewer',
+    code: 'Shroom_Brewer',
     name: '버섯 물약꾼',
     type: 'Minion',
     class: 'Neutral',
@@ -1413,7 +1413,7 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/86162c9d1ea6fdb1765aa0358383240d849a0cd8213426d2aeaf37eeb44b54e5.png',
   },
   {
-    code: 'Fungal_Enchanter',
+    code: 'Fungalmancer',
     name: '곰팡이술사',
     type: 'Minion',
     class: 'Neutral',
