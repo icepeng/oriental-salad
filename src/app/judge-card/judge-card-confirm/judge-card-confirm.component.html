@@ -6,7 +6,8 @@
   </div>
 </clr-alert>
 <h1 *ngIf="list.length > 0">다음 {{ list.length }}개의 카드 평가가 등록됩니다</h1>
-<h1 *ngIf="list.length === 0">최소 1개의 카드를 평가해야 저장 가능합니다</h1>
+<h1 *ngIf="list.length === 0">최소 1개의 카드를 판결해야 저장 가능합니다</h1>
+<h4>판결된 카드가 3개 이하이며 설명이 없는 무성의한 판결은 예고 없이 삭제될 수 있습니다</h4>
 <clr-datagrid class="card-list">
   <clr-dg-column>이름</clr-dg-column>
   <clr-dg-column>직업</clr-dg-column>
