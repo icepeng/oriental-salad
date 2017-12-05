@@ -198,7 +198,7 @@ export const CARD_LIST: Card[] = [
     health: 4,
     rarity: 'Common',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/3b8ab71492ee5ead7e3ce818c50bf139c49f5b7147f936c4a2d46562aa57071a.png',
+      'https://assets.webn.mobi/hearthstone/54bf0cdabb8baf13263c060a95beed45f2afdf63450b8ed223982d2b1c349390.png',
   },
   {
     code: 'Flanking_Strike',
