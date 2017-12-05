@@ -23,13 +23,17 @@ export class JudgeCardService {
 
   constructor(private coreService: CoreService, private http: HttpClient) {
     this.dataStore = {
-      cardList: CARD_LIST,
+      cardList: [...CARD_LIST],
       filter: {
         class: 'ALL',
         cost: 'ALL',
         rarity: 'ALL',
       },
     };
+    const existingJudge = localStorage.getItem('judge');
+    if (existingJudge) {
+      this.dataStore.cardList = JSON.parse(existingJudge);
+    }
 
     this._cardList = new BehaviorSubject([...this.dataStore.cardList]);
     this._filter = new BehaviorSubject({ ...this.dataStore.filter });
@@ -66,14 +70,20 @@ export class JudgeCardService {
   }
 
   saveJudge(judge: Judge, code: string) {
-    const cardToJudge = this.dataStore.cardList.find(
-      card => card.code === code,
+    this.dataStore.cardList = this.dataStore.cardList.map(
+      card =>
+        card.code === code
+          ? {
+              ...card,
+              judge,
+            }
+          : card,
     );
-    cardToJudge.judge = judge;
+    localStorage.setItem('judge', JSON.stringify(this.dataStore.cardList));
     this._cardList.next([...this.dataStore.cardList]);
   }
 
-  submit(cardList: Card[], name: string) {
+  async submit(cardList: Card[], name: string) {
     const upload = {
       name,
       judges: cardList.map(card => ({
@@ -81,9 +91,23 @@ export class JudgeCardService {
         cardCode: card.code,
       })),
     };
-    return this.http
+    const result = await this.http
       .post<{ id: string }>(`${this.coreService.API_ADDRESS}/upload`, upload)
       .map(res => res.id)
       .toPromise();
+
+    this.dataStore = {
+      cardList: [...CARD_LIST],
+      filter: {
+        class: 'ALL',
+        cost: 'ALL',
+        rarity: 'ALL',
+      },
+    };
+    this._cardList.next([...this.dataStore.cardList]);
+    this._filter.next({ ...this.dataStore.filter });
+    localStorage.removeItem('judge');
+
+    return result;
   }
 }

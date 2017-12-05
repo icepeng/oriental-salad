@@ -1,7 +1,7 @@
 // tslint:disable:max-line-length
 import { Card } from '../core/card';
 
-export const CARD_LIST: Card[] = [
+export const CARD_TEMPLATE: Card[] = [
   {
     code: 'Drgoncaller_Alanna',
     name: '용소환사 알라나',
@@ -1545,3 +1545,5 @@ export const CARD_LIST: Card[] = [
       'https://assets.webn.mobi/hearthstone/cd6423aedbc2fb470afb52b868e293adc96c3f2cd574f386394c01c985240092.png',
   },
 ];
+
+export const CARD_LIST = Object.freeze(CARD_TEMPLATE);
