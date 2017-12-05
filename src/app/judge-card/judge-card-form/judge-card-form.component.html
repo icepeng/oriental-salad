@@ -82,8 +82,8 @@
         <label for="description">추가 설명</label>
         <textarea formControlName="description" id="description" rows="5"></textarea>
       </div>
-      <button [attr.disabled]="formGroup.invalid ? true : null" (click)="submit(formGroup.value, card.code)" class="btn btn-primary">선고</button>
-      <button [routerLink]="['/', 'judge']" class="btn btn-outline">목록 보기</button>
+      <div [attr.disabled]="formGroup.invalid ? true : null" (click)="submit(formGroup.value, card.code)" class="btn btn-primary">선고</div>
+      <div [routerLink]="['/', 'judge']" class="btn btn-outline">목록 보기</div>
     </section>
   </form>
 </section>
