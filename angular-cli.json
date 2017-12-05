@@ -19,6 +19,7 @@
             "mobile": false,
             "styles": [
                 "../node_modules/clarity-icons/clarity-icons.min.css",
+                "../node_modules/font-awesome/css/font-awesome.min.css",
                 "styles.scss"
             ],
             "scripts": [

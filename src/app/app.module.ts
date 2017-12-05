@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -5,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JudgeCardModule } from 'app/judge-card/judge-card.module';
 import { ClarityModule } from 'clarity-angular';
+import { ShareButtonsModule } from 'ngx-sharebuttons';
 
 import { AppComponent } from './app.component';
 import { ROUTING } from './app.routing';
@@ -22,6 +24,8 @@ import { ManualModule } from './manual/manual.module';
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
+    ShareButtonsModule.forRoot(),
     ClarityModule,
     ROUTING,
     CoreModule,
