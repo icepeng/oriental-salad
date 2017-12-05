@@ -239,7 +239,7 @@ export const CARD_LIST: Card[] = [
     name: '왕의 파멸',
     type: 'Weapon',
     class: 'Rogue',
-    cost: 3,
+    cost: 1,
     attack: 1,
     durability: 3,
     rarity: 'Legendary',
