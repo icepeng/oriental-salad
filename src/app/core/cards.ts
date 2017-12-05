@@ -300,7 +300,7 @@ export const CARD_LIST: Card[] = [
     health: 3,
     rarity: 'Rare',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/811ad83d581ce78d6157beca84f6cbbbfb035c76be0dd3b39884fbba544a829a.png',
+      'https://assets.webn.mobi/hearthstone/98d4ff56924db90e6da46150440d8a28d878ab44e2996b35e9a50bd3ae4041a6.png',
   },
   {
     code: 'Cavern_Shinyfinder',
@@ -310,7 +310,7 @@ export const CARD_LIST: Card[] = [
     cost: 2,
     attack: 3,
     health: 1,
-    rarity: 'Commom',
+    rarity: 'Common',
     imgLink:
       'https://assets.webn.mobi/hearthstone/0e2be99aeccb132369f3fcddcf671c4bf2728048edf22d2f96d7665660ffbbed.png',
   },
@@ -724,7 +724,7 @@ export const CARD_LIST: Card[] = [
     cost: 7,
     rarity: 'Rare',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/22e1383035ec9aa7c9b69fd242348b814dd45d6e70072d9396f379a86e570550.png',
+      'https://assets.webn.mobi/hearthstone/aef41e709b52dfafb1a4f4c9ffa174c053badb91493f4918405964f6a9672439.png',
   },
   {
     code: "Twilight's_Call",
@@ -822,7 +822,7 @@ export const CARD_LIST: Card[] = [
     cost: 5,
     rarity: 'Epic',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/3e162da34c65c63b82e322a30c80d7ec72c0c6428e50fba892b502f1a6a0f095.png',
+      'https://assets.webn.mobi/hearthstone/fc6497823e8f510c4a22d3a2bb147f83b7d3ceba4865f1c955b8a698fdb6586a.png',
   },
   {
     code: 'Crystal_Lion',
@@ -1520,5 +1520,4 @@ export const CARD_LIST: Card[] = [
     imgLink:
       'https://assets.webn.mobi/hearthstone/cd6423aedbc2fb470afb52b868e293adc96c3f2cd574f386394c01c985240092.png',
   },
-  
 ];
