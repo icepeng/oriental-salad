@@ -1182,7 +1182,7 @@ export const CARD_LIST: Card[] = [
     health: 2,
     rarity: 'Rare',
     imgLink:
-      'https://assets.webn.mobi/hearthstone/6d111bcaea5e8a6768b4731546d55f08ad4dded777da1080ebf3dce1d3e4f6ba.png',
+      'https://assets.webn.mobi/hearthstone/32a38b137494caf45bfa69d51ae7aa4912d397206a5192c9dc92418b64bb2e38.png',
   },
   {
     code: 'Kobold_Monk',
