@@ -77,3 +77,6 @@
     </div>
   </div>
 </div>
+<div *ngIf="viewLimit < (total | async)" class="more-cards">
+  <button (click)="moreCards()" class="btn btn-block">더 보기</button>
+</div>

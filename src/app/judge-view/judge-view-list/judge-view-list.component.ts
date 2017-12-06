@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,10 +16,12 @@ import { JudgeViewService } from '../judge-view.service';
 export class JudgeViewListComponent implements OnInit, OnDestroy {
   name: Observable<string>;
   list: Observable<Card[]>;
+  viewLimit = 20;
+  _viewLimit: BehaviorSubject<number> = new BehaviorSubject(20);
+  total: Observable<number>;
   classFilter: Observable<(Classes | 'Neutral')[]>;
   costFilter: Observable<number[]>;
   rarityFilter: Observable<Rarity[]>;
-  bestValue: Observable<Card>;
   unsubscribe: Subject<void> = new Subject<void>();
   formGroup: FormGroup;
 
@@ -40,7 +43,16 @@ export class JudgeViewListComponent implements OnInit, OnDestroy {
       await this.judgeViewService.getJudge(params['id']);
     });
     this.name = this.judgeViewService.name;
-    this.list = this.judgeViewService.cardListFiltered;
+    this.list = Observable.combineLatest(
+      this.judgeViewService.cardListFiltered,
+      this._viewLimit,
+    ).map(([cardList, viewLimit]) => [
+      ...cardList.slice(0, Math.min(viewLimit, cardList.length)),
+    ]);
+    this.total = this.judgeViewService.cardListFiltered.map(
+      list => list.length,
+    );
+
     const totalList = this.judgeViewService.cardList;
     this.classFilter = totalList.map(list =>
       list
@@ -66,16 +78,24 @@ export class JudgeViewListComponent implements OnInit, OnDestroy {
           list.find(x => x.rarity === rarity),
         ),
     );
+
     this.judgeViewService.filter
       .subscribe(filter => this.formGroup.reset(filter))
       .unsubscribe();
-    this.formGroup.valueChanges
-      .takeUntil(this.unsubscribe)
-      .subscribe(value => this.judgeViewService.setFilter(value));
+    this.formGroup.valueChanges.takeUntil(this.unsubscribe).subscribe(value => {
+      this.viewLimit = 20;
+      this._viewLimit.next(this.viewLimit);
+      this.judgeViewService.setFilter(value);
+    });
   }
 
   onClick(item: Card) {
     this.router.navigate(['./', item.code], { relativeTo: this.route });
+  }
+
+  moreCards() {
+    this.viewLimit += 20;
+    this._viewLimit.next(this.viewLimit);
   }
 
   ngOnDestroy() {
