@@ -51,6 +51,7 @@ export const ROUTES: Routes = [
         path: 'summary',
         component: JudgeViewSummaryComponent,
       },
+      { path: '', pathMatch: 'full', redirectTo: 'summary' },
     ],
   },
   {
