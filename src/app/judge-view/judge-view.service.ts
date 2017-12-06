@@ -71,10 +71,18 @@ export class JudgeViewService {
 
   sortCard = (filter: ViewFilter) => (a: Card, b: Card) => {
     const sign = filter.sortOrder === 'ASC' ? 1 : -1;
-    if (a.judge[filter.sortColumn] < b.judge[filter.sortColumn]) {
+    const primary = filter.sortColumn;
+    const secondary = filter.sortColumn === 'value' ? 'potential' : 'value';
+    if (a.judge[primary] < b.judge[primary]) {
       return -1 * sign;
     }
-    if (a.judge[filter.sortColumn] > b.judge[filter.sortColumn]) {
+    if (a.judge[primary] > b.judge[primary]) {
+      return 1 * sign;
+    }
+    if (a.judge[secondary] < b.judge[secondary]) {
+      return -1 * sign;
+    }
+    if (a.judge[secondary] > b.judge[secondary]) {
       return 1 * sign;
     }
     return 0;
