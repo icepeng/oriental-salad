@@ -1,3 +1,9 @@
+<h1>
+  {{name | async}}의 판결 요약
+  <span [routerLink]="['../', 'cards']" class="label label-light-blue clickable">
+    자세히 보기
+  </span>
+</h1>
 <div class="row">
   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
     <div class="card">
@@ -112,6 +118,276 @@
             <span class="graph-label">{{ (potentialStat | async)[80] }}%</span>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">직업별 평균 범용성</h3>
+        <div class="card-text">
+          <div class="progress-block">
+            <label>드루</label>
+            <div class="progress-static success">
+              <div class="progress-meter druid" [attr.data-value]="(classValueStat | async).Druid" [attr.data-displayval]="(classValueStat | async).Druid + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classValueStat | async).Druid }}</span>
+          </div>
+          <div class="progress-block">
+            <label>냥꾼</label>
+            <div class="progress-static success">
+              <div class="progress-meter hunter" [attr.data-value]="(classValueStat | async).Hunter" [attr.data-displayval]="(classValueStat | async).Hunter + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classValueStat | async).Hunter }}</span>
+          </div>
+          <div class="progress-block">
+            <label>법사</label>
+            <div class="progress-static success">
+              <div class="progress-meter mage" [attr.data-value]="(classValueStat | async).Mage" [attr.data-displayval]="(classValueStat | async).Mage + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classValueStat | async).Mage }}</span>
+          </div>
+          <div class="progress-block">
+            <label>기사</label>
+            <div class="progress-static success">
+              <div class="progress-meter paladin" [attr.data-value]="(classValueStat | async).Paladin" [attr.data-displayval]="(classValueStat | async).Paladin + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classValueStat | async).Paladin }}</span>
+          </div>
+          <div class="progress-block">
+            <label>사제</label>
+            <div class="progress-static success">
+              <div class="progress-meter preist" [attr.data-value]="(classValueStat | async).Preist" [attr.data-displayval]="(classValueStat | async).Preist + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classValueStat | async).Preist }}</span>
+          </div>
+          <div class="progress-block">
+            <label>도적</label>
+            <div class="progress-static success">
+              <div class="progress-meter rogue" [attr.data-value]="(classValueStat | async).Rogue" [attr.data-displayval]="(classValueStat | async).Rogue + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classValueStat | async).Rogue }}</span>
+          </div>
+          <div class="progress-block">
+            <label>술사</label>
+            <div class="progress-static success">
+              <div class="progress-meter shaman" [attr.data-value]="(classValueStat | async).Shaman" [attr.data-displayval]="(classValueStat | async).Shaman + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classValueStat | async).Shaman }}</span>
+          </div>
+          <div class="progress-block">
+            <label>흑마</label>
+            <div class="progress-static success">
+              <div class="progress-meter warlock" [attr.data-value]="(classValueStat | async).Warlock" [attr.data-displayval]="(classValueStat | async).Warlock + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classValueStat | async).Warlock }}</span>
+          </div>
+          <div class="progress-block">
+            <label>전사</label>
+            <div class="progress-static success">
+              <div class="progress-meter warrior" [attr.data-value]="(classValueStat | async).Warrior" [attr.data-displayval]="(classValueStat | async).Warrior + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classValueStat | async).Warrior }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">직업별 평균 포텐셜</h3>
+        <div class="card-text">
+          <div class="progress-block">
+            <label>드루</label>
+            <div class="progress-static success">
+              <div class="progress-meter druid" [attr.data-value]="(classPotentialStat | async).Druid" [attr.data-displayval]="(classPotentialStat | async).Druid + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classPotentialStat | async).Druid }}</span>
+          </div>
+          <div class="progress-block">
+            <label>냥꾼</label>
+            <div class="progress-static success">
+              <div class="progress-meter hunter" [attr.data-value]="(classPotentialStat | async).Hunter" [attr.data-displayval]="(classPotentialStat | async).Hunter + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classPotentialStat | async).Hunter }}</span>
+          </div>
+          <div class="progress-block">
+            <label>법사</label>
+            <div class="progress-static success">
+              <div class="progress-meter mage" [attr.data-value]="(classPotentialStat | async).Mage" [attr.data-displayval]="(classPotentialStat | async).Mage + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classPotentialStat | async).Mage }}</span>
+          </div>
+          <div class="progress-block">
+            <label>기사</label>
+            <div class="progress-static success">
+              <div class="progress-meter paladin" [attr.data-value]="(classPotentialStat | async).Paladin" [attr.data-displayval]="(classPotentialStat | async).Paladin + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classPotentialStat | async).Paladin }}</span>
+          </div>
+          <div class="progress-block">
+            <label>사제</label>
+            <div class="progress-static success">
+              <div class="progress-meter preist" [attr.data-value]="(classPotentialStat | async).Preist" [attr.data-displayval]="(classPotentialStat | async).Preist + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classPotentialStat | async).Preist }}</span>
+          </div>
+          <div class="progress-block">
+            <label>도적</label>
+            <div class="progress-static success">
+              <div class="progress-meter rogue" [attr.data-value]="(classPotentialStat | async).Rogue" [attr.data-displayval]="(classPotentialStat | async).Rogue + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classPotentialStat | async).Rogue }}</span>
+          </div>
+          <div class="progress-block">
+            <label>술사</label>
+            <div class="progress-static success">
+              <div class="progress-meter shaman" [attr.data-value]="(classPotentialStat | async).Shaman" [attr.data-displayval]="(classPotentialStat | async).Shaman + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classPotentialStat | async).Shaman }}</span>
+          </div>
+          <div class="progress-block">
+            <label>흑마</label>
+            <div class="progress-static success">
+              <div class="progress-meter warlock" [attr.data-value]="(classPotentialStat | async).Warlock" [attr.data-displayval]="(classPotentialStat | async).Warlock + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classPotentialStat | async).Warlock }}</span>
+          </div>
+          <div class="progress-block">
+            <label>전사</label>
+            <div class="progress-static success">
+              <div class="progress-meter warrior" [attr.data-value]="(classPotentialStat | async).Warrior" [attr.data-displayval]="(classPotentialStat | async).Warrior + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classPotentialStat | async).Warrior }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!!(bestCards | async)[0]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        이번 확장팩의 판도카드 1
+      </div>
+      <div class="card-block">
+        <img [src]="(bestCards | async)[0].imgLink" class="best-card-img">
+        <span class="label label-light-blue">
+          범용성
+          <span class="badge">{{(bestCards | async)[0].judge.value}}</span>
+        </span>
+        <span class="label label-orange">
+          포텐셜
+          <span class="badge">{{(bestCards | async)[0].judge.potential}}</span>
+        </span>
+      </div>
+      <div class="card-footer">
+        {{(bestCards | async)[0].judge.description}}
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!!(bestCards | async)[1]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        이번 확장팩의 판도카드 2
+      </div>
+      <div class="card-block">
+        <img [src]="(bestCards | async)[1].imgLink" class="best-card-img">
+        <span class="label label-light-blue">
+          범용성
+          <span class="badge">{{(bestCards | async)[1].judge.value}}</span>
+        </span>
+        <span class="label label-orange">
+          포텐셜
+          <span class="badge">{{(bestCards | async)[1].judge.potential}}</span>
+        </span>
+      </div>
+      <div class="card-footer">
+        {{(bestCards | async)[1].judge.description}}
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!!(bestCards | async)[2]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        이번 확장팩의 판도카드 3
+      </div>
+      <div class="card-block">
+        <img [src]="(bestCards | async)[2].imgLink" class="best-card-img">
+        <span class="label label-light-blue">
+          범용성
+          <span class="badge">{{(bestCards | async)[2].judge.value}}</span>
+        </span>
+        <span class="label label-orange">
+          포텐셜
+          <span class="badge">{{(bestCards | async)[2].judge.potential}}</span>
+        </span>
+      </div>
+      <div class="card-footer">
+        {{(bestCards | async)[2].judge.description}}
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!!(worstLegendaries | async)[0]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        이번 확장팩의 함정 전설1
+      </div>
+      <div class="card-block">
+        <img [src]="(worstLegendaries | async)[0].imgLink" class="best-card-img">
+        <span class="label label-light-blue">
+          범용성
+          <span class="badge">{{(worstLegendaries | async)[0].judge.value}}</span>
+        </span>
+        <span class="label label-orange">
+          포텐셜
+          <span class="badge">{{(worstLegendaries | async)[0].judge.potential}}</span>
+        </span>
+      </div>
+      <div class="card-footer">
+        {{(worstLegendaries | async)[0].judge.description}}
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!!(worstLegendaries | async)[1]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        이번 확장팩의 함정 전설 2
+      </div>
+      <div class="card-block">
+        <img [src]="(worstLegendaries | async)[1].imgLink" class="best-card-img">
+        <span class="label label-light-blue">
+          범용성
+          <span class="badge">{{(worstLegendaries | async)[1].judge.value}}</span>
+        </span>
+        <span class="label label-orange">
+          포텐셜
+          <span class="badge">{{(worstLegendaries | async)[1].judge.potential}}</span>
+        </span>
+      </div>
+      <div class="card-footer">
+        {{(worstLegendaries | async)[1].judge.description}}
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!!(worstLegendaries | async)[2]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        이번 확장팩의 함정 전설 3
+      </div>
+      <div class="card-block">
+        <img [src]="(worstLegendaries | async)[2].imgLink" class="best-card-img">
+        <span class="label label-light-blue">
+          범용성
+          <span class="badge">{{(worstLegendaries | async)[2].judge.value}}</span>
+        </span>
+        <span class="label label-orange">
+          포텐셜
+          <span class="badge">{{(worstLegendaries | async)[2].judge.potential}}</span>
+        </span>
+      </div>
+      <div class="card-footer">
+        {{(worstLegendaries | async)[2].judge.description}}
       </div>
     </div>
   </div>

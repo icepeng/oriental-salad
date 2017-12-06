@@ -1,3 +1,9 @@
+<h1>
+  {{name | async}}의 판결 내역
+  <span [routerLink]="['../', 'summary']" class="label label-light-blue clickable">
+    요약 보기
+  </span>
+</h1>
 <form [formGroup]="formGroup">
   <section class="form-block">
     <div class="row form-group">

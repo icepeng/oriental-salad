@@ -4,16 +4,14 @@ import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { JudgeViewService } from './judge-view.service';
 
 @Injectable()
-export class CanActivateDetail implements CanActivate {
+export class CanActivateView implements CanActivate {
   constructor(
     private judgeViewService: JudgeViewService,
     private router: Router,
   ) {}
 
-  canActivate(route: ActivatedRouteSnapshot) {
-    if (this.judgeViewService.dataStore.cardList.length > 0) {
-      return true;
-    }
-    this.router.navigate(['/', 'view', route.params['id']]);
+  async canActivate(route: ActivatedRouteSnapshot) {
+    await this.judgeViewService.getJudge(route.params['id']);
+    return true;
   }
 }

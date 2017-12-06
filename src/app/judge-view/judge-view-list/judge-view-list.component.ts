@@ -14,6 +14,7 @@ import { JudgeViewService } from '../judge-view.service';
   styleUrls: ['./judge-view-list.component.scss'],
 })
 export class JudgeViewListComponent implements OnInit, OnDestroy {
+  name: Observable<string>;
   list: Observable<Card[]>;
   viewLimit = 20;
   _viewLimit: BehaviorSubject<number> = new BehaviorSubject(20);
@@ -39,6 +40,7 @@ export class JudgeViewListComponent implements OnInit, OnDestroy {
       sortOrder: new FormControl(),
     });
 
+    this.name = this.judgeViewService.name;
     this.list = Observable.combineLatest(
       this.judgeViewService.cardListFiltered,
       this._viewLimit,

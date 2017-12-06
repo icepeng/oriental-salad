@@ -1,8 +1,47 @@
 .graph-label {
-    padding-left: 2px;
-    width: 1rem;
+  padding-left: 2px;
+  width: 1rem;
 }
 
 .progress-block {
-    margin-bottom: 0;
+  margin-bottom: 0;
+}
+.progress-static.success {
+  .progress-meter {
+    &.druid::before {
+      background-color: #ff7d0a;
+    }
+    &.hunter::before {
+      background-color: #abd473;
+    }
+    &.mage::before {
+      background-color: #69ccf0;
+    }
+    &.paladin::before {
+      background-color: #f58cba;
+    }
+    &.preist::before {
+      background-color: #aaaaaa;
+    }
+    &.rogue::before {
+      background-color: #fff569;
+    }
+    &.shaman::before {
+      background-color: #0070de;
+    }
+    &.warlock::before {
+      background-color: #9482c9;
+    }
+    &.warrior::before {
+      background-color: #c79c6e;
+    }
+  }
+}
+
+img {
+  display: block;
+  width: auto;
+  height: 320px;
+  margin-left: auto;
+  margin-right: auto;
 }

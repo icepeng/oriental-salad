@@ -30,6 +30,6 @@ export class JudgeViewFindComponent implements OnInit {
   }
 
   onClick(item: SearchResult) {
-    return this.router.navigate(['/', 'view', item.id]);
+    return this.router.navigate(['/', 'view', item.id, 'summary']);
   }
 }

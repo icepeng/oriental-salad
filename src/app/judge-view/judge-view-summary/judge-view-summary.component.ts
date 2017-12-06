@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
+import { Classes, Card } from '../../card';
 import { JudgeViewService } from '../judge-view.service';
 
 @Component({
@@ -9,12 +10,18 @@ import { JudgeViewService } from '../judge-view.service';
   styleUrls: ['./judge-view-summary.component.scss'],
 })
 export class JudgeViewSummaryComponent implements OnInit {
+  name: Observable<string>;
   valueStat: Observable<{ [key: number]: number; average: number }>;
   potentialStat: Observable<{ [key: number]: number; average: number }>;
+  classValueStat: Observable<{ [key in Classes]: number }>;
+  classPotentialStat: Observable<{ [key in Classes]: number }>;
+  bestCards: Observable<Card[]>;
+  worstLegendaries: Observable<Card[]>;
 
   constructor(private judgeViewService: JudgeViewService) {}
 
   ngOnInit() {
+    this.name = this.judgeViewService.name;
     this.valueStat = this.judgeViewService.cardList.map(cardList => {
       const stat = cardList.map(card => card.judge).reduce(
         (obj, judge) => {
@@ -76,6 +83,80 @@ export class JudgeViewSummaryComponent implements OnInit {
         80: Math.round(stat[80]),
         average: Math.round(stat.average),
       };
+    });
+    this.classValueStat = this.judgeViewService.cardList.map(cardList => {
+      const statSum = cardList.reduce(
+        (obj, card) => {
+          return {
+            ...obj,
+            [card.class]: (obj[card.class] || 0) + card.judge.value,
+          };
+        },
+        {} as { [key in Classes]: number },
+      );
+      const statLength = cardList.reduce(
+        (obj, card) => {
+          return {
+            ...obj,
+            [card.class]: (obj[card.class] || 0) + 1,
+          };
+        },
+        {} as { [key in Classes]: number },
+      );
+      return Object.keys(statSum).reduce(
+        (obj, key) => ({
+          ...obj,
+          [key]: Math.round(statSum[key] / statLength[key]),
+        }),
+        {} as { [key in Classes]: number },
+      );
+    });
+    this.classPotentialStat = this.judgeViewService.cardList.map(cardList => {
+      const statSum = cardList.reduce(
+        (obj, card) => {
+          return {
+            ...obj,
+            [card.class]: (obj[card.class] || 0) + card.judge.potential,
+          };
+        },
+        {} as { [key in Classes]: number },
+      );
+      const statLength = cardList.reduce(
+        (obj, card) => {
+          return {
+            ...obj,
+            [card.class]: (obj[card.class] || 0) + 1,
+          };
+        },
+        {} as { [key in Classes]: number },
+      );
+      return Object.keys(statSum).reduce(
+        (obj, key) => ({
+          ...obj,
+          [key]: Math.round(statSum[key] / statLength[key]),
+        }),
+        {} as { [key in Classes]: number },
+      );
+    });
+    this.bestCards = this.judgeViewService.cardList.map(cardList => {
+      const sortedList = cardList.sort(
+        (a, b) =>
+          b.judge.value +
+          b.judge.potential -
+          (a.judge.value + a.judge.potential),
+      );
+      return [sortedList[0], sortedList[1], sortedList[2]];
+    });
+    this.worstLegendaries = this.judgeViewService.cardList.map(cardList => {
+      const sortedList = cardList
+        .filter(card => card.rarity === 'Legendary')
+        .sort(
+          (a, b) =>
+            a.judge.value +
+            a.judge.potential -
+            (b.judge.value + b.judge.potential),
+        );
+      return [sortedList[0], sortedList[1], sortedList[2]];
     });
   }
 }

@@ -15,7 +15,7 @@ import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { APP_CONFIG, appConfig } from './config';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
-import { CanActivateDetail } from './judge-view/can-activate-detail.service';
+import { CanActivateView } from './judge-view/can-activate-view.service';
 import { JudgeViewModule } from './judge-view/judge-view.module';
 import { ManualModule } from './manual/manual.module';
 
@@ -38,7 +38,7 @@ import { ManualModule } from './manual/manual.module';
   ],
   providers: [
     CanDeactivateGuard,
-    CanActivateDetail,
+    CanActivateView,
     { provide: APP_CONFIG, useValue: appConfig },
   ],
   bootstrap: [AppComponent],
