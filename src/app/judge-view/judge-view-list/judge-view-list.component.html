@@ -61,7 +61,7 @@
   </section>
 </form>
 <div class="row">
-  <div *ngFor="let item of list | async" class="col-lg-3 col-md-3 col-sm-1 col-xs-1">
+  <div *ngFor="let item of list | async" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
     <div (click)="onClick(item)" class="card-img">
       <img [src]="item.imgLink">
     </div>
