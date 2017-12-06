@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
-import { Classes, Card } from '../../card';
+import { Card, Classes } from '../../card';
 import { JudgeViewService } from '../judge-view.service';
 
 @Component({
@@ -9,14 +10,15 @@ import { JudgeViewService } from '../judge-view.service';
   templateUrl: './judge-view-summary.component.html',
   styleUrls: ['./judge-view-summary.component.scss'],
 })
-export class JudgeViewSummaryComponent implements OnInit {
+export class JudgeViewSummaryComponent implements OnInit, OnDestroy {
   name: Observable<string>;
   valueStat: Observable<{ [key: number]: number; average: number }>;
   potentialStat: Observable<{ [key: number]: number; average: number }>;
   classValueStat: Observable<{ [key in Classes]: number }>;
   classPotentialStat: Observable<{ [key in Classes]: number }>;
-  bestCards: Observable<Card[]>;
-  worstLegendaries: Observable<Card[]>;
+  bestCards: Card[];
+  worstLegendaries: Card[];
+  unsubscribe: Subject<void> = new Subject<void>();
 
   constructor(private judgeViewService: JudgeViewService) {}
 
@@ -138,25 +140,34 @@ export class JudgeViewSummaryComponent implements OnInit {
         {} as { [key in Classes]: number },
       );
     });
-    this.bestCards = this.judgeViewService.cardList.map(cardList => {
-      const sortedList = cardList.sort(
-        (a, b) =>
-          b.judge.value +
-          b.judge.potential -
-          (a.judge.value + a.judge.potential),
-      );
-      return [sortedList[0], sortedList[1], sortedList[2]];
-    });
-    this.worstLegendaries = this.judgeViewService.cardList.map(cardList => {
-      const sortedList = cardList
-        .filter(card => card.rarity === 'Legendary')
-        .sort(
+    this.judgeViewService.cardList
+      .takeUntil(this.unsubscribe)
+      .subscribe(cardList => {
+        const sortedList = cardList.sort(
           (a, b) =>
-            a.judge.value +
-            a.judge.potential -
-            (b.judge.value + b.judge.potential),
+            b.judge.value +
+            b.judge.potential -
+            (a.judge.value + a.judge.potential),
         );
-      return [sortedList[0], sortedList[1], sortedList[2]];
-    });
+        this.bestCards = [sortedList[0], sortedList[1], sortedList[2]];
+      });
+    this.judgeViewService.cardList
+      .takeUntil(this.unsubscribe)
+      .subscribe(cardList => {
+        const sortedList = cardList
+          .filter(card => card.rarity === 'Legendary')
+          .sort(
+            (a, b) =>
+              a.judge.value +
+              a.judge.potential -
+              (b.judge.value + b.judge.potential),
+          );
+        this.worstLegendaries = [sortedList[0], sortedList[1], sortedList[2]];
+      });
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

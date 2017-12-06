@@ -265,129 +265,129 @@
       </div>
     </div>
   </div>
-  <div *ngIf="!!(bestCards | async)[0]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+  <div *ngIf="!!bestCards[0]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <div class="card">
       <div class="card-header">
         이번 확장팩의 판도카드 1
       </div>
       <div class="card-block">
-        <img [src]="(bestCards | async)[0].imgLink" class="best-card-img">
+        <img [src]="bestCards[0].imgLink" class="best-card-img">
         <span class="label label-light-blue">
           범용성
-          <span class="badge">{{(bestCards | async)[0].judge.value}}</span>
+          <span class="badge">{{bestCards[0].judge.value}}</span>
         </span>
         <span class="label label-orange">
           포텐셜
-          <span class="badge">{{(bestCards | async)[0].judge.potential}}</span>
+          <span class="badge">{{bestCards[0].judge.potential}}</span>
         </span>
       </div>
       <div class="card-footer">
-        {{(bestCards | async)[0].judge.description}}
+        {{bestCards[0].judge.description}}
       </div>
     </div>
   </div>
-  <div *ngIf="!!(bestCards | async)[1]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+  <div *ngIf="!!bestCards[1]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <div class="card">
       <div class="card-header">
         이번 확장팩의 판도카드 2
       </div>
       <div class="card-block">
-        <img [src]="(bestCards | async)[1].imgLink" class="best-card-img">
+        <img [src]="bestCards[1].imgLink" class="best-card-img">
         <span class="label label-light-blue">
           범용성
-          <span class="badge">{{(bestCards | async)[1].judge.value}}</span>
+          <span class="badge">{{bestCards[1].judge.value}}</span>
         </span>
         <span class="label label-orange">
           포텐셜
-          <span class="badge">{{(bestCards | async)[1].judge.potential}}</span>
+          <span class="badge">{{bestCards[1].judge.potential}}</span>
         </span>
       </div>
       <div class="card-footer">
-        {{(bestCards | async)[1].judge.description}}
+        {{bestCards[1].judge.description}}
       </div>
     </div>
   </div>
-  <div *ngIf="!!(bestCards | async)[2]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+  <div *ngIf="!!bestCards[2]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <div class="card">
       <div class="card-header">
         이번 확장팩의 판도카드 3
       </div>
       <div class="card-block">
-        <img [src]="(bestCards | async)[2].imgLink" class="best-card-img">
+        <img [src]="bestCards[2].imgLink" class="best-card-img">
         <span class="label label-light-blue">
           범용성
-          <span class="badge">{{(bestCards | async)[2].judge.value}}</span>
+          <span class="badge">{{bestCards[2].judge.value}}</span>
         </span>
         <span class="label label-orange">
           포텐셜
-          <span class="badge">{{(bestCards | async)[2].judge.potential}}</span>
+          <span class="badge">{{bestCards[2].judge.potential}}</span>
         </span>
       </div>
       <div class="card-footer">
-        {{(bestCards | async)[2].judge.description}}
+        {{bestCards[2].judge.description}}
       </div>
     </div>
   </div>
-  <div *ngIf="!!(worstLegendaries | async)[0]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+  <div *ngIf="!!worstLegendaries[0]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <div class="card">
       <div class="card-header">
         이번 확장팩의 함정 전설1
       </div>
       <div class="card-block">
-        <img [src]="(worstLegendaries | async)[0].imgLink" class="best-card-img">
+        <img [src]="worstLegendaries[0].imgLink" class="best-card-img">
         <span class="label label-light-blue">
           범용성
-          <span class="badge">{{(worstLegendaries | async)[0].judge.value}}</span>
+          <span class="badge">{{worstLegendaries[0].judge.value}}</span>
         </span>
         <span class="label label-orange">
           포텐셜
-          <span class="badge">{{(worstLegendaries | async)[0].judge.potential}}</span>
+          <span class="badge">{{worstLegendaries[0].judge.potential}}</span>
         </span>
       </div>
       <div class="card-footer">
-        {{(worstLegendaries | async)[0].judge.description}}
+        {{worstLegendaries[0].judge.description}}
       </div>
     </div>
   </div>
-  <div *ngIf="!!(worstLegendaries | async)[1]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+  <div *ngIf="!!worstLegendaries[1]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <div class="card">
       <div class="card-header">
         이번 확장팩의 함정 전설 2
       </div>
       <div class="card-block">
-        <img [src]="(worstLegendaries | async)[1].imgLink" class="best-card-img">
+        <img [src]="worstLegendaries[1].imgLink" class="best-card-img">
         <span class="label label-light-blue">
           범용성
-          <span class="badge">{{(worstLegendaries | async)[1].judge.value}}</span>
+          <span class="badge">{{worstLegendaries[1].judge.value}}</span>
         </span>
         <span class="label label-orange">
           포텐셜
-          <span class="badge">{{(worstLegendaries | async)[1].judge.potential}}</span>
+          <span class="badge">{{worstLegendaries[1].judge.potential}}</span>
         </span>
       </div>
       <div class="card-footer">
-        {{(worstLegendaries | async)[1].judge.description}}
+        {{worstLegendaries[1].judge.description}}
       </div>
     </div>
   </div>
-  <div *ngIf="!!(worstLegendaries | async)[2]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+  <div *ngIf="!!worstLegendaries[2]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <div class="card">
       <div class="card-header">
         이번 확장팩의 함정 전설 3
       </div>
       <div class="card-block">
-        <img [src]="(worstLegendaries | async)[2].imgLink" class="best-card-img">
+        <img [src]="worstLegendaries[2].imgLink" class="best-card-img">
         <span class="label label-light-blue">
           범용성
-          <span class="badge">{{(worstLegendaries | async)[2].judge.value}}</span>
+          <span class="badge">{{worstLegendaries[2].judge.value}}</span>
         </span>
         <span class="label label-orange">
           포텐셜
-          <span class="badge">{{(worstLegendaries | async)[2].judge.potential}}</span>
+          <span class="badge">{{worstLegendaries[2].judge.potential}}</span>
         </span>
       </div>
       <div class="card-footer">
-        {{(worstLegendaries | async)[2].judge.description}}
+        {{worstLegendaries[2].judge.description}}
       </div>
     </div>
   </div>
