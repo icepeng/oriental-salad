@@ -1,0 +1,16 @@
+<ng-container *ngIf="state === 'SUMMARY'">
+    <h1>{{name | async}}의 판결 요약
+        <span (click)="toList()" class="label label-light-blue clickable">
+            자세히 보기
+        </span>
+    </h1>
+    <app-judge-view-summary></app-judge-view-summary>
+</ng-container>
+<ng-container *ngIf="state === 'LIST'">
+    <h1>{{name | async}}의 판결 내역
+        <span (click)="toSummary()" class="label label-light-blue clickable">
+            요약 보기
+        </span>
+    </h1>
+    <app-judge-view-list></app-judge-view-list>
+</ng-container>

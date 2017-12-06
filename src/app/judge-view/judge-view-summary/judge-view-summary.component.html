@@ -1,0 +1,118 @@
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">범용성 - 평균 {{ (valueStat | async).average }}점</h3>
+        <div class="card-text">
+          <div class="progress-block">
+            <label>20</label>
+            <div class="progress-static">
+              <div class="progress-meter" [attr.data-value]="(valueStat | async)[20]" [attr.data-displayval]="(valueStat | async)[20] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (valueStat | async)[20] }}%</span>
+          </div>
+          <div class="progress-block">
+            <label>30</label>
+            <div class="progress-static">
+              <div class="progress-meter" [attr.data-value]="(valueStat | async)[30]" [attr.data-displayval]="(valueStat | async)[30] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (valueStat | async)[30] }}%</span>
+          </div>
+          <div class="progress-block">
+            <label>40</label>
+            <div class="progress-static">
+              <div class="progress-meter" [attr.data-value]="(valueStat | async)[40]" [attr.data-displayval]="(valueStat | async)[40] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (valueStat | async)[40] }}%</span>
+          </div>
+          <div class="progress-block">
+            <label>50</label>
+            <div class="progress-static">
+              <div class="progress-meter" [attr.data-value]="(valueStat | async)[50]" [attr.data-displayval]="(valueStat | async)[50] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (valueStat | async)[50] }}%</span>
+          </div>
+          <div class="progress-block">
+            <label>60</label>
+            <div class="progress-static">
+              <div class="progress-meter" [attr.data-value]="(valueStat | async)[60]" [attr.data-displayval]="(valueStat | async)[60] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (valueStat | async)[60] }}%</span>
+          </div>
+          <div class="progress-block">
+            <label>70</label>
+            <div class="progress-static">
+              <div class="progress-meter" [attr.data-value]="(valueStat | async)[70]" [attr.data-displayval]="(valueStat | async)[70] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (valueStat | async)[70] }}%</span>
+          </div>
+          <div class="progress-block">
+            <label>80</label>
+            <div class="progress-static">
+              <div class="progress-meter" [attr.data-value]="(valueStat | async)[80]" [attr.data-displayval]="(valueStat | async)[80] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (valueStat | async)[80] }}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">포텐셜 - 평균 {{ (potentialStat | async).average }}점</h3>
+        <div class="card-text">
+          <div class="progress-block">
+            <label>20</label>
+            <div class="progress-static success">
+              <div class="progress-meter" [attr.data-value]="(potentialStat | async)[20]" [attr.data-displayval]="(potentialStat | async)[20] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (potentialStat | async)[20] }}%</span>
+          </div>
+          <div class="progress-block">
+            <label>30</label>
+            <div class="progress-static success">
+              <div class="progress-meter" [attr.data-value]="(potentialStat | async)[30]" [attr.data-displayval]="(potentialStat | async)[30] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (potentialStat | async)[30] }}%</span>
+          </div>
+          <div class="progress-block">
+            <label>40</label>
+            <div class="progress-static success">
+              <div class="progress-meter" [attr.data-value]="(potentialStat | async)[40]" [attr.data-displayval]="(potentialStat | async)[40] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (potentialStat | async)[40] }}%</span>
+          </div>
+          <div class="progress-block">
+            <label>50</label>
+            <div class="progress-static success">
+              <div class="progress-meter" [attr.data-value]="(potentialStat | async)[50]" [attr.data-displayval]="(potentialStat | async)[50] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (potentialStat | async)[50] }}%</span>
+          </div>
+          <div class="progress-block">
+            <label>60</label>
+            <div class="progress-static success">
+              <div class="progress-meter" [attr.data-value]="(potentialStat | async)[60]" [attr.data-displayval]="(potentialStat | async)[60] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (potentialStat | async)[60] }}%</span>
+          </div>
+          <div class="progress-block">
+            <label>70</label>
+            <div class="progress-static success">
+              <div class="progress-meter" [attr.data-value]="(potentialStat | async)[70]" [attr.data-displayval]="(potentialStat | async)[70] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (potentialStat | async)[70] }}%</span>
+          </div>
+          <div class="progress-block">
+            <label>80</label>
+            <div class="progress-static success">
+              <div class="progress-meter" [attr.data-value]="(potentialStat | async)[80]" [attr.data-displayval]="(potentialStat | async)[80] + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (potentialStat | async)[80] }}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

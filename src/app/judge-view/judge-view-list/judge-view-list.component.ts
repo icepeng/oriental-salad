@@ -1,11 +1,11 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Card, Classes, Rarity } from 'app/card';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-import { Card, Classes, Rarity } from 'app/card';
 import { JudgeViewService } from '../judge-view.service';
 
 @Component({
@@ -14,7 +14,6 @@ import { JudgeViewService } from '../judge-view.service';
   styleUrls: ['./judge-view-list.component.scss'],
 })
 export class JudgeViewListComponent implements OnInit, OnDestroy {
-  name: Observable<string>;
   list: Observable<Card[]>;
   viewLimit = 20;
   _viewLimit: BehaviorSubject<number> = new BehaviorSubject(20);
@@ -39,10 +38,7 @@ export class JudgeViewListComponent implements OnInit, OnDestroy {
       sortColumn: new FormControl(),
       sortOrder: new FormControl(),
     });
-    this.route.params.takeUntil(this.unsubscribe).subscribe(async params => {
-      await this.judgeViewService.getJudge(params['id']);
-    });
-    this.name = this.judgeViewService.name;
+
     this.list = Observable.combineLatest(
       this.judgeViewService.cardListFiltered,
       this._viewLimit,

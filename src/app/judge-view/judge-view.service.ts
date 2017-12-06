@@ -56,7 +56,7 @@ export class JudgeViewService {
     );
   }
 
-  filterCard(card: Card, filter: ViewFilter) {
+  private filterCard(card: Card, filter: ViewFilter) {
     if (card.class !== filter.class && filter.class !== 'ALL') {
       return false;
     }
@@ -69,7 +69,7 @@ export class JudgeViewService {
     return true;
   }
 
-  sortCard = (filter: ViewFilter) => (a: Card, b: Card) => {
+  private sortCard = (filter: ViewFilter) => (a: Card, b: Card) => {
     const sign = filter.sortOrder === 'ASC' ? 1 : -1;
     const primary = filter.sortColumn;
     const secondary = filter.sortColumn === 'value' ? 'potential' : 'value';

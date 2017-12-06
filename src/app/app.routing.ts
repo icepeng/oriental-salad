@@ -11,7 +11,7 @@ import { JudgeCardResultComponent } from './judge-card/judge-card-result/judge-c
 import { CanActivateDetail } from './judge-view/can-activate-detail.service';
 import { JudgeViewDetailComponent } from './judge-view/judge-view-detail/judge-view-detail.component';
 import { JudgeViewFindComponent } from './judge-view/judge-view-find/judge-view-find.component';
-import { JudgeViewListComponent } from './judge-view/judge-view-list/judge-view-list.component';
+import { JudgeViewUserComponent } from './judge-view/judge-view-user/judge-view-user.component';
 import { ManualComponent } from './manual/manual.component';
 
 export const ROUTES: Routes = [
@@ -40,7 +40,7 @@ export const ROUTES: Routes = [
     canActivate: [CanActivateDetail],
     pathMatch: 'full',
   },
-  { path: 'view/:id', component: JudgeViewListComponent },
+  { path: 'view/:id', component: JudgeViewUserComponent, pathMatch: 'full' },
   { path: 'view', component: JudgeViewFindComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home' },
