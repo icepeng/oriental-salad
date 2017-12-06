@@ -8,15 +8,16 @@ import { JudgeCardModule } from 'app/judge-card/judge-card.module';
 import { ClarityModule } from 'clarity-angular';
 import { ShareButtonsModule } from 'ngx-sharebuttons';
 
+import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
 import { ROUTING } from './app.routing';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
+import { APP_CONFIG, appConfig } from './config';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { CanActivateDetail } from './judge-view/can-activate-detail.service';
 import { JudgeViewModule } from './judge-view/judge-view.module';
 import { ManualModule } from './manual/manual.module';
-import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [AppComponent, AboutComponent],
@@ -35,7 +36,11 @@ import { AboutComponent } from './about/about.component';
     JudgeViewModule,
     ManualModule,
   ],
-  providers: [CanDeactivateGuard, CanActivateDetail],
+  providers: [
+    CanDeactivateGuard,
+    CanActivateDetail,
+    { provide: APP_CONFIG, useValue: appConfig },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

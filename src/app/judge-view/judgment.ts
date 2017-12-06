@@ -1,4 +1,4 @@
-import { Judge } from '../core/card';
+import { Judge } from 'app/card';
 
 export interface JudgeCard extends Judge {
     cardCode: string;

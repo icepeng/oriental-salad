@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 
-import { Card } from '../../core/card';
+import { Card } from 'app/card';
 import { JudgeCardService } from '../judge-card.service';
 
 @Component({

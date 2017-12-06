@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { Card } from 'app/card';
+import { APP_CONFIG, AppConfig } from 'app/config';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
-import { Card } from '../core/card';
-import { CARD_LIST } from '../core/cards';
 import { CoreService } from '../core/core.service';
 import { Filter } from '../core/filter';
 import { Judgment } from './judgment';
@@ -24,7 +24,11 @@ export class JudgeViewService {
   filter: Observable<Filter>;
   cardListFiltered: Observable<Card[]>;
 
-  constructor(private coreService: CoreService, private http: HttpClient) {
+  constructor(
+    private coreService: CoreService,
+    private http: HttpClient,
+    @Inject(APP_CONFIG) private appConfig: AppConfig,
+  ) {
     this.dataStore = {
       name: '',
       cardList: [],
@@ -78,7 +82,7 @@ export class JudgeViewService {
     this._name.next(this.dataStore.name);
 
     this.dataStore.cardList = judgment.judges.map(judge => ({
-      ...CARD_LIST.find(card => card.code === judge.cardCode),
+      ...this.appConfig.cardData.find(card => card.code === judge.cardCode),
       judge: {
         value: judge.value,
         potential: judge.potential,

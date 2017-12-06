@@ -2,7 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { JudgeCardService } from '../judge-card.service';
-import { Card, Judge } from '../../core/card';
+import { Card, Judge } from 'app/card';
 
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';

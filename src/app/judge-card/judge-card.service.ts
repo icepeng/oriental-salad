@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { Card, Judge } from 'app/card';
+import { APP_CONFIG, AppConfig } from 'app/config';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
 import { CoreService } from '../core/core.service';
-import { Card, Judge } from '../core/card';
-import { CARD_LIST } from '../core/cards';
 import { Filter } from '../core/filter';
 
 @Injectable()
@@ -21,9 +21,13 @@ export class JudgeCardService {
   cardListFiltered: Observable<Card[]>;
   cardListJudged: Observable<Card[]>;
 
-  constructor(private coreService: CoreService, private http: HttpClient) {
+  constructor(
+    private coreService: CoreService,
+    private http: HttpClient,
+    @Inject(APP_CONFIG) private appConfig: AppConfig,
+  ) {
     this.dataStore = {
-      cardList: [...CARD_LIST],
+      cardList: [...this.appConfig.cardData],
       filter: {
         class: 'ALL',
         cost: 'ALL',
@@ -97,7 +101,7 @@ export class JudgeCardService {
       .toPromise();
 
     this.dataStore = {
-      cardList: [...CARD_LIST],
+      cardList: [...this.appConfig.cardData],
       filter: {
         class: 'ALL',
         cost: 'ALL',

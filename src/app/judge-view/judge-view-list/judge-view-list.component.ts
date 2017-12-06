@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-import { Card, Classes, Rarity } from '../../core/card';
+import { Card, Classes, Rarity } from 'app/card';
 import { JudgeViewService } from '../judge-view.service';
 
 @Component({
