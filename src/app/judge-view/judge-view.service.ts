@@ -5,8 +5,7 @@ import { APP_CONFIG, AppConfig } from 'app/config';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
-import { CoreService } from '../core/core.service';
-import { Filter } from '../core/filter';
+import { ViewFilter } from './filter';
 import { Judgment } from './judgment';
 
 @Injectable()
@@ -14,18 +13,17 @@ export class JudgeViewService {
   dataStore: {
     name: string;
     cardList: Card[];
-    filter: Filter;
+    filter: ViewFilter;
   };
   _name: BehaviorSubject<string>;
   _cardList: BehaviorSubject<Card[]>;
-  _filter: BehaviorSubject<Filter>;
+  _filter: BehaviorSubject<ViewFilter>;
   name: Observable<string>;
   cardList: Observable<Card[]>;
-  filter: Observable<Filter>;
+  filter: Observable<ViewFilter>;
   cardListFiltered: Observable<Card[]>;
 
   constructor(
-    private coreService: CoreService,
     private http: HttpClient,
     @Inject(APP_CONFIG) private appConfig: AppConfig,
   ) {
@@ -36,6 +34,8 @@ export class JudgeViewService {
         class: 'ALL',
         cost: 'ALL',
         rarity: 'ALL',
+        sortColumn: 'value',
+        sortOrder: 'DESC',
       },
     };
 
@@ -50,11 +50,13 @@ export class JudgeViewService {
       this.cardList,
       this.filter,
     ).map(([cardList, filter]) =>
-      cardList.filter(card => this.filterCard(card, filter)),
+      cardList
+        .filter(card => this.filterCard(card, filter))
+        .sort(this.sortCard(filter)),
     );
   }
 
-  filterCard(card: Card, filter: Filter) {
+  filterCard(card: Card, filter: ViewFilter) {
     if (card.class !== filter.class && filter.class !== 'ALL') {
       return false;
     }
@@ -67,14 +69,25 @@ export class JudgeViewService {
     return true;
   }
 
-  setFilter(filter: Filter) {
+  sortCard = (filter: ViewFilter) => (a: Card, b: Card) => {
+    const sign = filter.sortOrder === 'ASC' ? 1 : -1;
+    if (a.judge[filter.sortColumn] < b.judge[filter.sortColumn]) {
+      return -1 * sign;
+    }
+    if (a.judge[filter.sortColumn] > b.judge[filter.sortColumn]) {
+      return 1 * sign;
+    }
+    return 0;
+  };
+
+  setFilter(filter: ViewFilter) {
     this.dataStore.filter = filter;
     this._filter.next({ ...this.dataStore.filter });
   }
 
   async getJudge(id: string) {
     const judgment = await this.http
-      .get<{ upload: Judgment }>(`${this.coreService.API_ADDRESS}/upload/${id}`)
+      .get<{ upload: Judgment }>(`${this.appConfig.apiAddress}/upload/${id}`)
       .map(res => res.upload)
       .toPromise();
 

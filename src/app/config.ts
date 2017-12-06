@@ -4,12 +4,14 @@ import { InjectionToken } from '@angular/core';
 import { Card } from './card';
 
 export interface AppConfig {
+  apiAddress: string;
   cardData: Card[];
 }
 
 export const APP_CONFIG = new InjectionToken<AppConfig>('app.config');
 
 export const appConfig: AppConfig = {
+  apiAddress: 'http://localhost:3000/api/v1',
   cardData: [
     {
       code: 'Drgoncaller_Alanna',

@@ -1,7 +1,7 @@
 <h1>{{name | async}}의 판결 내역</h1>
 <form [formGroup]="formGroup">
   <section class="form-block">
-    <div class="form-group row">
+    <div class="row form-group">
       <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
         <label for="class">직업</label>
       </div>
@@ -35,26 +35,45 @@
           </select>
         </div>
       </div>
+      <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
+        <label for="sortColumn">정렬</label>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-8 col-xs-8">
+        <div class="select form-control">
+          <select formControlName="sortColumn" id="sortColumn">
+            <option value="value">범용성</option>
+            <option value="potential">포텐셜</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
+        <label for="sortOrder">순서</label>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-8 col-xs-8">
+        <div class="select form-control">
+          <select formControlName="sortOrder" id="sortOrder">
+            <option value="ASC">오름차순</option>
+            <option value="DESC">내림차순</option>
+          </select>
+        </div>
+      </div>
     </div>
   </section>
 </form>
-<clr-datagrid class="card-list">
-  <clr-dg-column>이름</clr-dg-column>
-  <clr-dg-column>직업</clr-dg-column>
-  <clr-dg-column>코스트</clr-dg-column>
-  <clr-dg-column>레어도</clr-dg-column>
-  <clr-dg-column>범용성 / 포텐셜</clr-dg-column>
-
-  <clr-dg-row [class.card-judged]="item.judge" (click)="onClick(item)" class="card-row" *clrDgItems="let item of list | async">
-    <clr-dg-cell>{{item.name}}</clr-dg-cell>
-    <clr-dg-cell>{{item.class | translate}}</clr-dg-cell>
-    <clr-dg-cell>{{item.cost}}</clr-dg-cell>
-    <clr-dg-cell>{{item.rarity | translate}}</clr-dg-cell>
-    <clr-dg-cell>{{item.judge.value}} / {{item.judge.potential}}</clr-dg-cell>
-  </clr-dg-row>
-
-  <clr-dg-footer>
-    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} cards
-    <clr-dg-pagination #pagination [clrDgPageSize]="10"></clr-dg-pagination>
-  </clr-dg-footer>
-</clr-datagrid>
+<div class="row">
+  <div *ngFor="let item of list | async" class="col-lg-3 col-md-3 col-sm-1 col-xs-1">
+    <div (click)="onClick(item)" class="card-img">
+      <img [src]="item.imgLink">
+    </div>
+    <div class="card-badge">
+      <span class="label label-light-blue">
+        범용성
+        <span class="badge">{{item.judge.value}}</span>
+      </span>
+      <span class="label label-orange">
+        포텐셜
+        <span class="badge">{{item.judge.potential}}</span>
+      </span>
+    </div>
+  </div>
+</div>

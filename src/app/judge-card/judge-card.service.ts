@@ -5,8 +5,7 @@ import { APP_CONFIG, AppConfig } from 'app/config';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
-import { CoreService } from '../core/core.service';
-import { Filter } from '../core/filter';
+import { Filter } from './filter';
 
 @Injectable()
 export class JudgeCardService {
@@ -22,7 +21,6 @@ export class JudgeCardService {
   cardListJudged: Observable<Card[]>;
 
   constructor(
-    private coreService: CoreService,
     private http: HttpClient,
     @Inject(APP_CONFIG) private appConfig: AppConfig,
   ) {
@@ -96,7 +94,7 @@ export class JudgeCardService {
       })),
     };
     const result = await this.http
-      .post<{ id: string }>(`${this.coreService.API_ADDRESS}/upload`, upload)
+      .post<{ id: string }>(`${this.appConfig.apiAddress}/upload`, upload)
       .map(res => res.id)
       .toPromise();
 

@@ -18,6 +18,7 @@ export class JudgeViewListComponent implements OnInit, OnDestroy {
   classFilter: Observable<(Classes | 'Neutral')[]>;
   costFilter: Observable<number[]>;
   rarityFilter: Observable<Rarity[]>;
+  bestValue: Observable<Card>;
   unsubscribe: Subject<void> = new Subject<void>();
   formGroup: FormGroup;
 
@@ -32,6 +33,8 @@ export class JudgeViewListComponent implements OnInit, OnDestroy {
       class: new FormControl(),
       cost: new FormControl(),
       rarity: new FormControl(),
+      sortColumn: new FormControl(),
+      sortOrder: new FormControl(),
     });
     this.route.params.takeUntil(this.unsubscribe).subscribe(async params => {
       await this.judgeViewService.getJudge(params['id']);
