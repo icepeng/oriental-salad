@@ -13,8 +13,8 @@ export class JudgeViewSummaryComponent implements OnInit {
   name: Observable<string>;
   valueStat: Observable<{ [key: number]: number; average: number }>;
   potentialStat: Observable<{ [key: number]: number; average: number }>;
-  classValueStat: Observable<{ [key in Classes]: number }>;
-  classPotentialStat: Observable<{ [key in Classes]: number }>;
+  classValueStat: Observable<{ [key in Classes | 'Neutral']: number }>;
+  classPotentialStat: Observable<{ [key in Classes | 'Neutral']: number }>;
   bestCards: Observable<Card[]>;
   worstLegendaries: Observable<Card[]>;
 

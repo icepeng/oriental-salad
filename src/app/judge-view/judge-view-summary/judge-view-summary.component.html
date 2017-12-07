@@ -189,6 +189,13 @@
             </div>
             <span class="graph-label">{{ (classValueStat | async).Warrior }}</span>
           </div>
+          <div class="progress-block">
+            <label>중립</label>
+            <div class="progress-static success">
+              <div class="progress-meter neutral" [attr.data-value]="(classValueStat | async).Neutral" [attr.data-displayval]="(classValueStat | async).Neutral + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classValueStat | async).Neutral }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -261,6 +268,13 @@
             </div>
             <span class="graph-label">{{ (classPotentialStat | async).Warrior }}</span>
           </div>
+          <div class="progress-block">
+            <label>중립</label>
+            <div class="progress-static success">
+              <div class="progress-meter neutral" [attr.data-value]="(classPotentialStat | async).Neutral" [attr.data-displayval]="(classPotentialStat | async).Neutral + '%'"></div>
+            </div>
+            <span class="graph-label">{{ (classPotentialStat | async).Neutral }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -331,7 +345,7 @@
   <div *ngIf="!!(worstLegendaries | async)[0]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <div class="card">
       <div class="card-header">
-        이번 확장팩의 함정 전설1
+        이번 확장팩의 함정 전설 1
       </div>
       <div class="card-block">
         <img [src]="(worstLegendaries | async)[0].imgLink" class="best-card-img">
