@@ -100,7 +100,7 @@ THE SOFTWARE.
 MIT
 MIT
 
-webpack@3.8.1
+webpack@3.10.0
 MIT
 Copyright JS Foundation and other contributors
 
