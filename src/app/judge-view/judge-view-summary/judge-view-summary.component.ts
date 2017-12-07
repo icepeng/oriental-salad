@@ -153,12 +153,12 @@ export class JudgeViewSummaryComponent implements OnInit {
       .refCount();
     this.bestCards = this.judgeViewService.cardList
       .map(cardList => {
-        const sortedList = cardList.sort(
-          (a, b) =>
-            b.judge.value +
-            b.judge.potential -
-            (a.judge.value + a.judge.potential),
-        );
+        const sortedList = cardList.sort((a, b) => {
+          const res = this.sortFunc(a, b);
+          return res !== 0
+            ? res
+            : b.judge.description.length - a.judge.description.length;
+        });
         return [sortedList[0], sortedList[1], sortedList[2]];
       })
       .publishReplay(1)
@@ -167,15 +167,21 @@ export class JudgeViewSummaryComponent implements OnInit {
       .map(cardList => {
         const sortedList = cardList
           .filter(card => card.rarity === 'Legendary')
-          .sort(
-            (a, b) =>
-              a.judge.value +
-              a.judge.potential -
-              (b.judge.value + b.judge.potential),
-          );
+          .sort((a, b) => {
+            const res = this.sortFunc(b, a);
+            return res !== 0
+              ? res
+              : b.judge.description.length - a.judge.description.length;
+          });
         return [sortedList[0], sortedList[1], sortedList[2]];
       })
       .publishReplay(1)
       .refCount();
+  }
+
+  private sortFunc(a: Card, b: Card) {
+    return (
+      b.judge.value + b.judge.potential - (a.judge.value + a.judge.potential)
+    );
   }
 }
