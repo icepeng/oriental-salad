@@ -1,7 +1,7 @@
-<clr-alert *ngIf="submitFail" [clrAlertType]="'danger'">
+<clr-alert *ngIf="submitFail" [clrAlertType]="'danger'" (clrAlertClosedChange)="onClose()">
   <div class="alert-item">
     <span class="alert-text">
-      저장 중 문제가 발생했습니다. 나중에 다시 시도해주세요.
+      {{ submitFail }}
     </span>
   </div>
 </clr-alert>

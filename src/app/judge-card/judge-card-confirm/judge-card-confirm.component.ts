@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,7 +15,7 @@ import { JudgeCardService } from '../judge-card.service';
 export class JudgeCardConfirmComponent implements OnInit, OnDestroy {
   list: Card[];
   formGroup: FormGroup;
-  submitFail = false;
+  submitFail: string | null = null;
   unsubscribe: Subject<void> = new Subject<void>();
 
   constructor(
@@ -36,8 +37,15 @@ export class JudgeCardConfirmComponent implements OnInit, OnDestroy {
       const id = await this.judgeCardService.submit(this.list, value.name);
       this.router.navigate(['/', 'judge', 'result', id]);
     } catch (err) {
-      this.submitFail = true;
+      if (err instanceof HttpErrorResponse) {
+        this.submitFail = err.error.message;
+      }
+      throw err;
     }
+  }
+
+  onClose() {
+    this.submitFail = null;
   }
 
   ngOnDestroy() {
