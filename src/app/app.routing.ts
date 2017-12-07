@@ -1,3 +1,4 @@
+import { JudgeFindRecommendComponent } from './judge-find/judge-find-recommend/judge-find-recommend.component';
 import { CanActivateView } from './judge-view/can-activate-view.service';
 import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,7 +11,7 @@ import { JudgeCardFormComponent } from './judge-card/judge-card-form/judge-card-
 import { JudgeCardListComponent } from './judge-card/judge-card-list/judge-card-list.component';
 import { JudgeCardResultComponent } from './judge-card/judge-card-result/judge-card-result.component';
 import { JudgeViewDetailComponent } from './judge-view/judge-view-detail/judge-view-detail.component';
-import { JudgeViewFindComponent } from './judge-view/judge-view-find/judge-view-find.component';
+import { JudgeFindNameComponent } from './judge-find/judge-find-name/judge-find-name.component';
 import { JudgeViewListComponent } from './judge-view/judge-view-list/judge-view-list.component';
 import { JudgeViewSummaryComponent } from './judge-view/judge-view-summary/judge-view-summary.component';
 import { ManualComponent } from './manual/manual.component';
@@ -36,28 +37,41 @@ export const ROUTES: Routes = [
   },
   { path: 'judge', component: JudgeCardListComponent, pathMatch: 'full' },
   {
-    path: 'view/:id',
-    canActivate: [CanActivateView],
+    path: 'view',
     children: [
       {
-        path: 'cards/:cardId',
-        component: JudgeViewDetailComponent,
+        path: 'find/name',
+        component: JudgeFindNameComponent,
       },
       {
-        path: 'cards',
-        component: JudgeViewListComponent,
+        path: 'find',
+        component: JudgeFindRecommendComponent,
       },
       {
-        path: 'summary',
-        component: JudgeViewSummaryComponent,
+        path: ':id',
+        canActivate: [CanActivateView],
+        children: [
+          {
+            path: 'cards/:cardId',
+            component: JudgeViewDetailComponent,
+          },
+          {
+            path: 'cards',
+            component: JudgeViewListComponent,
+          },
+          {
+            path: 'summary',
+            component: JudgeViewSummaryComponent,
+          },
+          { path: '', pathMatch: 'full', redirectTo: 'summary' },
+        ],
       },
-      { path: '', pathMatch: 'full', redirectTo: 'summary' },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'find',
+      },
     ],
-  },
-  {
-    path: 'view',
-    component: JudgeViewFindComponent,
-    pathMatch: 'full',
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home' },

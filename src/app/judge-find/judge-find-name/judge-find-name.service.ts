@@ -5,7 +5,7 @@ import { APP_CONFIG, AppConfig } from 'app/config';
 import { SearchResult } from './searchResult';
 
 @Injectable()
-export class JudgeViewFindService {
+export class JudgeFindNameService {
   constructor(
     private http: HttpClient,
     @Inject(APP_CONFIG) private appConfig: AppConfig,

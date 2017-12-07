@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { JudgeViewFindService } from './judge-view-find.service';
+import { JudgeFindNameService } from './judge-find-name.service';
 import { SearchResult } from './searchResult';
 
 @Component({
-  selector: 'app-judge-view-find',
-  templateUrl: './judge-view-find.component.html',
-  styleUrls: ['./judge-view-find.component.scss'],
+  selector: 'app-judge-find-name',
+  templateUrl: './judge-find-name.component.html',
+  styleUrls: ['./judge-find-name.component.scss'],
 })
-export class JudgeViewFindComponent implements OnInit {
+export class JudgeFindNameComponent implements OnInit {
   formGroup: FormGroup;
   list: SearchResult[];
 
   constructor(
-    private judgeViewFindService: JudgeViewFindService,
+    private judgeFindNameService: JudgeFindNameService,
     private router: Router,
   ) {}
 
@@ -26,7 +26,7 @@ export class JudgeViewFindComponent implements OnInit {
   }
 
   async onSubmit(value: { name: string }) {
-    this.list = await this.judgeViewFindService.findByName(value.name);
+    this.list = await this.judgeFindNameService.findByName(value.name);
   }
 
   onClick(item: SearchResult) {
