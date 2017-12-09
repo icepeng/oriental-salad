@@ -18,24 +18,24 @@ import { ManualComponent } from './manual/manual.component';
 
 export const ROUTES: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
-  { path: 'manual', component: ManualComponent, pathMatch: 'full' },
+  // { path: 'manual', component: ManualComponent, pathMatch: 'full' },
   { path: 'about', component: AboutComponent, pathMatch: 'full' },
-  {
-    path: 'judge/confirm',
-    component: JudgeCardConfirmComponent,
-    pathMatch: 'full',
-  },
-  {
-    path: 'judge/result/:id',
-    component: JudgeCardResultComponent,
-    pathMatch: 'full',
-  },
-  {
-    path: 'judge/form/:id',
-    component: JudgeCardFormComponent,
-    canDeactivate: [CanDeactivateGuard],
-  },
-  { path: 'judge', component: JudgeCardListComponent, pathMatch: 'full' },
+  // {
+  //   path: 'judge/confirm',
+  //   component: JudgeCardConfirmComponent,
+  //   pathMatch: 'full',
+  // },
+  // {
+  //   path: 'judge/result/:id',
+  //   component: JudgeCardResultComponent,
+  //   pathMatch: 'full',
+  // },
+  // {
+  //   path: 'judge/form/:id',
+  //   component: JudgeCardFormComponent,
+  //   canDeactivate: [CanDeactivateGuard],
+  // },
+  // { path: 'judge', component: JudgeCardListComponent, pathMatch: 'full' },
   {
     path: 'view',
     children: [

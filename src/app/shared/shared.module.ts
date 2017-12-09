@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClarityModule } from 'clarity-angular';
 import { TranslatePipe } from './translate.pipe';
-import { ExplainValueComponent } from './explain-value/explain-value.component';
 
 @NgModule({
   exports: [
@@ -13,12 +12,11 @@ import { ExplainValueComponent } from './explain-value/explain-value.component';
     ClarityModule,
     FormsModule,
     ReactiveFormsModule,
-    ExplainValueComponent,
     TranslatePipe
   ],
   imports: [
     CommonModule,
   ],
-  declarations: [TranslatePipe, ExplainValueComponent]
+  declarations: [TranslatePipe]
 })
 export class SharedModule {}
