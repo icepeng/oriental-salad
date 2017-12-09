@@ -12,8 +12,9 @@ export class JudgeFindRecommendService {
   ) {}
 
   getStats() {
-    return this.http
-      .get<{ stats: Stat }>(`${this.appConfig.apiAddress}/upload/stats`)
-      .map(res => res.stats);
+    return this.appConfig.uploadStats;
+    // return this.http
+    //   .get<{ stats: Stat }>(`${this.appConfig.apiAddress}/upload/stats`)
+    //   .map(res => res.stats);
   }
 }

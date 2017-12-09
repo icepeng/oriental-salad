@@ -1,4 +1,5 @@
 // tslint:disable:max-line-length
+import { Stat } from './judge-find/judge-find-recommend/stat';
 import { InjectionToken } from '@angular/core';
 
 import { Card } from './card';
@@ -6,6 +7,7 @@ import { Card } from './card';
 export interface AppConfig {
   apiAddress: string;
   cardData: Card[];
+  uploadStats: Stat;
 }
 
 export const APP_CONFIG = new InjectionToken<AppConfig>('app.config');
@@ -1556,4 +1558,89 @@ export const appConfig: AppConfig = {
         'https://assets.webn.mobi/hearthstone/cd6423aedbc2fb470afb52b868e293adc96c3f2cd574f386394c01c985240092.png',
     },
   ],
+  uploadStats: {
+    judgeCount: 91022,
+    uploadCount: 1443,
+    longestDescriptions: [
+      {
+        id: '5715c740-9c89-4b02-90b6-5009ff68bd6f',
+        name: '포아',
+        length: 42683,
+      },
+      {
+        id: '6fe5467d-a05f-4926-81b0-b695e20c6ba2',
+        name: '1631',
+        length: 20694,
+      },
+      {
+        id: '133e0366-fbc2-48e1-a0ce-594db907f445',
+        name: '머법관은아니고소법관',
+        length: 18959,
+      },
+    ],
+    highestValues: [
+      {
+        id: 'f57fad45-cf4b-44af-aadc-e0193c9f6fa3',
+        name: 'victroy',
+        average: 60.1,
+      },
+      {
+        id: '29ea9b1b-a531-4ee7-8eb8-7437e1b609d9',
+        name: '궤림',
+        average: 57.6,
+      },
+      {
+        id: '3bdb8b73-9686-4e6e-b3e0-83a11e9ba6d3',
+        name: 'MinChulE#3166',
+        average: 57.5,
+      },
+    ],
+    lowestValues: [
+      {
+        id: '4e613e47-6820-4986-bbec-c925d2ed24ff',
+        name: '김히트',
+        average: 25.6,
+      },
+      {
+        id: '6f613123-e9a1-4308-b771-e842af6fad8c',
+        name: 'Krustallos',
+        average: 26.6,
+      },
+      {
+        id: '4f33ab90-0ee2-45e5-afd6-674775806ead',
+        name: 'Hosgwent',
+        average: 27.3,
+      },
+    ],
+    highestPotentials: [
+      { id: '9abbf9d6-aedc-403e-90a8-405539edd285', name: 'a', average: 63.5 },
+      {
+        id: 'e02e6bd3-61b4-4f62-9b47-8b9ceb54e6ca',
+        name: '빛가루',
+        average: 63.3,
+      },
+      {
+        id: 'e1b7b5f9-8f6e-4f41-b509-83a1fc4d426a',
+        name: 'SuperRare',
+        average: 63,
+      },
+    ],
+    lowestPotentials: [
+      {
+        id: 'c77b4121-2766-4b4c-9c30-2bd7a89038ba',
+        name: '달영호',
+        average: 29.7,
+      },
+      {
+        id: '4e613e47-6820-4986-bbec-c925d2ed24ff',
+        name: '김히트',
+        average: 32.4,
+      },
+      {
+        id: '75a0c7a4-cd6e-4758-b2d5-e275ea4a380d',
+        name: '시룩',
+        average: 33.3,
+      },
+    ],
+  },
 };

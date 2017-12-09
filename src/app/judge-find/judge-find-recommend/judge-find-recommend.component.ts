@@ -17,10 +17,7 @@ export class JudgeFindRecommendComponent implements OnInit, OnDestroy {
   constructor(private judgeFindRecommendService: JudgeFindRecommendService) {}
 
   ngOnInit() {
-    this.judgeFindRecommendService
-      .getStats()
-      .takeUntil(this.unsubscribe)
-      .subscribe(stats => this.stats = stats);
+    this.stats = this.judgeFindRecommendService.getStats();
   }
 
   ngOnDestroy() {
