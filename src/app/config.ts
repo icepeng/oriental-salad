@@ -13,7 +13,7 @@ export interface AppConfig {
 export const APP_CONFIG = new InjectionToken<AppConfig>('app.config');
 
 export const appConfig: AppConfig = {
-  apiAddress: 'http://52.78.236.175:3000/api/v1',
+  apiAddress: 'http://localhost:3000/api/v1',
   cardData: [
     {
       code: 'Drgoncaller_Alanna',

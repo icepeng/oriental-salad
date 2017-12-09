@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-header">
+    {{ title }}
+  </div>
+  <div class="card-block">
+    <img [src]="card?.imgLink" class="best-card-img">
+    <span *ngIf="meanValue" class="label label-light-blue">
+      평균
+      <span class="badge">{{card?.stats.value.mean | number: '1.2-2'}}</span>
+    </span>
+    <span *ngIf="meanPotential" class="label label-orange">
+      평균
+      <span class="badge">{{card?.stats.potential.mean | number: '1.2-2'}}</span>
+    </span>
+    <span *ngIf="stdevValue" class="label label-light-blue">
+      편차
+      <span class="badge">{{card?.stats.value.stdev | number: '1.2-2'}}</span>
+    </span>
+    <span *ngIf="stdevPotential" class="label label-orange">
+      편차
+      <span class="badge">{{card?.stats.potential.stdev | number: '1.2-2'}}</span>
+    </span>
+    <span *ngIf="judgeTotal" class="label label-blue">
+      판결 횟수
+      <span class="badge">{{card?.stats.judgeTotal | number: '1.0-0'}}</span>
+    </span>
+    <span *ngIf="descriptionAverage" class="label label-purple">
+      평균 설명 길이
+      <span class="badge">{{card?.stats.descriptionAverage | number: '1.2-2'}}</span>
+    </span>
+  </div>
+</div>

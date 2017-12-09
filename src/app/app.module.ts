@@ -19,6 +19,8 @@ import { JudgeFindModule } from './judge-find/judge-find.module';
 import { CanActivateView } from './judge-view/can-activate-view.service';
 import { JudgeViewModule } from './judge-view/judge-view.module';
 import { ManualModule } from './manual/manual.module';
+import { CanActivateStats } from './stats/can-activate-stats.service';
+import { StatsModule } from './stats/stats.module';
 
 @NgModule({
   declarations: [AppComponent, AboutComponent],
@@ -36,11 +38,13 @@ import { ManualModule } from './manual/manual.module';
     JudgeCardModule,
     JudgeViewModule,
     JudgeFindModule,
+    StatsModule,
     ManualModule,
   ],
   providers: [
     CanDeactivateGuard,
     CanActivateView,
+    CanActivateStats,
     { provide: APP_CONFIG, useValue: appConfig },
   ],
   bootstrap: [AppComponent],

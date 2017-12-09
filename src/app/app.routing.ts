@@ -1,20 +1,16 @@
-import { JudgeFindRecommendComponent } from './judge-find/judge-find-recommend/judge-find-recommend.component';
-import { CanActivateView } from './judge-view/can-activate-view.service';
 import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AboutComponent } from './about/about.component';
-import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { HomeComponent } from './home/home.component';
-import { JudgeCardConfirmComponent } from './judge-card/judge-card-confirm/judge-card-confirm.component';
-import { JudgeCardFormComponent } from './judge-card/judge-card-form/judge-card-form.component';
-import { JudgeCardListComponent } from './judge-card/judge-card-list/judge-card-list.component';
-import { JudgeCardResultComponent } from './judge-card/judge-card-result/judge-card-result.component';
-import { JudgeViewDetailComponent } from './judge-view/judge-view-detail/judge-view-detail.component';
 import { JudgeFindNameComponent } from './judge-find/judge-find-name/judge-find-name.component';
+import { JudgeFindRecommendComponent } from './judge-find/judge-find-recommend/judge-find-recommend.component';
+import { CanActivateView } from './judge-view/can-activate-view.service';
+import { JudgeViewDetailComponent } from './judge-view/judge-view-detail/judge-view-detail.component';
 import { JudgeViewListComponent } from './judge-view/judge-view-list/judge-view-list.component';
 import { JudgeViewSummaryComponent } from './judge-view/judge-view-summary/judge-view-summary.component';
-import { ManualComponent } from './manual/manual.component';
+import { CanActivateStats } from './stats/can-activate-stats.service';
+import { StatsSummaryComponent } from './stats/stats-summary/stats-summary.component';
 
 export const ROUTES: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
@@ -70,6 +66,21 @@ export const ROUTES: Routes = [
         path: '',
         pathMatch: 'full',
         redirectTo: 'find',
+      },
+    ],
+  },
+  {
+    path: 'stats',
+    canActivate: [CanActivateStats],
+    children: [
+      {
+        path: 'summary',
+        component: StatsSummaryComponent,
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'summary',
       },
     ],
   },
