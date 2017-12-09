@@ -1,3 +1,87 @@
-<p>
-  stats-list works!
-</p>
+<h1>
+  카드 목록
+  <span [routerLink]="['../', 'summary']" class="label label-light-blue clickable">
+    요약 보기
+  </span>
+</h1>
+<form [formGroup]="formGroup">
+  <section class="form-block">
+    <div class="row form-group">
+      <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
+        <label for="class">직업</label>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-8 col-xs-8">
+        <div class="select form-control">
+          <select formControlName="class" id="class">
+            <option value="ALL">모두</option>
+            <option *ngFor="let _class of classFilter | async" [value]="_class">{{ _class | translate }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
+        <label for="cost">코스트</label>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-8 col-xs-8">
+        <div class="select form-control">
+          <select formControlName="cost" id="cost">
+            <option value="ALL">모두</option>
+            <option *ngFor="let cost of costFilter | async" [value]="cost">{{ cost }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
+        <label for="rarity">레어도</label>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-8 col-xs-8">
+        <div class="select form-control">
+          <select formControlName="rarity" id="rarity">
+            <option value="ALL">모두</option>
+            <option *ngFor="let rarity of rarityFilter | async" [value]="rarity">{{ rarity | translate }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
+        <label for="sortColumn">정렬</label>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-8 col-xs-8">
+        <div class="select form-control">
+          <select formControlName="sortColumn" id="sortColumn">
+            <option value="value">범용성</option>
+            <option value="potential">포텐셜</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
+        <label for="sortOrder">순서</label>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-8 col-xs-8">
+        <div class="select form-control">
+          <select formControlName="sortOrder" id="sortOrder">
+            <option value="ASC">오름차순</option>
+            <option value="DESC">내림차순</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+<div class="row">
+  <div *ngFor="let item of list | async" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <div (click)="onClick(item)" class="card-img">
+      <img [src]="item.imgLink">
+    </div>
+    <div class="card-badge">
+      <span class="label label-light-blue">
+        범용성
+        <span class="badge">{{item.stats.value.mean | number:'1.2-2'}}</span>
+      </span>
+      <span class="label label-orange">
+        포텐셜
+        <span class="badge">{{item.stats.potential.mean | number:'1.2-2'}}</span>
+      </span>
+    </div>
+  </div>
+</div>
+<div *ngIf="viewLimit < (total | async)" class="more-cards">
+  <button (click)="moreCards()" class="btn btn-block">더 보기</button>
+</div>

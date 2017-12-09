@@ -66,16 +66,16 @@ export class StatsService {
     const sign = filter.sortOrder === 'ASC' ? 1 : -1;
     const primary = filter.sortColumn;
     const secondary = filter.sortColumn === 'value' ? 'potential' : 'value';
-    if (a.judge[primary] < b.judge[primary]) {
+    if (a.stats[primary].mean < b.stats[primary].mean) {
       return -1 * sign;
     }
-    if (a.judge[primary] > b.judge[primary]) {
+    if (a.stats[primary].mean > b.stats[primary].mean) {
       return 1 * sign;
     }
-    if (a.judge[secondary] < b.judge[secondary]) {
+    if (a.stats[secondary].mean < b.stats[secondary].mean) {
       return -1 * sign;
     }
-    if (a.judge[secondary] > b.judge[secondary]) {
+    if (a.stats[secondary].mean > b.stats[secondary].mean) {
       return 1 * sign;
     }
     return 0;

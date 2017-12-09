@@ -7,7 +7,9 @@ export class CanActivateStats {
   constructor(private statsService: StatsService, private router: Router) {}
 
   async canActivate(route: ActivatedRouteSnapshot) {
-    await this.statsService.getStats();
+    if (this.statsService.dataStore.cardList.length === 0) {
+      await this.statsService.getStats();
+    }
     return true;
   }
 }

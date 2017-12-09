@@ -1,4 +1,8 @@
-<h1>카드 통계 요약</h1>
+<h1>카드 통계 요약
+  <span [routerLink]="['../', 'list']" class="label label-light-blue clickable">
+    전체 카드 보기
+  </span>
+</h1>
 <div class="row">
   <div *ngIf="!!(bestValue | async)" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <div class="card">
@@ -11,6 +15,9 @@
       </div>
       <div class="card-block">
         <img [src]="(bestValue | async).imgLink" class="best-card-img">
+      </div>
+      <div class="card-footer">
+        <button [routerLink]="['../', (bestValue | async).code]" class="btn btn-sm btn-link">보러 가기</button>
       </div>
     </div>
   </div>
@@ -26,6 +33,9 @@
       <div class="card-block">
         <img [src]="(worstValue | async).imgLink" class="best-card-img">
       </div>
+      <div class="card-footer">
+        <button [routerLink]="['../', (worstValue | async).code]" class="btn btn-sm btn-link">보러 가기</button>
+      </div>
     </div>
   </div>
   <div *ngIf="!!(mostArguedValue | async)" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -39,6 +49,9 @@
       </div>
       <div class="card-block">
         <img [src]="(mostArguedValue | async).imgLink" class="best-card-img">
+      </div>
+      <div class="card-footer">
+        <button [routerLink]="['../', (mostArguedValue | async).code]" class="btn btn-sm btn-link">보러 가기</button>
       </div>
     </div>
   </div>
@@ -54,6 +67,9 @@
       <div class="card-block">
         <img [src]="(bestPotential | async).imgLink" class="best-card-img">
       </div>
+      <div class="card-footer">
+        <button [routerLink]="['../', (bestPotential | async).code]" class="btn btn-sm btn-link">보러 가기</button>
+      </div>
     </div>
   </div>
   <div *ngIf="!!(worstPotential | async)" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -67,6 +83,9 @@
       </div>
       <div class="card-block">
         <img [src]="(worstPotential | async).imgLink" class="best-card-img">
+      </div>
+      <div class="card-footer">
+        <button [routerLink]="['../', (worstPotential | async).code]" class="btn btn-sm btn-link">보러 가기</button>
       </div>
     </div>
   </div>
@@ -82,6 +101,9 @@
       <div class="card-block">
         <img [src]="(mostArguedPotential | async).imgLink" class="best-card-img">
       </div>
+      <div class="card-footer">
+        <button [routerLink]="['../', (mostArguedPotential | async).code]" class="btn btn-sm btn-link">보러 가기</button>
+      </div>
     </div>
   </div>
   <div *ngIf="!!(mostJudged | async)" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -96,6 +118,9 @@
       <div class="card-block">
         <img [src]="(mostJudged | async).imgLink" class="best-card-img">
       </div>
+      <div class="card-footer">
+        <button [routerLink]="['../', (mostJudged | async).code]" class="btn btn-sm btn-link">보러 가기</button>
+      </div>
     </div>
   </div>
   <div *ngIf="!!(longestDescription | async)" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -109,6 +134,9 @@
       </div>
       <div class="card-block">
         <img [src]="(longestDescription | async).imgLink" class="best-card-img">
+      </div>
+      <div class="card-footer">
+        <button [routerLink]="['../', (longestDescription | async).code]" class="btn btn-sm btn-link">보러 가기</button>
       </div>
     </div>
   </div>

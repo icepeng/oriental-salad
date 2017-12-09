@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { StatsService } from './stats.service';
-import { StatsSummaryComponent } from './stats-summary/stats-summary.component';
+
+import { SharedModule } from '../shared/shared.module';
+import { StatsDetailModule } from './stats-detail/stats-detail.module';
 import { StatsListComponent } from './stats-list/stats-list.component';
-import { StatsDetailComponent } from './stats-detail/stats-detail.component';
+import { StatsSummaryComponent } from './stats-summary/stats-summary.component';
 import { StatsTemplateComponent } from './stats-template/stats-template.component';
+import { StatsService } from './stats.service';
 
 @NgModule({
-  imports: [
-    CommonModule
+  imports: [SharedModule, StatsDetailModule],
+  declarations: [
+    StatsSummaryComponent,
+    StatsListComponent,
+    StatsTemplateComponent,
   ],
-  declarations: [StatsSummaryComponent, StatsListComponent, StatsDetailComponent, StatsTemplateComponent],
-  providers: [StatsService]
+  providers: [StatsService],
 })
-export class StatsModule { }
+export class StatsModule {}

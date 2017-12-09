@@ -1,3 +1,5 @@
+import { StatsDetailComponent } from './stats/stats-detail/stats-detail.component';
+import { StatsListComponent } from './stats/stats-list/stats-list.component';
 import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -76,6 +78,14 @@ export const ROUTES: Routes = [
       {
         path: 'summary',
         component: StatsSummaryComponent,
+      },
+      {
+        path: 'list',
+        component: StatsListComponent,
+      },
+      {
+        path: ':id',
+        component: StatsDetailComponent,
       },
       {
         path: '',
