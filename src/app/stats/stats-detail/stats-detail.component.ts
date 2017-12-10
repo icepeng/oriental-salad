@@ -88,6 +88,7 @@ export class StatsDetailComponent implements OnInit {
   prev() {
     this.cardPrev
       .first()
+      .filter(card => !!card)
       .subscribe(card =>
         this.router.navigate(['../', card.code], { relativeTo: this.route }),
       );
@@ -96,6 +97,7 @@ export class StatsDetailComponent implements OnInit {
   next() {
     this.cardNext
       .first()
+      .filter(card => !!card)
       .subscribe(card =>
         this.router.navigate(['../', card.code], { relativeTo: this.route }),
       );
