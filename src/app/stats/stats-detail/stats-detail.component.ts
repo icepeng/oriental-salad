@@ -31,7 +31,7 @@ export class StatsDetailComponent implements OnInit {
 
   ngOnInit() {
     const cards = Observable.combineLatest(
-      this.statsService.cardList,
+      this.statsService.cardListFiltered,
       this.route.params,
     )
       .map(([cardList, params]) => {
