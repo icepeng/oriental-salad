@@ -1,26 +1,17 @@
 .card-img {
-    img {
-      display: block;
-      width: auto;
-      height: 320px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .left-angle {
-      text-align: right;
-      line-height: 24;
-      vertical-align: middle;
-      :hover {
-        cursor: pointer;
-      }
-    }
-    .right-angle {
-      text-align: left;
-      line-height: 24;
-      vertical-align: middle;
-      :hover {
-        cursor: pointer;
-      }
-    }
+  text-align: center;
+  padding-top: 24px;
+  img {
+    display: block;
+    width: auto;
+    height: 320px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  
+  .card-nav {
+    margin-left: 12px;
+  }
+  .disabled {
+    color: #CCCCCC;
+  }
+}

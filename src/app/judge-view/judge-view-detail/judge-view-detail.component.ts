@@ -19,6 +19,7 @@ export class JudgeViewDetailComponent implements OnInit, OnDestroy {
   card: Card;
   cardPrev: Card | null;
   cardNext: Card | null;
+  info: { index: number; total: number };
   unsubscribe: Subject<void> = new Subject<void>();
 
   constructor(
@@ -38,6 +39,7 @@ export class JudgeViewDetailComponent implements OnInit, OnDestroy {
       .subscribe(([cardList, params]) => {
         const cardCode = params['cardId'];
         const index = cardList.findIndex(card => card.code === cardCode);
+        this.info = { index, total: cardList.length };
         this.card = cardList[index];
         this.cardPrev = index > 0 ? cardList[index - 1] : null;
         this.cardNext =
