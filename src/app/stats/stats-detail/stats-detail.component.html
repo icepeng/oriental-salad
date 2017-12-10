@@ -3,32 +3,109 @@
         목록 보기
     </span>
 </h1>
-<section class="card-img">
-    <div class="row">
-        <div (click)="prev()" class="col-sm-4 left-angle">
-            <clr-icon *ngIf="cardPrev | async" shape="angle" dir="left" size="72"></clr-icon>
-        </div>
-        <div class="col-sm-4">
-            <img [src]="(card | async).imgLink">
-        </div>
-        <div (click)="next()" class="col-sm-4 right-angle">
-            <clr-icon *ngIf="cardNext | async" shape="angle" dir="right" size="72"></clr-icon>
+<div class="row">
+    <div class="col-sm-4 card-img">
+        <img [src]="(card | async).imgLink">
+        <span (click)="prev()">
+            <clr-icon *ngIf="cardPrev | async" shape="angle" dir="left" size="36"></clr-icon>
+        </span>
+        {{ (info | async).index }} / {{ (info | async).total }}
+        <span (click)="next()">
+            <clr-icon *ngIf="cardNext | async" shape="angle" dir="right" size="36"></clr-icon>
+        </span>
+    </div>
+    <div class="col-sm-8 stat-summary">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header">
+                        범용성 | 평균
+                    </div>
+                    <div class="card-block">
+                        <div class="card-text">
+                            <span ngx-charts-count-up [countDecimals]="2" [countTo]="(card | async).stats.value.mean">
+                            </span>점
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header">
+                        범용성 | 편차
+                    </div>
+                    <div class="card-block">
+                        <div class="card-text">
+                            <span ngx-charts-count-up [countDecimals]="2" [countTo]="(card | async).stats.value.stdev">
+                            </span>점
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header">
+                        평가 횟수
+                    </div>
+                    <div class="card-block">
+                        <div class="card-text">
+                            <span ngx-charts-count-up [countTo]="(card | async).stats.judgeTotal">
+                            </span>회
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header">
+                        포텐셜 | 평균
+                    </div>
+                    <div class="card-block">
+                        <div class="card-text">
+                            <span ngx-charts-count-up [countDecimals]="2" [countTo]="(card | async).stats.potential.mean">
+                            </span>점
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header">
+                        포텐셜 | 편차
+                    </div>
+                    <div class="card-block">
+                        <div class="card-text">
+                            <span ngx-charts-count-up [countDecimals]="2" [countTo]="(card | async).stats.potential.stdev">
+                            </span>점
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header">
+                        평균 설명 길이
+                    </div>
+                    <div class="card-block">
+                        <div class="card-text">
+                            <span ngx-charts-count-up [countDecimals]="2" [countTo]="(card | async).stats.descriptionAverage">
+                            </span>자
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</section>
-<div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-6">
         <h2>범용성</h2>
         <div class="stat-chart">
-            <app-charts-advanced-pie-chart [results]="valueStats | async">
-            </app-charts-advanced-pie-chart>
+            <ngx-charts-bar-vertical [xAxis]="true" [yAxis]="true" [results]="valueStats | async"></ngx-charts-bar-vertical>
         </div>
     </div>
-    <div class="col-sm-12">
+    <div class="col-sm-6">
         <h2>포텐셜</h2>
         <div class="stat-chart">
-            <app-charts-advanced-pie-chart [results]="potentialStats | async">
-            </app-charts-advanced-pie-chart>
+            <ngx-charts-bar-vertical [xAxis]="true" [yAxis]="true" [results]="potentialStats | async"></ngx-charts-bar-vertical>
         </div>
     </div>
 </div>

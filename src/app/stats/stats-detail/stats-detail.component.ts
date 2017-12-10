@@ -14,6 +14,7 @@ import { StatsDetailService } from './stats-detail.service';
 })
 export class StatsDetailComponent implements OnInit {
   clickRefresh: BehaviorSubject<number>;
+  info: Observable<{ index: number; total: number }>;
   card: Observable<CardStat>;
   cardPrev: Observable<CardStat>;
   cardNext: Observable<CardStat>;
@@ -37,6 +38,8 @@ export class StatsDetailComponent implements OnInit {
         const cardCode = params['id'];
         const index = cardList.findIndex(card => card.code === cardCode);
         return {
+          index,
+          total: cardList.length,
           card: cardList[index],
           cardPrev: index > 0 ? cardList[index - 1] : null,
           cardNext: index < cardList.length - 1 ? cardList[index + 1] : null,
@@ -45,6 +48,7 @@ export class StatsDetailComponent implements OnInit {
       .publishReplay(1)
       .refCount();
 
+    this.info = cards.map(x => ({ index: x.index, total: x.total }));
     this.card = cards.map(x => x.card);
     this.cardPrev = cards.map(x => x.cardPrev);
     this.cardNext = cards.map(x => x.cardNext);
