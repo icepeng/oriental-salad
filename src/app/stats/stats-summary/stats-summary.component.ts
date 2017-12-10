@@ -22,7 +22,7 @@ export class StatsSummaryComponent implements OnInit {
   constructor(private statsService: StatsService) {}
 
   ngOnInit() {
-    this.bestValue = this.statsService.cardList
+    this.bestValue = this.statsService.cardListFiltered
       .map(cardList =>
         cardList.reduce(
           (best, card) =>
@@ -31,7 +31,7 @@ export class StatsSummaryComponent implements OnInit {
       )
       .publishReplay(1)
       .refCount();
-    this.worstValue = this.statsService.cardList
+    this.worstValue = this.statsService.cardListFiltered
       .map(cardList =>
         cardList.reduce(
           (worst, card) =>
@@ -40,7 +40,7 @@ export class StatsSummaryComponent implements OnInit {
       )
       .publishReplay(1)
       .refCount();
-    this.bestPotential = this.statsService.cardList
+    this.bestPotential = this.statsService.cardListFiltered
       .map(cardList =>
         cardList.reduce(
           (best, card) =>
@@ -49,7 +49,7 @@ export class StatsSummaryComponent implements OnInit {
       )
       .publishReplay(1)
       .refCount();
-    this.worstPotential = this.statsService.cardList
+    this.worstPotential = this.statsService.cardListFiltered
       .map(cardList =>
         cardList.reduce(
           (worst, card) =>
@@ -60,7 +60,7 @@ export class StatsSummaryComponent implements OnInit {
       )
       .publishReplay(1)
       .refCount();
-    this.mostJudged = this.statsService.cardList
+    this.mostJudged = this.statsService.cardListFiltered
       .map(cardList =>
         cardList.reduce(
           (most, card) =>
@@ -69,7 +69,7 @@ export class StatsSummaryComponent implements OnInit {
       )
       .publishReplay(1)
       .refCount();
-    this.longestDescription = this.statsService.cardList
+    this.longestDescription = this.statsService.cardListFiltered
       .map(cardList =>
         cardList.reduce(
           (longest, card) =>
@@ -80,7 +80,7 @@ export class StatsSummaryComponent implements OnInit {
       )
       .publishReplay(1)
       .refCount();
-    this.mostArguedValue = this.statsService.cardList
+    this.mostArguedValue = this.statsService.cardListFiltered
       .map(cardList =>
         cardList.reduce(
           (most, card) =>
@@ -89,7 +89,7 @@ export class StatsSummaryComponent implements OnInit {
       )
       .publishReplay(1)
       .refCount();
-    this.mostArguedPotential = this.statsService.cardList
+    this.mostArguedPotential = this.statsService.cardListFiltered
       .map(cardList =>
         cardList.reduce(
           (most, card) =>

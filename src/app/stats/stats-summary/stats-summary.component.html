@@ -3,7 +3,8 @@
     전체 카드 보기
   </span>
 </h1>
-<div class="row">
+<app-stats-filter></app-stats-filter>
+<div class="stat-summary row">
   <div *ngIf="!!(bestValue | async)" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <div class="card">
       <div class="card-header">

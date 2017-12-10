@@ -1,7 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Classes, Rarity } from 'app/card';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -19,11 +17,7 @@ export class StatsListComponent implements OnInit, OnDestroy {
   viewLimit = 20;
   _viewLimit: BehaviorSubject<number> = new BehaviorSubject(20);
   total: Observable<number>;
-  classFilter: Observable<(Classes | 'Neutral')[]>;
-  costFilter: Observable<number[]>;
-  rarityFilter: Observable<Rarity[]>;
   unsubscribe: Subject<void> = new Subject<void>();
-  formGroup: FormGroup;
 
   constructor(
     private statsService: StatsService,
@@ -32,14 +26,6 @@ export class StatsListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.formGroup = new FormGroup({
-      class: new FormControl(),
-      cost: new FormControl(),
-      rarity: new FormControl(),
-      sortColumn: new FormControl(),
-      sortOrder: new FormControl(),
-    });
-
     this.list = Observable.combineLatest(
       this.statsService.cardListFiltered,
       this._viewLimit,
@@ -48,40 +34,12 @@ export class StatsListComponent implements OnInit, OnDestroy {
     ]);
     this.total = this.statsService.cardListFiltered.map(list => list.length);
 
-    const totalList = this.statsService.cardList;
-    this.classFilter = totalList.map(list =>
-      list
-        .map(item => item.class)
-        .reduce(
-          (arr, item) => (arr.find(x => x === item) ? arr : [...arr, item]),
-          [],
-        )
-        .sort(),
-    );
-    this.costFilter = totalList.map(list =>
-      list
-        .map(item => item.cost)
-        .reduce(
-          (arr, item) => (arr.find(x => x === item) ? arr : [...arr, item]),
-          [],
-        )
-        .sort(),
-    );
-    this.rarityFilter = totalList.map(
-      list =>
-        <Rarity[]>['Common', 'Rare', 'Epic', 'Legendary'].filter(rarity =>
-          list.find(x => x.rarity === rarity),
-        ),
-    );
-
-    this.statsService.filter
-      .subscribe(filter => this.formGroup.reset(filter))
-      .unsubscribe();
-    this.formGroup.valueChanges.takeUntil(this.unsubscribe).subscribe(value => {
-      this.viewLimit = 20;
-      this._viewLimit.next(this.viewLimit);
-      this.statsService.setFilter(value);
-    });
+    this.statsService.cardListFiltered
+      .takeUntil(this.unsubscribe)
+      .subscribe(value => {
+        this.viewLimit = 20;
+        this._viewLimit.next(this.viewLimit);
+      });
   }
 
   onClick(item: CardStat) {

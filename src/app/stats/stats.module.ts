@@ -6,6 +6,7 @@ import { StatsListComponent } from './stats-list/stats-list.component';
 import { StatsSummaryComponent } from './stats-summary/stats-summary.component';
 import { StatsTemplateComponent } from './stats-template/stats-template.component';
 import { StatsService } from './stats.service';
+import { StatsFilterComponent } from './stats-filter/stats-filter.component';
 
 @NgModule({
   imports: [SharedModule, StatsDetailModule],
@@ -13,6 +14,7 @@ import { StatsService } from './stats.service';
     StatsSummaryComponent,
     StatsListComponent,
     StatsTemplateComponent,
+    StatsFilterComponent,
   ],
   providers: [StatsService],
 })
