@@ -15,6 +15,7 @@ export class FbCommentsComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit() {
     this.subscription = this.router.events
       .filter(event => event instanceof NavigationEnd)
+      .debounceTime(1000)
       .subscribe(() => this.reloadComment());
   }
 
