@@ -20,6 +20,10 @@ export interface Stat {
   descriptionAverage: string;
   value: StatElement;
   potential: StatElement;
+  hsreplay?: {
+    popularity: string;
+    winRate: string;
+  };
 }
 
 export interface StatJudge extends Judge {
