@@ -23,6 +23,9 @@ export class FbCommentsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   reloadComment() {
+    if (!(window as any).FB) {
+      return setTimeout(this.reloadComment, 1000);
+    }
     const lb = document.getElementById('fbc');
     lb.innerHTML = `<div class="fb-comments" data-width="100%" data-href="${
       window.location.href
