@@ -1,9 +1,8 @@
-import { StatsDetailComponent } from './stats/stats-detail/stats-detail.component';
-import { StatsListComponent } from './stats/stats-list/stats-list.component';
 import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AboutComponent } from './about/about.component';
+import { ChangelogComponent } from './changelog/changelog.component';
 import { HomeComponent } from './home/home.component';
 import { JudgeFindNameComponent } from './judge-find/judge-find-name/judge-find-name.component';
 import { JudgeFindRecommendComponent } from './judge-find/judge-find-recommend/judge-find-recommend.component';
@@ -12,12 +11,15 @@ import { JudgeViewDetailComponent } from './judge-view/judge-view-detail/judge-v
 import { JudgeViewListComponent } from './judge-view/judge-view-list/judge-view-list.component';
 import { JudgeViewSummaryComponent } from './judge-view/judge-view-summary/judge-view-summary.component';
 import { CanActivateStats } from './stats/can-activate-stats.service';
+import { StatsDetailComponent } from './stats/stats-detail/stats-detail.component';
+import { StatsListComponent } from './stats/stats-list/stats-list.component';
 import { StatsSummaryComponent } from './stats/stats-summary/stats-summary.component';
 
 export const ROUTES: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
   // { path: 'manual', component: ManualComponent, pathMatch: 'full' },
   { path: 'about', component: AboutComponent, pathMatch: 'full' },
+  { path: 'changelog', component: ChangelogComponent, pathMatch: 'full' },
   // {
   //   path: 'judge/confirm',
   //   component: JudgeCardConfirmComponent,

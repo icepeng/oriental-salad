@@ -8,10 +8,11 @@ import { JudgeCardModule } from 'app/judge-card/judge-card.module';
 import { ClarityModule } from 'clarity-angular';
 import { ShareButtonsModule } from 'ngx-sharebuttons';
 
-import { AboutComponent } from './about/about.component';
+import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { ROUTING } from './app.routing';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
+import { ChangelogComponent } from './changelog/changelog.component';
 import { APP_CONFIG, appConfig } from './config';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
@@ -23,8 +24,9 @@ import { CanActivateStats } from './stats/can-activate-stats.service';
 import { StatsModule } from './stats/stats.module';
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent],
+  declarations: [AppComponent, ChangelogComponent],
   imports: [
+    AboutModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
