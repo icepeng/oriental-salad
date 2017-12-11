@@ -1,4 +1,3 @@
-import { Stat, CardStat } from './stats';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { APP_CONFIG, AppConfig } from 'app/config';
@@ -6,6 +5,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
 import { StatFilter } from './filter';
+import { CardStat, Stat } from './stats';
 
 @Injectable()
 export class StatsService {
