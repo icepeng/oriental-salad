@@ -5,7 +5,7 @@
     <span (click)="prev()">
       <clr-icon [class.disabled]="!cardPrev" shape="angle" dir="left" size="36"></clr-icon>
     </span>
-    {{ info.index }} / {{ info.total }}
+    {{ info.index + 1 }} / {{ info.total }}
     <span (click)="next()">
       <clr-icon [class.disabled]="!cardNext" shape="angle" dir="right" size="36"></clr-icon>
     </span>

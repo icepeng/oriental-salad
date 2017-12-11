@@ -10,7 +10,7 @@
             <span (click)="prev()">
                 <clr-icon [class.disabled]="!(cardPrev | async)" shape="angle" dir="left" size="36"></clr-icon>
             </span>
-            {{ (info | async).index }} / {{ (info | async).total }}
+            {{ (info | async).index + 1 }} / {{ (info | async).total }}
             <span (click)="next()">
                 <clr-icon [class.disabled]="!(cardNext | async)" shape="angle" dir="right" size="36"></clr-icon>
             </span>
