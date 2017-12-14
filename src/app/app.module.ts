@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { JudgeCardModule } from 'app/judge-card/judge-card.module';
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { ClarityModule } from 'clarity-angular';
 import { ShareButtonsModule } from 'ngx-sharebuttons';
 
@@ -16,6 +17,7 @@ import { ChangelogComponent } from './changelog/changelog.component';
 import { APP_CONFIG, appConfig } from './config';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
+import { JudgeCardModule } from './judge-card/judge-card.module';
 import { JudgeFindModule } from './judge-find/judge-find.module';
 import { CanActivateView } from './judge-view/can-activate-view.service';
 import { JudgeViewModule } from './judge-view/judge-view.module';
@@ -42,6 +44,7 @@ import { StatsModule } from './stats/stats.module';
     JudgeFindModule,
     StatsModule,
     ManualModule,
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
   ],
   providers: [
     CanDeactivateGuard,
