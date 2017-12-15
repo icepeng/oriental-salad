@@ -25,7 +25,7 @@ export class JudgeViewDetailComponent implements OnInit, OnDestroy {
   constructor(
     private judgeViewService: JudgeViewService,
     private route: ActivatedRoute,
-    private router: Router,
+    public router: Router,
   ) {}
 
   ngOnInit() {

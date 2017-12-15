@@ -31,6 +31,7 @@
     "d3": "^4.12.0",
     "font-awesome": "^4.7.0",
     "mutationobserver-shim": "^0.3.2",
+    "ngx-livere": "^0.1.2",
     "ngx-sharebuttons": "3.0.0",
     "prettier": "^1.9.1",
     "rxjs": "^5.4.3",

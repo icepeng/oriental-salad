@@ -25,7 +25,7 @@ export class StatsDetailComponent implements OnInit {
   constructor(
     private statsService: StatsService,
     private statsDetailService: StatsDetailService,
-    private router: Router,
+    public router: Router,
     private route: ActivatedRoute,
   ) {}
 

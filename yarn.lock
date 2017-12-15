@@ -4234,6 +4234,23 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
+ngx-livere@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/ngx-livere/-/ngx-livere-0.1.2.tgz#2642a8ae2359e21c5f0a8206b93be531b3b4dea1"
+  dependencies:
+    "@angular/animations" "^4.3.0"
+    "@angular/common" "^4.3.0"
+    "@angular/compiler" "^4.3.0"
+    "@angular/core" "^4.3.0"
+    "@angular/forms" "^4.3.0"
+    "@angular/http" "^4.3.0"
+    "@angular/platform-browser" "^4.3.0"
+    "@angular/platform-browser-dynamic" "^4.3.0"
+    "@angular/router" "^4.3.0"
+    core-js "^2.4.1"
+    rxjs "^5.4.3"
+    zone.js "^0.8.14"
+
 ngx-sharebuttons@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ngx-sharebuttons/-/ngx-sharebuttons-3.0.0.tgz#942a7610387523ffc9b78bc3b46868ea035ce0a8"

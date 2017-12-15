@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClarityModule } from 'clarity-angular';
 import { TranslatePipe } from './translate.pipe';
-import { FbCommentsComponent } from './fb-comments/fb-comments.component';
+import { LivereModule } from 'ngx-livere';
 
 @NgModule({
   exports: [
@@ -13,12 +13,10 @@ import { FbCommentsComponent } from './fb-comments/fb-comments.component';
     ClarityModule,
     FormsModule,
     ReactiveFormsModule,
-    FbCommentsComponent,
-    TranslatePipe
+    LivereModule,
+    TranslatePipe,
   ],
-  imports: [
-    CommonModule,
-  ],
-  declarations: [TranslatePipe, FbCommentsComponent]
+  imports: [CommonModule],
+  declarations: [TranslatePipe],
 })
 export class SharedModule {}
