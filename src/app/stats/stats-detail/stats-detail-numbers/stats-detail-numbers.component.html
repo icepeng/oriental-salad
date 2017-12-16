@@ -28,18 +28,12 @@
     <div class="col-sm-4">
         <div class="card blue">
             <div class="card-header">
-                승률
-                <clr-tooltip>
-                    <clr-icon clrTooltipTrigger shape="info-circle" size="24"></clr-icon>
-                    <clr-tooltip-content clrPosition="top-left" clrSize="sm" *clrIfOpen>
-                        <span>Provider: HSReplay.net</span>
-                    </clr-tooltip-content>
-                </clr-tooltip>
+                평가 횟수
             </div>
             <div class="card-block">
                 <div class="card-text">
-                    <span ngx-charts-count-up [countDecimals]="2" [countTo]="card.stats.hsreplay.winRate">
-                    </span>%
+                    <span ngx-charts-count-up [countTo]="card.stats.judgeTotal">
+                    </span>회
                 </div>
             </div>
         </div>
@@ -73,18 +67,12 @@
     <div class="col-sm-4">
         <div class="card blue">
             <div class="card-header">
-                채용률 | 전 직업
-                <clr-tooltip>
-                    <clr-icon clrTooltipTrigger shape="info-circle" size="24"></clr-icon>
-                    <clr-tooltip-content clrPosition="top-left" clrSize="sm" *clrIfOpen>
-                        <span>Provider: HSReplay.net</span>
-                    </clr-tooltip-content>
-                </clr-tooltip>
+                평균 설명 길이
             </div>
             <div class="card-block">
                 <div class="card-text">
-                    <span ngx-charts-count-up [countDecimals]="2" [countTo]="card.stats.hsreplay.popularity">
-                    </span>%
+                    <span ngx-charts-count-up [countDecimals]="2" [countTo]="card.stats.descriptionAverage">
+                    </span>자
                 </div>
             </div>
         </div>

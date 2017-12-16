@@ -1,3 +1,4 @@
+import { NgxChartsModule } from '@swimlane/ngx-charts/release';
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared/shared.module';
@@ -7,7 +8,7 @@ import { JudgeViewService } from './judge-view.service';
 import { JudgeViewSummaryComponent } from './judge-view-summary/judge-view-summary.component';
 
 @NgModule({
-  imports: [SharedModule],
+  imports: [SharedModule, NgxChartsModule],
   providers: [JudgeViewService],
   declarations: [
     JudgeViewListComponent,

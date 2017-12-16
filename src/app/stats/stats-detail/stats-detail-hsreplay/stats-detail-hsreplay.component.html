@@ -1,0 +1,83 @@
+<h2>
+  HSReplay.net
+  <span class="p7">Beta</span>
+</h2>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card blue">
+      <div class="card-header">
+        승률
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <span ngx-charts-count-up [countDecimals]="2" [countTo]="hsreplay.winRate">
+          </span>%
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card blue">
+      <div class="card-header">
+        채용률
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <span ngx-charts-count-up [countDecimals]="2" [countTo]="hsreplay.popularity">
+          </span>%
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card light-blue">
+      <div class="card-header">
+        범용성
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <span *ngIf="hsreplay.value !== '0'">
+            <span ngx-charts-count-up [countDecimals]="2" [countTo]="hsreplay.value">
+            </span>점
+          </span>
+          <span *ngIf="hsreplay.value === '0'">Out of Meta</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card orange">
+      <div class="card-header">
+        포텐셜
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <span *ngIf="hsreplay.potential !== '0'">
+            <span ngx-charts-count-up [countDecimals]="2" [countTo]="hsreplay.potential">
+            </span>점
+          </span>
+          <span *ngIf="hsreplay.potential === '0'">Out of Meta</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<clr-datagrid>
+  <clr-dg-column>이름</clr-dg-column>
+  <clr-dg-column>승률</clr-dg-column>
+  <clr-dg-column>인기도 | 전체</clr-dg-column>
+  <clr-dg-column>인기도 | 직업</clr-dg-column>
+  <clr-dg-column>플레이 횟수</clr-dg-column>
+  <clr-dg-column>중요도</clr-dg-column>
+
+  <clr-dg-row (click)="openHSReplay(item.url)" *ngFor="let item of hsreplay.archetypes">
+    <clr-dg-cell>{{item.name}}</clr-dg-cell>
+    <clr-dg-cell>{{item.winRate}}%</clr-dg-cell>
+    <clr-dg-cell>{{item.popularity}}%</clr-dg-cell>
+    <clr-dg-cell>{{item.popularityClass}}%</clr-dg-cell>
+    <clr-dg-cell>{{item.totalGames}}</clr-dg-cell>
+    <clr-dg-cell>{{item.weight | number:'1.2-2'}}</clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>{{hsreplay.archetypes.length}} types</clr-dg-footer>
+</clr-datagrid>

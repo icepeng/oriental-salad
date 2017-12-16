@@ -1,0 +1,190 @@
+<h2>
+  유저 평가
+  <button (click)="onRefresh()" type="button" class="btn btn-icon">
+    <clr-icon shape="refresh"></clr-icon>
+  </button>
+</h2>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        범용성을 높게 평가한 머법관
+      </div>
+      <div class="card-block">
+        <div class="card-title">{{ statsDetail?.maxValueJudge.upload.name }}</div>
+        <div class="card-text">
+          {{ statsDetail?.maxValueJudge.description }}
+          <div>
+            <span class="label label-light-blue">
+              범용성
+              <span class="badge">{{statsDetail?.maxValueJudge.value}}</span>
+            </span>
+            <span class="label label-orange">
+              포텐셜
+              <span class="badge">{{statsDetail?.maxValueJudge.potential}}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button [routerLink]="['/', 'view', statsDetail?.maxValueJudge.upload.id]" class="btn btn-sm btn-link">보러 가기</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        범용성을 낮게 평가한 머법관
+      </div>
+      <div class="card-block">
+        <div class="card-title">{{ statsDetail?.minValueJudge.upload.name }}</div>
+        <div class="card-text">
+          {{ statsDetail?.minValueJudge.description }}
+          <div>
+            <span class="label label-light-blue">
+              범용성
+              <span class="badge">{{statsDetail?.minValueJudge.value}}</span>
+            </span>
+            <span class="label label-orange">
+              포텐셜
+              <span class="badge">{{statsDetail?.minValueJudge.potential}}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button [routerLink]="['/', 'view', statsDetail?.minValueJudge.upload.id]" class="btn btn-sm btn-link">보러 가기</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        포텐셜을 높게 평가한 머법관
+      </div>
+      <div class="card-block">
+        <div class="card-title">{{ statsDetail?.maxPotentialJudge.upload.name }}</div>
+        <div class="card-text">
+          {{ statsDetail?.maxPotentialJudge.description }}
+          <div>
+            <span class="label label-light-blue">
+              범용성
+              <span class="badge">{{statsDetail?.maxPotentialJudge.value}}</span>
+            </span>
+            <span class="label label-orange">
+              포텐셜
+              <span class="badge">{{statsDetail?.maxPotentialJudge.potential}}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button [routerLink]="['/', 'view', statsDetail?.maxPotentialJudge.upload.id]" class="btn btn-sm btn-link">보러 가기</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        포텐셜을 낮게 평가한 머법관
+      </div>
+      <div class="card-block">
+        <div class="card-title">{{ statsDetail?.minPotentialJudge.upload.name }}</div>
+        <div class="card-text">
+          {{ statsDetail?.minPotentialJudge.description }}
+          <div>
+            <span class="label label-light-blue">
+              범용성
+              <span class="badge">{{statsDetail?.minPotentialJudge.value}}</span>
+            </span>
+            <span class="label label-orange">
+              포텐셜
+              <span class="badge">{{statsDetail?.minPotentialJudge.potential}}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button [routerLink]="['/', 'view', statsDetail?.minPotentialJudge.upload.id]" class="btn btn-sm btn-link">보러 가기</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        가장 가깝게 예상한 머법관
+      </div>
+      <div class="card-block">
+        <div class="card-title">{{ statsDetail?.mostAccurateJudge.upload.name }}</div>
+        <div class="card-text">
+          {{ statsDetail?.mostAccurateJudge.description }}
+          <div>
+            <span class="label label-light-blue">
+              범용성
+              <span class="badge">{{statsDetail?.mostAccurateJudge.value}}</span>
+            </span>
+            <span class="label label-orange">
+              포텐셜
+              <span class="badge">{{statsDetail?.mostAccurateJudge.potential}}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button [routerLink]="['/', 'view', statsDetail?.mostAccurateJudge.upload.id]" class="btn btn-sm btn-link">보러 가기</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        가장 틀리게 예상한 머법관
+      </div>
+      <div class="card-block">
+        <div class="card-title">{{ statsDetail?.mostWrongJudge.upload.name }}</div>
+        <div class="card-text">
+          {{ statsDetail?.mostWrongJudge.description }}
+          <div>
+            <span class="label label-light-blue">
+              범용성
+              <span class="badge">{{statsDetail?.mostWrongJudge.value}}</span>
+            </span>
+            <span class="label label-orange">
+              포텐셜
+              <span class="badge">{{statsDetail?.mostWrongJudge.potential}}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button [routerLink]="['/', 'view', statsDetail?.mostWrongJudge.upload.id]" class="btn btn-sm btn-link">보러 가기</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        할 말이 많은 머법관
+      </div>
+      <div class="card-block">
+        <div class="card-title">{{ statsDetail?.longestJudge.upload.name }}</div>
+        <div class="card-text">
+          {{ statsDetail?.longestJudge.description }}
+          <div>
+            <span class="label label-light-blue">
+              범용성
+              <span class="badge">{{statsDetail?.longestJudge.value}}</span>
+            </span>
+            <span class="label label-orange">
+              포텐셜
+              <span class="badge">{{statsDetail?.longestJudge.potential}}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button [routerLink]="['/', 'view', statsDetail?.longestJudge.upload.id]" class="btn btn-sm btn-link">보러 가기</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -20,10 +20,26 @@ export interface Stat {
   descriptionAverage: string;
   value: StatElement;
   potential: StatElement;
-  hsreplay?: {
-    popularity: string;
-    winRate: string;
-  };
+  hsreplay?: HSReplayStat;
+}
+
+export interface HSReplayStat {
+  popularity: string;
+  popularityClass: string;
+  winRate: string;
+  value: string;
+  potential: string;
+  archetypes: {
+    id: number;
+    name: string;
+    playerClass: string;
+    url: string;
+    winRate: number;
+    popularity: number;
+    popularityClass: number;
+    totalGames: number;
+    weight: number;
+  }[];
 }
 
 export interface StatJudge extends Judge {
@@ -39,5 +55,7 @@ export interface StatDetail {
   minValueJudge: StatJudge;
   maxPotentialJudge: StatJudge;
   minPotentialJudge: StatJudge;
+  mostAccurateJudge: StatJudge;
+  mostWrongJudge: StatJudge;
   longestJudge: StatJudge;
 }

@@ -57,32 +57,23 @@ export class StatsDetailComponent implements OnInit {
     this.statsDetail = Observable.combineLatest(
       this.route.params,
       this.clickRefresh,
-    )
-      .switchMap(([params]) =>
-        this.statsDetailService.getStatsDetail(params['id']),
-      )
-      .publishReplay(1)
-      .refCount();
+    ).switchMap(([params]) =>
+      this.statsDetailService.getStatsDetail(params['id']),
+    );
     this.clickRefresh.next(1);
 
-    this.valueStats = this.card
-      .map(card =>
-        [20, 30, 40, 50, 60, 70, 80].map(x => ({
-          name: x.toString(),
-          value: card.stats.value[x],
-        })),
-      )
-      .publishReplay(1)
-      .refCount();
-    this.potentialStats = this.card
-      .map(card =>
-        [20, 30, 40, 50, 60, 70, 80].map(x => ({
-          name: x.toString(),
-          value: card.stats.potential[x],
-        })),
-      )
-      .publishReplay(1)
-      .refCount();
+    this.valueStats = this.card.map(card =>
+      [20, 30, 40, 50, 60, 70, 80].map(x => ({
+        name: x.toString(),
+        value: card.stats.value[x],
+      })),
+    );
+    this.potentialStats = this.card.map(card =>
+      [20, 30, 40, 50, 60, 70, 80].map(x => ({
+        name: x.toString(),
+        value: card.stats.potential[x],
+      })),
+    );
   }
 
   refresh() {
