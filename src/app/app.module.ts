@@ -24,7 +24,6 @@ import { JudgeViewModule } from './judge-view/judge-view.module';
 import { ManualModule } from './manual/manual.module';
 import { CanActivateStats } from './stats/can-activate-stats.service';
 import { StatsModule } from './stats/stats.module';
-import { LivereModule } from 'ngx-livere';
 
 @NgModule({
   declarations: [AppComponent, ChangelogComponent],
@@ -46,7 +45,6 @@ import { LivereModule } from 'ngx-livere';
     StatsModule,
     ManualModule,
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
-    LivereModule.forRoot('MTAyMC8zMjQwNS84OTY2'),
   ],
   providers: [
     CanDeactivateGuard,

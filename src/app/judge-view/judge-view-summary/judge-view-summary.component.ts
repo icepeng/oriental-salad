@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { Card, Classes } from '../../card';
@@ -19,10 +18,7 @@ export class JudgeViewSummaryComponent implements OnInit {
   bestCards: Observable<Card[]>;
   worstLegendaries: Observable<Card[]>;
 
-  constructor(
-    private judgeViewService: JudgeViewService,
-    public router: Router,
-  ) {}
+  constructor(private judgeViewService: JudgeViewService) {}
 
   ngOnInit() {
     this.name = this.judgeViewService.name;

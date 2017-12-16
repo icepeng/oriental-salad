@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClarityModule } from 'clarity-angular';
 import { TranslatePipe } from './translate.pipe';
-import { LivereModule } from 'ngx-livere';
 
 @NgModule({
   exports: [
@@ -13,7 +12,6 @@ import { LivereModule } from 'ngx-livere';
     ClarityModule,
     FormsModule,
     ReactiveFormsModule,
-    LivereModule,
     TranslatePipe,
   ],
   imports: [CommonModule],
