@@ -20,6 +20,7 @@ export class JudgeViewDetailComponent implements OnInit, OnDestroy {
   cardPrev: Card | null;
   cardNext: Card | null;
   info: { index: number; total: number };
+  matchRate: number;
   unsubscribe: Subject<void> = new Subject<void>();
 
   constructor(
@@ -45,6 +46,14 @@ export class JudgeViewDetailComponent implements OnInit, OnDestroy {
         this.cardNext =
           index < cardList.length - 1 ? cardList[index + 1] : null;
         this.judge = this.card.judge;
+        this.matchRate =
+          720 / 7 -
+          ((this.card.judge.value - +this.card.stats.hsreplay.value) *
+            (this.card.judge.value - +this.card.stats.hsreplay.value) +
+            (this.card.judge.potential - +this.card.stats.hsreplay.potential) *
+              (this.card.judge.potential -
+                +this.card.stats.hsreplay.potential)) /
+            17.5;
       });
   }
 
