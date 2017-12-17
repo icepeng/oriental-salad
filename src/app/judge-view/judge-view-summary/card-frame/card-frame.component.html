@@ -24,7 +24,7 @@
           <div class="card-block">
             <div class="card-text">
               <span *ngIf="card.stats.hsreplay.value !== '20'">{{ card.stats.hsreplay.value | number: '1.2-2' }}점</span>
-              <span *ngIf="card.stats.hsreplay.value === '20'">Out of Meta</span>
+              <span style="font-size: 18px;" *ngIf="card.stats.hsreplay.value === '20'">Out of Meta</span>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@
           <div class="card-block">
             <div class="card-text">
               <span *ngIf="card.stats.hsreplay.potential !== '20'">{{ card.stats.hsreplay.potential | number: '1.2-2' }}점</span>
-              <span *ngIf="card.stats.hsreplay.potential === '20'">Out of Meta</span>
+              <span style="font-size: 18px;" *ngIf="card.stats.hsreplay.potential === '20'">Out of Meta</span>
             </div>
           </div>
         </div>
