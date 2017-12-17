@@ -15,8 +15,22 @@ export class JudgeViewSummaryComponent implements OnInit {
   cardList: Observable<Card[]>;
   valueStats: Observable<{ name: string; value: number }[]>;
   potentialStats: Observable<{ name: string; value: number }[]>;
-  classValueStat: Observable<{ [key in Classes | 'Neutral']: number }>;
-  classPotentialStat: Observable<{ [key in Classes | 'Neutral']: number }>;
+  classValueStats: Observable<{ name: Classes | 'Neutral'; value: number }[]>;
+  classPotentialStats: Observable<
+    { name: Classes | 'Neutral'; value: number }[]
+  >;
+  customColors = [
+    { name: 'DRUID', value: '#ff7d0a' },
+    { name: 'MAGE', value: '#69ccf0' },
+    { name: 'HUNTER', value: '#abd473' },
+    { name: 'ROGUE', value: '#fff569' },
+    { name: 'WARRIOR', value: '#c79c6e' },
+    { name: 'WARLOCK', value: '#9482c9' },
+    { name: 'SHAMAN', value: '#0070de' },
+    { name: 'PREIST', value: '#aaaaaa' },
+    { name: 'PALADIN', value: '#f58cba' },
+    { name: 'NEUTRAL', value: '#000000' },
+  ];
 
   constructor(private judgeViewService: JudgeViewService) {}
 
@@ -39,66 +53,46 @@ export class JudgeViewSummaryComponent implements OnInit {
         };
       }),
     );
-    this.classValueStat = this.judgeViewService.cardList
-      .map(cardList => {
-        const statSum = cardList.reduce(
-          (obj, card) => {
-            return {
-              ...obj,
-              [card.class]: (obj[card.class] || 0) + card.judge.value,
-            };
-          },
-          {} as { [key in Classes]: number },
-        );
-        const statLength = cardList.reduce(
-          (obj, card) => {
-            return {
-              ...obj,
-              [card.class]: (obj[card.class] || 0) + 1,
-            };
-          },
-          {} as { [key in Classes]: number },
-        );
-        return Object.keys(statSum).reduce(
-          (obj, key) => ({
+    this.classValueStats = this.getClassStats('value');
+    this.classPotentialStats = this.getClassStats('potential');
+  }
+
+  private getClassStats(property: 'value' | 'potential') {
+    return this.judgeViewService.cardList.map(cardList => {
+      const statSum = cardList.reduce(
+        (obj, card) => {
+          return {
             ...obj,
-            [key]: Math.round(statSum[key] / statLength[key]),
-          }),
-          {} as { [key in Classes]: number },
-        );
-      })
-      .publishReplay(1)
-      .refCount();
-    this.classPotentialStat = this.judgeViewService.cardList
-      .map(cardList => {
-        const statSum = cardList.reduce(
-          (obj, card) => {
-            return {
-              ...obj,
-              [card.class]: (obj[card.class] || 0) + card.judge.potential,
-            };
-          },
-          {} as { [key in Classes]: number },
-        );
-        const statLength = cardList.reduce(
-          (obj, card) => {
-            return {
-              ...obj,
-              [card.class]: (obj[card.class] || 0) + 1,
-            };
-          },
-          {} as { [key in Classes]: number },
-        );
-        return Object.keys(statSum).reduce(
-          (obj, key) => ({
+            [card.class]: (obj[card.class] || 0) + card.judge[property],
+          };
+        },
+        {} as { [key in Classes]: number },
+      );
+      const statLength = cardList.reduce(
+        (obj, card) => {
+          return {
             ...obj,
-            [key]: Math.round(statSum[key] / statLength[key]),
-          }),
-          {} as { [key in Classes]: number },
-        );
-      })
-      .publishReplay(1)
-      .refCount();
+            [card.class]: (obj[card.class] || 0) + 1,
+          };
+        },
+        {} as { [key in Classes]: number },
+      );
+      return [
+        'Druid',
+        'Mage',
+        'Hunter',
+        'Rogue',
+        'Warrior',
+        'Warlock',
+        'Shaman',
+        'Preist',
+        'Paladin',
+        'Neutral',
+      ].map(key => ({
+        name: key,
+        value: statLength[key] ? Math.round(statSum[key] / statLength[key]) : 0,
+      }));
+    });
   }
 
   private sortFunc(a: Card, b: Card) {

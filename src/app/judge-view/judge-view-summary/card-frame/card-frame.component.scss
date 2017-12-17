@@ -5,3 +5,17 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+
+.values {
+  text-align: center;
+}
+
+.card-text {
+  font-size: 24px;
+}
+
+.description {
+  .card-text {
+    font-size: 12px;
+  }
+}

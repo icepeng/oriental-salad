@@ -1,3 +1,5 @@
+import { Stat } from './stats/stats';
+
 export type Classes =
   | 'Mage'
   | 'Warlock'
@@ -24,6 +26,7 @@ export interface CardBase {
   rarity: Rarity;
   cost: number;
   judge?: Judge;
+  stats?: Stat;
 }
 
 export interface Hero extends CardBase {

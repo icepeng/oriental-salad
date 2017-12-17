@@ -1,3 +1,4 @@
+import { Stat } from '../stats/stats';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Card } from 'app/card';
@@ -103,6 +104,11 @@ export class JudgeViewService {
       .map(res => res.upload)
       .toPromise();
 
+    const statsList = await this.http
+      .get<{ stats: Stat[] }>(`${this.appConfig.apiAddress}/cards/stats`)
+      .map(res => res.stats)
+      .toPromise();
+
     this.dataStore.data = {
       name: judgment.name,
       score: judgment.score,
@@ -117,6 +123,7 @@ export class JudgeViewService {
         potential: judge.potential,
         description: judge.description,
       },
+      stats: statsList.find(stat => stat.cardCode === judge.cardCode),
     }));
     this._cardList.next([...this.dataStore.cardList]);
   }

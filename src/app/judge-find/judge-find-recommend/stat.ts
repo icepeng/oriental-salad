@@ -13,8 +13,8 @@ export interface StaticStat {
 }
 
 export interface DynamicStat {
-  bestUploads: ValueStat[];
-  worstUploads: ValueStat[];
+  bestUploads: ScoreStat[];
+  worstUploads: ScoreStat[];
 }
 
 export interface Stat extends StaticStat, DynamicStat {}

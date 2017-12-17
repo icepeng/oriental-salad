@@ -1,19 +1,72 @@
-<div class="card">
-  <div class="card-header">
-    {{ title }}
+<div class="row">
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <img [src]="card.imgLink">
   </div>
-  <div class="card-block">
-    <img [src]="card.imgLink" class="best-card-img">
-    <span class="label label-light-blue">
-      범용성
-      <span class="badge">{{card.judge.value}}</span>
-    </span>
-    <span class="label label-orange">
-      포텐셜
-      <span class="badge">{{card.judge.potential}}</span>
-    </span>
-  </div>
-  <div class="card-footer">
-    {{card.judge.description}}
+  <div class="col-lg-9 col-md-6 col-sm-12 col-xs-12">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="card light-blue">
+          <div class="card-header">
+            범용성 | 유저
+          </div>
+          <div class="card-block">
+            <div class="card-text">
+              {{ card.judge.value }}점
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="card light-blue">
+          <div class="card-header">
+            범용성 | 통계
+          </div>
+          <div class="card-block">
+            <div class="card-text">
+              <span *ngIf="card.stats.hsreplay.value !== '20'">{{ card.stats.hsreplay.value | number: '1.2-2' }}점</span>
+              <span *ngIf="card.stats.hsreplay.value === '20'">Out of Meta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="card orange">
+          <div class="card-header">
+            포텐셜 | 유저
+          </div>
+          <div class="card-block">
+            <div class="card-text">
+              {{ card.judge.potential }}점
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="card orange">
+          <div class="card-header">
+            포텐셜 | 통계
+          </div>
+          <div class="card-block">
+            <div class="card-text">
+              <span *ngIf="card.stats.hsreplay.potential !== '20'">{{ card.stats.hsreplay.potential | number: '1.2-2' }}점</span>
+              <span *ngIf="card.stats.hsreplay.potential === '20'">Out of Meta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card description blue">
+          <div class="card-header">
+            추가 설명
+          </div>
+          <div class="card-block">
+            <div class="card-text">
+                <span *ngIf="card.judge.description">{{ card.judge.description }}</span>
+                <span *ngIf="!card.judge.description">추가 설명이 없습니다.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

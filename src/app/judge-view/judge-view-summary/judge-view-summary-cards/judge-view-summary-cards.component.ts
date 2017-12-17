@@ -15,38 +15,29 @@ import { Card } from '../../../card';
 })
 export class JudgeViewSummaryCardsComponent implements OnChanges {
   @Input() cardList: Card[];
-  bestCards: Card[];
-  worstLegendaries: Card[];
+  positiveErrors: Card[] = [];
+  negativeErrors: Card[] = [];
 
   constructor() {}
 
   ngOnChanges() {
-    const sortedList = this.cardList.sort((a, b) => {
-      const res = this.sortFunc(a, b);
-      return res !== 0
-        ? res
-        : b.judge.description.length - a.judge.description.length;
-    });
-    this.bestCards = [sortedList[0], sortedList[1], sortedList[2]];
+    this.positiveErrors = this.cardList
+      .filter(x => x.judge.value === 80 || x.judge.potential === 80)
+      .sort((a, b) => this.errorFunc(b) - this.errorFunc(a))
+      .slice(0, 3);
 
-    const sortedLegendary = this.cardList
-      .filter(card => card.rarity === 'Legendary')
-      .sort((a, b) => {
-        const res = this.sortFunc(b, a);
-        return res !== 0
-          ? res
-          : b.judge.description.length - a.judge.description.length;
-      });
-    this.worstLegendaries = [
-      sortedLegendary[0],
-      sortedLegendary[1],
-      sortedLegendary[2],
-    ];
+    this.negativeErrors = this.cardList
+      .filter(x => x.judge.value === 20 || x.judge.potential === 20)
+      .sort((a, b) => this.errorFunc(a) - this.errorFunc(b))
+      .slice(0, 3);
   }
 
-  private sortFunc(a: Card, b: Card) {
-    return (
-      b.judge.value + b.judge.potential - (a.judge.value + a.judge.potential)
-    );
-  }
+  private sortFunc = (a: Card, b: Card) =>
+    b.judge.value + b.judge.potential - (a.judge.value + a.judge.potential);
+
+  private errorFunc = (card: Card) =>
+    card.judge.value -
+    +card.stats.hsreplay.value +
+    card.judge.potential -
+    +card.stats.hsreplay.potential;
 }

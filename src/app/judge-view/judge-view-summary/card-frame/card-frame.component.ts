@@ -14,7 +14,6 @@ import { Card } from '../../../card';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardFrameComponent implements OnInit {
-  @Input() title: string;
   @Input() card: Card;
 
   constructor() {}
