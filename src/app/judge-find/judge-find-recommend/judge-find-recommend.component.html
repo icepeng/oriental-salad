@@ -5,6 +5,48 @@
 </h1>
 <h4>총 {{ stats?.uploadCount }}명의 머법관이 {{ stats?.judgeCount }}개의 판결을 내렸습니다.</h4>
 <div class="row">
+  <div *ngFor="let item of stats?.bestUploads" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        명판결
+        <clr-tooltip>
+          <clr-icon clrTooltipTrigger shape="info-circle" size="24"></clr-icon>
+          <clr-tooltip-content clrPosition="top-right" clrSize="md" *clrIfOpen>
+            <span>가장 적중률이 높은 판결문입니다.</span>
+          </clr-tooltip-content>
+        </clr-tooltip>
+      </div>
+      <div class="card-block">
+        <div class="card-title">
+          {{ item.name }} - #{{ item.rank }}
+        </div>
+        <div class="card-text">
+          <button [routerLink]="['../', item.id]" class="btn btn-sm btn-link">보러 가기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let item of stats?.worstUploads" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        박-제
+        <clr-tooltip>
+          <clr-icon clrTooltipTrigger shape="info-circle" size="24"></clr-icon>
+          <clr-tooltip-content clrPosition="top-right" clrSize="md" *clrIfOpen>
+            <span>가장 적중률이 낮은 판결문입니다.</span>
+          </clr-tooltip-content>
+        </clr-tooltip>
+      </div>
+      <div class="card-block">
+        <div class="card-title">
+          {{ item.name }} - #{{ item.rank }}
+        </div>
+        <div class="card-text">
+          <button [routerLink]="['../', item.id]" class="btn btn-sm btn-link">보러 가기</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div *ngFor="let item of stats?.longestDescriptions" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <div class="card">
       <div class="card-header">

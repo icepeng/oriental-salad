@@ -1,4 +1,4 @@
-export interface Stat {
+export interface StaticStat {
   judgeCount: number;
   uploadCount: number;
   longestDescriptions: {
@@ -12,8 +12,22 @@ export interface Stat {
   lowestPotentials: ValueStat[];
 }
 
+export interface DynamicStat {
+  bestUploads: ValueStat[];
+  worstUploads: ValueStat[];
+}
+
+export interface Stat extends StaticStat, DynamicStat {}
+
 export interface ValueStat {
   id: string;
   name: string;
   average: number;
+}
+
+export interface ScoreStat {
+  id: string;
+  name: string;
+  score: string;
+  rank: number;
 }
