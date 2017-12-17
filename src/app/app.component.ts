@@ -6,8 +6,8 @@ import 'rxjs/add/operator/publishReplay';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/takeUntil';
 
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 @Component({
@@ -15,9 +15,17 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  @ViewChild('content') content;
+
   constructor(
     private router: Router,
     public angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
   ) {}
+
+  ngOnInit() {
+    this.router.events
+      .filter(event => event instanceof NavigationEnd)
+      .subscribe(evt => this.content.nativeElement.scrollTop = 0);
+  }
 }
