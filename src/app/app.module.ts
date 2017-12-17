@@ -11,8 +11,7 @@ import { ShareButtonsModule } from 'ngx-sharebuttons';
 
 import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
-import { ROUTING } from './app.routing';
-import { CanDeactivateGuard } from './can-deactivate-guard.service';
+import { AppRoutingModule } from './app.routing';
 import { ChangelogComponent } from './changelog/changelog.component';
 import { APP_CONFIG, appConfig } from './config';
 import { CoreModule } from './core/core.module';
@@ -22,7 +21,6 @@ import { JudgeFindModule } from './judge-find/judge-find.module';
 import { CanActivateView } from './judge-view/can-activate-view.service';
 import { JudgeViewModule } from './judge-view/judge-view.module';
 import { ManualModule } from './manual/manual.module';
-import { CanActivateStats } from './stats/can-activate-stats.service';
 import { StatsModule } from './stats/stats.module';
 
 @NgModule({
@@ -36,7 +34,7 @@ import { StatsModule } from './stats/stats.module';
     HttpClientModule,
     ShareButtonsModule.forRoot(),
     ClarityModule,
-    ROUTING,
+    AppRoutingModule,
     CoreModule,
     HomeModule,
     JudgeCardModule,
@@ -46,12 +44,7 @@ import { StatsModule } from './stats/stats.module';
     ManualModule,
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
   ],
-  providers: [
-    CanDeactivateGuard,
-    CanActivateView,
-    CanActivateStats,
-    { provide: APP_CONFIG, useValue: appConfig },
-  ],
+  providers: [CanActivateView, { provide: APP_CONFIG, useValue: appConfig }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

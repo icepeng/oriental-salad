@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared/shared.module';
+import { StatsRoutingModule } from './stat.routing';
 import { StatsDetailModule } from './stats-detail/stats-detail.module';
 import { StatsFilterComponent } from './stats-filter/stats-filter.component';
 import { StatsListComponent } from './stats-list/stats-list.component';
@@ -9,7 +10,7 @@ import { StatsTemplateComponent } from './stats-template/stats-template.componen
 import { StatsService } from './stats.service';
 
 @NgModule({
-  imports: [SharedModule, StatsDetailModule],
+  imports: [SharedModule, StatsDetailModule, StatsRoutingModule],
   declarations: [
     StatsSummaryComponent,
     StatsListComponent,
