@@ -14,7 +14,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
   styleUrls: ['./judge-view-detail.component.scss'],
 })
 export class JudgeViewDetailComponent implements OnInit, OnDestroy {
-  name: Observable<string>;
+  data: Observable<{ name: string; score: string }>;
   judge: Judge;
   card: Card;
   cardPrev: Card | null;
@@ -29,7 +29,7 @@ export class JudgeViewDetailComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.name = this.judgeViewService.name;
+    this.data = this.judgeViewService.data;
 
     Observable.combineLatest(
       this.judgeViewService.cardListFiltered,

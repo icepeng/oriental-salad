@@ -36,11 +36,11 @@
       </div>
       <div class="card-block">
         <div class="card-text">
-          <span *ngIf="hsreplay.value !== '0'">
+          <span *ngIf="hsreplay.value !== '20'">
             <span ngx-charts-count-up [countDecimals]="2" [countTo]="hsreplay.value">
             </span>점
           </span>
-          <span *ngIf="hsreplay.value === '0'">Out of Meta</span>
+          <span *ngIf="hsreplay.value === '20'">Out of Meta</span>
         </div>
       </div>
     </div>
@@ -52,11 +52,11 @@
       </div>
       <div class="card-block">
         <div class="card-text">
-          <span *ngIf="hsreplay.potential !== '0'">
+          <span *ngIf="hsreplay.potential !== '20'">
             <span ngx-charts-count-up [countDecimals]="2" [countTo]="hsreplay.potential">
             </span>점
           </span>
-          <span *ngIf="hsreplay.potential === '0'">Out of Meta</span>
+          <span *ngIf="hsreplay.potential === '20'">Out of Meta</span>
         </div>
       </div>
     </div>

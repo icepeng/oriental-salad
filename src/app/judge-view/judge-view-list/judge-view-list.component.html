@@ -1,5 +1,5 @@
 <h1>
-  {{name | async}}의 판결 내역
+  {{(data | async).name}}의 판결 내역
   <span [routerLink]="['../', 'summary']" class="label label-light-blue clickable">
     요약 보기
   </span>

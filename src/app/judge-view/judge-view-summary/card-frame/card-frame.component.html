@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header">
+    {{ title }}
+  </div>
+  <div class="card-block">
+    <img [src]="card.imgLink" class="best-card-img">
+    <span class="label label-light-blue">
+      범용성
+      <span class="badge">{{card.judge.value}}</span>
+    </span>
+    <span class="label label-orange">
+      포텐셜
+      <span class="badge">{{card.judge.potential}}</span>
+    </span>
+  </div>
+  <div class="card-footer">
+    {{card.judge.description}}
+  </div>
+</div>

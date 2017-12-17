@@ -1,0 +1,20 @@
+<div class="row">
+  <div *ngIf="bestCards[0]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <app-card-frame title="이번 확장팩의 판도카드 1" [card]="bestCards[0]"></app-card-frame>
+  </div>
+  <div *ngIf="bestCards[1]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <app-card-frame title="이번 확장팩의 판도카드 2" [card]="bestCards[1]"></app-card-frame>
+  </div>
+  <div *ngIf="bestCards[2]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <app-card-frame title="이번 확장팩의 판도카드 3" [card]="bestCards[2]"></app-card-frame>
+  </div>
+  <div *ngIf="worstLegendaries[0]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <app-card-frame title="이번 확장팩의 함정 전설 1" [card]="worstLegendaries[0]"></app-card-frame>
+  </div>
+  <div *ngIf="worstLegendaries[1]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <app-card-frame title="이번 확장팩의 함정 전설 2" [card]="worstLegendaries[1]"></app-card-frame>
+  </div>
+  <div *ngIf="worstLegendaries[2]" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <app-card-frame title="이번 확장팩의 함정 전설 3" [card]="worstLegendaries[2]"></app-card-frame>
+  </div>
+</div>

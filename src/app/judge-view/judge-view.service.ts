@@ -6,19 +6,19 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
 import { ViewFilter } from './filter';
-import { Judgment } from './judgment';
+import { JudgeInfo, Judgment } from './judgment';
 
 @Injectable()
 export class JudgeViewService {
   dataStore: {
-    name: string;
+    data: JudgeInfo;
     cardList: Card[];
     filter: ViewFilter;
   };
-  _name: BehaviorSubject<string>;
+  _data: BehaviorSubject<JudgeInfo>;
   _cardList: BehaviorSubject<Card[]>;
   _filter: BehaviorSubject<ViewFilter>;
-  name: Observable<string>;
+  data: Observable<JudgeInfo>;
   cardList: Observable<Card[]>;
   filter: Observable<ViewFilter>;
   cardListFiltered: Observable<Card[]>;
@@ -28,7 +28,11 @@ export class JudgeViewService {
     @Inject(APP_CONFIG) private appConfig: AppConfig,
   ) {
     this.dataStore = {
-      name: '',
+      data: {
+        name: '',
+        score: '',
+        rank: null,
+      },
       cardList: [],
       filter: {
         class: 'ALL',
@@ -39,11 +43,11 @@ export class JudgeViewService {
       },
     };
 
-    this._name = new BehaviorSubject(this.dataStore.name);
+    this._data = new BehaviorSubject(this.dataStore.data);
     this._cardList = new BehaviorSubject([...this.dataStore.cardList]);
     this._filter = new BehaviorSubject({ ...this.dataStore.filter });
 
-    this.name = this._name.asObservable();
+    this.data = this._data.asObservable();
     this.cardList = this._cardList.asObservable();
     this.filter = this._filter.asObservable();
     this.cardListFiltered = Observable.combineLatest(
@@ -99,8 +103,12 @@ export class JudgeViewService {
       .map(res => res.upload)
       .toPromise();
 
-    this.dataStore.name = judgment.name;
-    this._name.next(this.dataStore.name);
+    this.dataStore.data = {
+      name: judgment.name,
+      score: judgment.score,
+      rank: judgment.rank,
+    };
+    this._data.next({ ...this.dataStore.data });
 
     this.dataStore.cardList = judgment.judges.map(judge => ({
       ...this.appConfig.cardData.find(card => card.code === judge.cardCode),
