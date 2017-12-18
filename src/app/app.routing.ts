@@ -5,10 +5,11 @@ import { AboutComponent } from './about/about.component';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { ChangelogComponent } from './changelog/changelog.component';
 import { HomeComponent } from './home/home.component';
+import { ManualComponent } from './manual/manual.component';
 
 export const appRoutes: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
-  // { path: 'manual', component: ManualComponent, pathMatch: 'full' },
+  { path: 'manual', component: ManualComponent, pathMatch: 'full' },
   { path: 'about', component: AboutComponent, pathMatch: 'full' },
   { path: 'changelog', component: ChangelogComponent, pathMatch: 'full' },
   // {

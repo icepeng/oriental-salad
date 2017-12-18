@@ -1,9 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Comparator, SortOrder } from 'clarity-angular';
+import { Observable } from 'rxjs/Observable';
 
 import { JudgeFindNameService } from './judge-find-name.service';
 import { SearchResult } from './searchResult';
+
+class ScoreComparator implements Comparator<SearchResult> {
+  compare(a: SearchResult, b: SearchResult) {
+    return +a.score - +b.score;
+  }
+}
+
+class RankComparator implements Comparator<SearchResult> {
+  compare(a: SearchResult, b: SearchResult) {
+    return a.rank - b.rank;
+  }
+}
 
 @Component({
   selector: 'app-judge-find-name',
@@ -12,7 +26,11 @@ import { SearchResult } from './searchResult';
 })
 export class JudgeFindNameComponent implements OnInit {
   formGroup: FormGroup;
-  list: SearchResult[];
+  list: Observable<SearchResult[]>;
+  // filteredList: Observable<SearchResult[]>;
+  rankOrder = SortOrder.Asc;
+  scoreComparator = new ScoreComparator();
+  rankComparator = new RankComparator();
 
   constructor(
     private judgeFindNameService: JudgeFindNameService,
@@ -21,12 +39,14 @@ export class JudgeFindNameComponent implements OnInit {
 
   ngOnInit() {
     this.formGroup = new FormGroup({
-      name: new FormControl(''),
+      name: new FormControl(),
     });
-  }
-
-  async onSubmit(value: { name: string }) {
-    this.list = await this.judgeFindNameService.findByName(value.name);
+    this.list = this.judgeFindNameService.getAll();
+    // this.filteredList = this.formGroup.valueChanges
+    //   .startWith({ name: '' })
+    //   .combineLatest(this.list, (form, list) =>
+    //     list.filter(item => item.name.includes(form.name)),
+    //   );
   }
 
   onClick(item: SearchResult) {

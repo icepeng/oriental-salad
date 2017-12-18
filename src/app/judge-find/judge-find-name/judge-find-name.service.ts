@@ -6,18 +6,19 @@ import { SearchResult } from './searchResult';
 
 @Injectable()
 export class JudgeFindNameService {
+  upload$ = this.http
+    .get<{ uploads: SearchResult[] }>(`${this.appConfig.apiAddress}/upload`)
+    .map(res => res.uploads)
+    .publishReplay(1, 1000 * 60 * 5)
+    .refCount()
+    .take(1);
+
   constructor(
     private http: HttpClient,
     @Inject(APP_CONFIG) private appConfig: AppConfig,
   ) {}
 
-  async findByName(name: string) {
-    return this.http
-      .post<{ uploads: SearchResult[] }>(
-        `${this.appConfig.apiAddress}/upload/search`,
-        { name },
-      )
-      .map(res => res.uploads)
-      .toPromise();
+  getAll() {
+    return this.upload$;
   }
 }

@@ -1,5 +1,7 @@
 export interface SearchResult {
-  name: string;
   id: string;
+  name: string;
+  score: string;
+  rank: number | null;
   judgeCount: number;
 }

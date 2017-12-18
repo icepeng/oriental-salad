@@ -6,6 +6,12 @@ import { DynamicStat, Stat } from './stat';
 
 @Injectable()
 export class JudgeFindRecommendService {
+  stats$ = this.http
+    .get<{ stats: DynamicStat }>(`${this.appConfig.apiAddress}/upload/stats`)
+    .publishReplay(1, 1000 * 60 * 5)
+    .refCount()
+    .take(1);
+
   constructor(
     private http: HttpClient,
     @Inject(APP_CONFIG) private appConfig: AppConfig,
@@ -13,8 +19,6 @@ export class JudgeFindRecommendService {
 
   getStats() {
     const staticStats = this.appConfig.uploadStats;
-    return this.http
-      .get<{ stats: DynamicStat }>(`${this.appConfig.apiAddress}/upload/stats`)
-      .map(res => ({ ...staticStats, ...res.stats }));
+    return this.stats$.map(res => ({ ...staticStats, ...res.stats }));
   }
 }

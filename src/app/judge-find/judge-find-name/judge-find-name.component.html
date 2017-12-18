@@ -1,18 +1,27 @@
-<h1>머법관명으로 찾기
+<h1>전체 판결 보기
   <span [routerLink]="['../']" class="label label-light-blue clickable">
     주요 판결 보기
   </span>
 </h1>
-<h4>완전히 일치하는 닉네임만 검색됩니다</h4>
+<!-- <form [formGroup]="formGroup">
+  <section class="form-block">
+    <div class="form-group">
+      <label>머법관명</label>
+      <input formControlName="name" type="text">
+    </div>
+  </section>
+</form> -->
 <clr-datagrid class="card-list">
-  <clr-dg-column>닉네임</clr-dg-column>
-  <clr-dg-column>고유번호</clr-dg-column>
+  <clr-dg-column clrDgField="name">닉네임</clr-dg-column>
   <clr-dg-column>판결 개수</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="scoreComparator">적중률</clr-dg-column>
+  <clr-dg-column [clrDgSortOrder]="rankOrder" [clrDgSortBy]="rankComparator">순위</clr-dg-column>
 
-  <clr-dg-row (click)="onClick(item)" class="card-row" *clrDgItems="let item of list">
+  <clr-dg-row (click)="onClick(item)" class="card-row" *clrDgItems="let item of list | async">
     <clr-dg-cell>{{item.name}}</clr-dg-cell>
-    <clr-dg-cell>{{item.id}}</clr-dg-cell>
     <clr-dg-cell>{{item.judgeCount}}</clr-dg-cell>
+    <clr-dg-cell>{{item.score | number:'1.2-2'}}</clr-dg-cell>
+    <clr-dg-cell>{{item.rank}}</clr-dg-cell>
   </clr-dg-row>
 
   <clr-dg-footer>
@@ -20,12 +29,3 @@
     <clr-dg-pagination #pagination [clrDgPageSize]="10"></clr-dg-pagination>
   </clr-dg-footer>
 </clr-datagrid>
-<form [formGroup]="formGroup" (submit)="onSubmit(formGroup.value)">
-  <section class="form-block">
-    <div class="form-group">
-      <label class="required">머법관명</label>
-      <input formControlName="name" type="text">
-    </div>
-    <button [attr.disabled]="formGroup.value.name ? null : true" class="btn btn-primary">검색</button>
-  </section>
-</form>

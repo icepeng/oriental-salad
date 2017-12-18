@@ -1,9 +1,12 @@
 import 'rxjs/add/observable/combineLatest';
+import 'rxjs/add/operator/combineLatest';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/publishReplay';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/takeUntil';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -26,6 +29,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.router.events
       .filter(event => event instanceof NavigationEnd)
-      .subscribe(evt => this.content.nativeElement.scrollTop = 0);
+      .subscribe(evt => (this.content.nativeElement.scrollTop = 0));
   }
 }
