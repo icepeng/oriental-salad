@@ -13,9 +13,13 @@
 </form> -->
 <clr-datagrid class="card-list">
   <clr-dg-column clrDgField="name">닉네임</clr-dg-column>
-  <clr-dg-column>판결 개수</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="countComparator">판결 개수</clr-dg-column>
   <clr-dg-column [clrDgSortBy]="scoreComparator">적중률</clr-dg-column>
-  <clr-dg-column [clrDgSortOrder]="rankOrder" [clrDgSortBy]="rankComparator">순위</clr-dg-column>
+  <clr-dg-column [clrDgSortOrder]="rankOrder" [clrDgSortBy]="rankComparator">순위
+    <clr-dg-filter [clrDgFilter]="rankFilter">
+      <clr-checkbox [ngModel]="true" (ngModelChange)="rankFilter.toggle()">순위가 존재하는 열만 표시</clr-checkbox>
+    </clr-dg-filter>
+  </clr-dg-column>
 
   <clr-dg-row (click)="onClick(item)" class="card-row" *clrDgItems="let item of list | async">
     <clr-dg-cell>{{item.name}}</clr-dg-cell>
