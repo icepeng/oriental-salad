@@ -1,0 +1,12 @@
+<div class="yoshi-wrapper">
+  <div class="yoshi-main-axis"></div>
+  <div *ngFor="let tick of ticks" [style.left]="toPercent(tick) + '%'" class="yoshi-tick"></div>
+  <div class="yoshi-iqrange" [style.left]="'calc(' + toPercent(q1) + '%)'" [style.width]="'calc(' + (toPercent(q3) - toPercent(q1)) + '%)'"></div>
+  <div class="yoshi-left-end"></div>
+  <div class="yoshi-right-end"></div>
+  <div class="yoshi-median" [style.left]="'calc(' + toPercent(median) + '% - 7px)'"></div>
+  <div class="yoshi-iqtick" [style.left]="'calc(' + toPercent(q1) + '%)'"></div>
+  <div class="yoshi-iqtick" [style.left]="'calc(' + toPercent(q3) + '%)'"></div>
+  <div class="yoshi-mean" [style.left]="'calc(' + toPercent(mean) + '% - 5px)'"></div>
+  <div *ngIf="hsreplay" class="yoshi-hsreplay" [style.left]="'calc(' + toPercent(hsreplay) + '% - 5px)'"></div>
+</div>

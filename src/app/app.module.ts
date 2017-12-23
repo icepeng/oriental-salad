@@ -1,13 +1,11 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClarityModule } from '@clr/angular';
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-import { ClarityModule } from 'clarity-angular';
-import { ShareButtonsModule } from 'ngx-sharebuttons';
 
 import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
@@ -30,9 +28,7 @@ import { StatsModule } from './stats/stats.module';
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    HttpModule,
     HttpClientModule,
-    ShareButtonsModule.forRoot(),
     ClarityModule,
     AppRoutingModule,
     CoreModule,

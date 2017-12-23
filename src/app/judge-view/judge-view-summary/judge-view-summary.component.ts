@@ -88,7 +88,7 @@ export class JudgeViewSummaryComponent implements OnInit {
         'Preist',
         'Paladin',
         'Neutral',
-      ].map(key => ({
+      ].map((key: Classes | 'Neutral') => ({
         name: key,
         value: statLength[key] ? Math.round(statSum[key] / statLength[key]) : 0,
       }));

@@ -1,0 +1,85 @@
+.yoshi-wrapper {
+  position: relative;
+  height: 48px;
+}
+
+.yoshi-main-axis {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #888;
+}
+
+.yoshi-left-end {
+  position: absolute;
+  top: -7px;
+  width: 2px;
+  height: 16px;
+  background: #888;
+}
+
+.yoshi-right-end {
+  position: absolute;
+  top: -7px;
+  left: 100%;
+  width: 2px;
+  height: 16px;
+  background: #888;
+}
+
+.yoshi-tick {
+  position: absolute;
+  top: -3px;
+  width: 2px;
+  height: 8px;
+  background: #888;
+}
+
+.yoshi-median {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 50%;
+  top: -7px;
+  width: 16px;
+  height: 16px;
+  background: #6870c4;
+  transition: all 500ms ease-out;
+}
+
+.yoshi-mean {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 50%;
+  top: -5px;
+  width: 12px;
+  height: 12px;
+  background: #00bfa9;
+  transition: all 500ms ease-out;
+}
+
+.yoshi-hsreplay {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 50%;
+  top: -5px;
+  width: 12px;
+  height: 12px;
+  background: #FF5500;
+  transition: all 500ms ease-out;
+}
+
+.yoshi-iqtick {
+  position: absolute;
+  top: -7px;
+  width: 2px;
+  height: 16px;
+  background: black;
+  transition: all 500ms ease-out;
+}
+
+.yoshi-iqrange {
+  position: absolute;
+  height: 2px;
+  background: black;
+  transition: all 500ms ease-out;
+}
