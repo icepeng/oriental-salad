@@ -11,12 +11,12 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h2>범용성</h2>
         <div class="stat-chart">
-          <ngx-charts-bar-vertical [xAxis]="true" [yAxis]="true" [results]="valueStats$ | async"></ngx-charts-bar-vertical>
+          <ngx-charts-bar-vertical [roundEdges]="false" [xAxis]="true" [yAxis]="true" [results]="valueStats$ | async"></ngx-charts-bar-vertical>
         </div>
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="stat-chart">
-          <ngx-charts-bar-vertical [customColors]="customColors" [xAxis]="true" [yAxis]="true" [results]="classValueStats$ | async"></ngx-charts-bar-vertical>
+          <ngx-charts-bar-vertical [roundEdges]="false" [customColors]="customColors" [xAxis]="true" [yAxis]="true" [results]="classValueStats$ | async"></ngx-charts-bar-vertical>
         </div>
       </div>
     </div>
@@ -26,12 +26,12 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h2>포텐셜</h2>
         <div class="stat-chart">
-          <ngx-charts-bar-vertical [xAxis]="true" [yAxis]="true" [results]="potentialStats$ | async"></ngx-charts-bar-vertical>
+          <ngx-charts-bar-vertical [roundEdges]="false" [xAxis]="true" [yAxis]="true" [results]="potentialStats$ | async"></ngx-charts-bar-vertical>
         </div>
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="stat-chart">
-          <ngx-charts-bar-vertical [customColors]="customColors" [xAxis]="true" [yAxis]="true" [results]="classPotentialStats$ | async"></ngx-charts-bar-vertical>
+          <ngx-charts-bar-vertical [roundEdges]="false" [customColors]="customColors" [xAxis]="true" [yAxis]="true" [results]="classPotentialStats$ | async"></ngx-charts-bar-vertical>
         </div>
       </div>
     </div>

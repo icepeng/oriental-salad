@@ -8,22 +8,27 @@
         <app-card-navigate (prev)="prevClick$.next()" (next)="nextClick$.next()" [card]="card$ | async" [info]="info$ | async"></app-card-navigate>
     </div>
     <div class="col-sm-8 stat-summary">
-        <app-stats-detail-numbers [stat]="stat$ | async"></app-stats-detail-numbers>
+        <h4>범용성</h4>
+        <app-custom-plot [stat]="(stat$ | async)" element="value"></app-custom-plot>
+        <h4>포텐셜</h4>
+        <app-custom-plot [stat]="(stat$ | async)" element="potential"></app-custom-plot>
+        <app-custom-plot-legend></app-custom-plot-legend>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-6">
         <h2>범용성</h2>
         <div class="stat-chart">
-            <ngx-charts-bar-vertical [xAxis]="true" [yAxis]="true" [results]="valueStats$ | async"></ngx-charts-bar-vertical>
+            <ngx-charts-bar-vertical [roundEdges]="false" [xAxis]="true" [yAxis]="true" [results]="valueStats$ | async"></ngx-charts-bar-vertical>
         </div>
     </div>
     <div class="col-sm-6">
         <h2>포텐셜</h2>
         <div class="stat-chart">
-            <ngx-charts-bar-vertical [xAxis]="true" [yAxis]="true" [results]="potentialStats$ | async"></ngx-charts-bar-vertical>
+            <ngx-charts-bar-vertical [roundEdges]="false" [xAxis]="true" [yAxis]="true" [results]="potentialStats$ | async"></ngx-charts-bar-vertical>
         </div>
     </div>
 </div>
 <app-stats-detail-hsreplay [hsreplay]="(stat$ | async).hsreplay"></app-stats-detail-hsreplay>
+<app-stats-detail-numbers [stat]="stat$ | async"></app-stats-detail-numbers>
 <app-stats-detail-comments (refresh)="refresh()" [comments]="comments$ | async"></app-stats-detail-comments>

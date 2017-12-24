@@ -1,3 +1,4 @@
+import { ChartsModule } from '../shared/charts/charts.module';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
@@ -41,6 +42,7 @@ import { CommentService } from './services/comment.service';
     StoreModule.forFeature('statViewer', reducers),
     EffectsModule.forFeature([CommentEffects]),
     NgxChartsModule,
+    ChartsModule,
   ],
   declarations: [
     StatsSummaryComponent,

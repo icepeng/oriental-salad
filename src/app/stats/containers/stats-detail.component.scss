@@ -4,4 +4,7 @@
 
 .stat-summary {
   margin-top: 48px;
+  @media screen and (max-width: 544px) {
+    margin-top: 0;
+  }
 }

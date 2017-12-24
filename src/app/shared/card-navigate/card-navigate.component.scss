@@ -7,6 +7,9 @@
     height: 320px;
     margin-left: auto;
     margin-right: auto;
+    @media screen and (max-width: 544px) {
+      height: 240px;
+    }
   }
   .card-nav {
     margin-left: 12px;

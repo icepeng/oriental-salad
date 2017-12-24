@@ -2,11 +2,18 @@
   <div class="yoshi-main-axis"></div>
   <div *ngFor="let tick of ticks" [style.left]="toPercent(tick) + '%'" class="yoshi-tick"></div>
   <div class="yoshi-iqrange" [style.left]="'calc(' + toPercent(q1) + '%)'" [style.width]="'calc(' + (toPercent(q3) - toPercent(q1)) + '%)'"></div>
-  <div class="yoshi-left-end"></div>
-  <div class="yoshi-right-end"></div>
-  <div class="yoshi-median" [style.left]="'calc(' + toPercent(median) + '% - 7px)'"></div>
+  <div class="yoshi-end left"></div>
+  <div class="yoshi-end right"></div>
   <div class="yoshi-iqtick" [style.left]="'calc(' + toPercent(q1) + '%)'"></div>
+  <div class="yoshi-num" [style.left]="'calc(' + toPercent(q1) + '% - 7px)'">25%</div>
   <div class="yoshi-iqtick" [style.left]="'calc(' + toPercent(q3) + '%)'"></div>
-  <div class="yoshi-mean" [style.left]="'calc(' + toPercent(mean) + '% - 5px)'"></div>
-  <div *ngIf="hsreplay" class="yoshi-hsreplay" [style.left]="'calc(' + toPercent(hsreplay) + '% - 5px)'"></div>
+  <div class="yoshi-num" [style.left]="'calc(' + toPercent(q3) + '% - 7px)'">75%</div>
+  <div class="yoshi-bubble mean tooltip tooltip-xs tooltip-bottom-right" [style.left]="'calc(' + toPercent(mean) + '% - 7px)'"
+    role="tooltip" aria-haspopup="true">
+    <span class="tooltip-content">{{mean | number:'1.1-1'}}</span>
+  </div>
+  <div *ngIf="hsreplay" class="yoshi-bubble hsreplay tooltip tooltip-xs tooltip-bottom-right" [style.left]="'calc(' + toPercent(hsreplay) + '% - 7px)'"
+    role="tooltip" aria-haspopup="true">
+    <span class="tooltip-content">{{hsreplay | number:'1.1-1'}}</span>
+  </div>
 </div>
