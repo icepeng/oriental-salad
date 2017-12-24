@@ -1,4 +1,4 @@
-@swimlane/ngx-charts@6.1.0
+@swimlane/ngx-charts@7.0.1
 MIT
 MIT License
 
