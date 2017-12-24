@@ -1,0 +1,22 @@
+<clr-datagrid class="card-list">
+  <clr-dg-column clrDgField="name">닉네임</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="countComparator">판결 개수</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="scoreComparator">적중률</clr-dg-column>
+  <clr-dg-column [clrDgSortOrder]="rankOrder" [clrDgSortBy]="rankComparator">순위
+    <clr-dg-filter [clrDgFilter]="rankFilter">
+      <clr-checkbox [ngModel]="true" (ngModelChange)="rankFilter.toggle()">순위가 존재하는 열만 표시</clr-checkbox>
+    </clr-dg-filter>
+  </clr-dg-column>
+
+  <clr-dg-row (click)="onClick(item)" class="card-row" *clrDgItems="let item of list">
+    <clr-dg-cell>{{item.name}}</clr-dg-cell>
+    <clr-dg-cell>{{item.judgeCount}}</clr-dg-cell>
+    <clr-dg-cell>{{item.score | number:'1.2-2'}}</clr-dg-cell>
+    <clr-dg-cell>{{item.rank}}</clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>
+    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} items
+    <clr-dg-pagination #pagination [clrDgPageSize]="10"></clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>

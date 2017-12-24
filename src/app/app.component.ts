@@ -1,17 +1,7 @@
-import 'rxjs/add/observable/combineLatest';
-import 'rxjs/add/operator/combineLatest';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/first';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/publishReplay';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/takeUntil';
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'my-app',
@@ -28,7 +18,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.router.events
-      .filter(event => event instanceof NavigationEnd)
+      .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(evt => (this.content.nativeElement.scrollTop = 0));
   }
 }

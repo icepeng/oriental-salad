@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card light-blue">
+            <div class="card-header">
+                범용성 | 평균
+            </div>
+            <div class="card-block">
+                <div class="card-text">
+                    <span ngx-charts-count-up [countDecimals]="2" [countTo]="stat.value.mean">
+                    </span>점
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card light-blue">
+            <div class="card-header">
+                범용성 | 편차
+            </div>
+            <div class="card-block">
+                <div class="card-text">
+                    <span ngx-charts-count-up [countDecimals]="2" [countTo]="stat.value.stdev">
+                    </span>점
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card blue">
+            <div class="card-header">
+                평가 횟수
+            </div>
+            <div class="card-block">
+                <div class="card-text">
+                    <span ngx-charts-count-up [countTo]="stat.judgeTotal">
+                    </span>회
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card orange">
+            <div class="card-header">
+                포텐셜 | 평균
+            </div>
+            <div class="card-block">
+                <div class="card-text">
+                    <span ngx-charts-count-up [countDecimals]="2" [countTo]="stat.potential.mean">
+                    </span>점
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card orange">
+            <div class="card-header">
+                포텐셜 | 편차
+            </div>
+            <div class="card-block">
+                <div class="card-text">
+                    <span ngx-charts-count-up [countDecimals]="2" [countTo]="stat.potential.stdev">
+                    </span>점
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card blue">
+            <div class="card-header">
+                평균 설명 길이
+            </div>
+            <div class="card-block">
+                <div class="card-text">
+                    <span ngx-charts-count-up [countDecimals]="2" [countTo]="stat.descriptionAverage">
+                    </span>자
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

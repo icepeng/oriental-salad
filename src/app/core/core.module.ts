@@ -1,11 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { CoreService } from './core.service';
+import { StatGuard } from './services/stat-guard.service';
+import { StatService } from './services/stat.service';
 
 @NgModule({
   imports: [CommonModule],
   declarations: [],
-  providers: [CoreService]
+  providers: [],
 })
-export class CoreModule {}
+export class CoreModule {
+  static forRoot() {
+    return {
+      ngModule: CoreModule,
+      providers: [StatService, StatGuard],
+    };
+  }
+}

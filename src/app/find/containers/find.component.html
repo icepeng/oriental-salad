@@ -1,0 +1,7 @@
+<h1>전체 판결 보기
+  <span [routerLink]="['./recommend']" class="label label-light-blue clickable">
+    주요 판결 보기
+  </span>
+</h1>
+<h4>총 {{ (stat$ | async)?.uploadCount }}명의 머법관이 {{ (stat$ | async)?.judgeCount }}개의 판결을 내렸습니다.</h4>
+<app-user-datagrid [list]="list$ | async" (select)="onSelect($event)"></app-user-datagrid>

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ClarityModule } from '@clr/angular';
 
+import { CardNavigateComponent } from './card-navigate/card-navigate.component';
 import { TranslatePipe } from './translate.pipe';
 
 @NgModule({
@@ -14,8 +15,9 @@ import { TranslatePipe } from './translate.pipe';
     FormsModule,
     ReactiveFormsModule,
     TranslatePipe,
+    CardNavigateComponent,
   ],
-  imports: [CommonModule],
-  declarations: [TranslatePipe],
+  imports: [CommonModule, ClarityModule],
+  declarations: [TranslatePipe, CardNavigateComponent],
 })
 export class SharedModule {}

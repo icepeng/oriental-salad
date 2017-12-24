@@ -1,8 +1,8 @@
 // tslint:disable:max-line-length
 import { InjectionToken } from '@angular/core';
 
-import { Card } from './card';
-import { StaticStat } from './judge-find/judge-find-recommend/stat';
+import { Card } from './core/models/card';
+import { StaticStat } from './find/models/stat';
 
 export interface AppConfig {
   apiAddress: string;

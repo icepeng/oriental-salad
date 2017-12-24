@@ -1,0 +1,27 @@
+<h1>
+  {{(user$ | async).name}}의 판결 내역
+  <span [routerLink]="['../', 'summary']" class="label label-light-blue clickable">
+    요약 보기
+  </span>
+</h1>
+<app-view-filter [filter]="filter$ | async" (filterChange)="onFilterChange($event)"></app-view-filter>
+<div class="row">
+  <div *ngFor="let item of list$ | async" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <div (click)="onClick(item)" class="card-img">
+      <img [src]="item.imgLink">
+    </div>
+    <div class="card-badge">
+      <span class="label label-light-blue">
+        범용성
+        <span class="badge">{{(judgeList$ | async)[item.code].value}}</span>
+      </span>
+      <span class="label label-orange">
+        포텐셜
+        <span class="badge">{{(judgeList$ | async)[item.code].potential}}</span>
+      </span>
+    </div>
+  </div>
+</div>
+<div *ngIf="showExpandButton$ | async" class="more-cards">
+  <button (click)="moreCards()" class="btn btn-block">더 보기</button>
+</div>

@@ -1,0 +1,7 @@
+<h1>주요 판결 보기
+  <span [routerLink]="['../']" class="label label-light-blue clickable">
+    이름으로 검색하기
+  </span>
+</h1>
+<h4>주요 판결은 평가한 카드 수가 100장 이상인 판결문 중 선정됩니다.</h4>
+<app-recommend-cards [stat]="stat$ | async"></app-recommend-cards>

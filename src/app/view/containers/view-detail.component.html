@@ -1,0 +1,125 @@
+<h1>{{(user$ | async).name}}의 판결
+  <span [routerLink]="['../']" class="label label-light-blue clickable">
+    목록 보기
+  </span>
+</h1>
+<app-card-navigate (prev)="prevClick$.next()" (next)="nextClick$.next()" [card]="card$ | async" [info]="info$ | async"></app-card-navigate>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card light-blue">
+      <div class="card-header">
+        범용성
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <span ngx-charts-count-up [countTo]="(judge$ | async).value">
+          </span>점
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card orange">
+      <div class="card-header">
+        포텐셜
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <span ngx-charts-count-up [countTo]="(judge$ | async).potential">
+          </span>점
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card blue">
+      <div class="card-header">
+        적중 점수
+        <clr-tooltip>
+          <clr-icon clrTooltipTrigger shape="info-circle" size="24"></clr-icon>
+          <clr-tooltip-content clrPosition="top-right" clrSize="md" *clrIfOpen>
+            <span>모든 카드의 적중 점수의 평균이 머법관의 적중률이 됩니다.</span>
+          </clr-tooltip-content>
+        </clr-tooltip>
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <span ngx-charts-count-up [countDecimals]="2" [countTo]="matchRate$ | async">
+          </span>점
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="card description blue">
+      <div class="card-header">
+        추가 설명
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <span *ngIf="(judge$ | async).description">{{ (judge$ | async).description }}</span>
+          <span *ngIf="!(judge$ | async).description">추가 설명이 없습니다.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h2>통계와 비교
+  <span [routerLink]="['/', 'stats', (card$ | async).code]" class="label label-light-blue clickable">
+    통계에서 보기
+  </span>
+</h2>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card light-blue">
+      <div class="card-header">
+        범용성 | 평균
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <span ngx-charts-count-up [countDecimals]="2" [countTo]="(stat$ | async).value.mean">
+          </span>점
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card orange">
+      <div class="card-header">
+        포텐셜 | 평균
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <span ngx-charts-count-up [countDecimals]="2" [countTo]="(stat$ | async).potential.mean">
+          </span>점
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card light-blue">
+      <div class="card-header">
+        범용성 | HSReplay.net
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <span ngx-charts-count-up [countDecimals]="2" [countTo]="(stat$ | async).hsreplay.value">
+          </span>점
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card orange">
+      <div class="card-header">
+        포텐셜 | HSReplay.net
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <span ngx-charts-count-up [countDecimals]="2" [countTo]="(stat$ | async).hsreplay.potential">
+          </span>점
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

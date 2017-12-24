@@ -1,0 +1,12 @@
+<div class="card-img">
+    <img [src]="card.imgLink">
+    <div class="card-nav">
+        <span (click)="prev.emit()">
+            <clr-icon [class.disabled]="info.isFirst" shape="angle" dir="left" size="36"></clr-icon>
+        </span>
+        {{ info.index + 1 }} / {{ info.total }}
+        <span (click)="next.emit()">
+            <clr-icon [class.disabled]="info.isLast" shape="angle" dir="right" size="36"></clr-icon>
+        </span>
+    </div>
+</div>
