@@ -1559,8 +1559,8 @@ export const appConfig: AppConfig = {
     },
   ],
   uploadStats: {
-    judgeCount: 91022,
-    uploadCount: 1443,
+    judgeCount: 88384,
+    uploadCount: 1395,
     longestDescriptions: [
       {
         id: '5715c740-9c89-4b02-90b6-5009ff68bd6f',
