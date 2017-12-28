@@ -1,4 +1,13 @@
-.email-form {
-    border-top: 1px solid #eee;
+.email-form,
+.donate {
+  border-top: 1px solid #eee;
+  margin-top: 24px;
+}
+
+.donate {
+  img {
     margin-top: 24px;
+    width: 150px;
+    height: 150px;
+  }
 }
